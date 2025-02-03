@@ -1,17 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://di5wocp78iprb"]
+[gd_scene load_steps=2 format=3 uid="uid://di5wocp78iprb"]
 
-[ext_resource type="Script" path="res://src/Main/Main.cs" id="1_4npgg"]
-[ext_resource type="AudioStream" uid="uid://dcvgghry11tav" path="res://assets/audio/Menu/mainmenu.mp3" id="1_25dwk"]
+[ext_resource type="Script" path="res://src/Main/main.gd" id="1_a30yj"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_4npgg")
-
-[node name="MenuTheme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_25dwk")
-bus = &"Music"
+anchors_preset = 0
+script = ExtResource("1_a30yj")
