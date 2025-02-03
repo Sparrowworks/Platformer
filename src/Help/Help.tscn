@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://btlpt0cv4yxc"]
 
+[ext_resource type="Script" path="res://src/Help/help.gd" id="1_bqcds"]
 [ext_resource type="Texture2D" uid="uid://couhmoclqr537" path="res://assets/images/Menu/background.png" id="1_kagkr"]
-[ext_resource type="Script" path="res://src/Help/Help.cs" id="1_mfjsq"]
 [ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_nuopy"]
 [ext_resource type="Texture2D" uid="uid://dl280hbnpwuad" path="res://assets/images/Menu/button.png" id="3_kq8k1"]
 
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mfjsq")
+script = ExtResource("1_bqcds")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -113,5 +113,5 @@ text = "BACK"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Buttons/SwitchButton" to="." method="SwitchPage"]
-[connection signal="pressed" from="Buttons/BackButton" to="." method="OnBackPressed"]
+[connection signal="pressed" from="Buttons/SwitchButton" to="." method="_on_switch_button_pressed"]
+[connection signal="pressed" from="Buttons/BackButton" to="." method="_on_back_button_pressed"]
