@@ -1,0 +1,201 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1nvyqcbql2qf"]
+
+[ext_resource type="Texture2D" uid="uid://couhmoclqr537" path="res://assets/images/Menu/background.png" id="1_ec4pl"]
+[ext_resource type="Script" path="res://src/Settings/settings.gd" id="1_v2eyy"]
+[ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_0f1rg"]
+[ext_resource type="Texture2D" uid="uid://bkcs20kx8r44j" path="res://assets/images/Menu/buttonSmall.png" id="4_0jv82"]
+[ext_resource type="Texture2D" uid="uid://dl280hbnpwuad" path="res://assets/images/Menu/button.png" id="4_nyvnv"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2eyy")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ec4pl")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_0f1rg")
+theme_override_font_sizes/font_size = 192
+text = "Options:"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1112.5
+offset_top = -302.5
+offset_right = 1112.5
+offset_bottom = 302.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="AltOst" type="VBoxContainer" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="OstTitle" type="Label" parent="VBoxContainer/Buttons/AltOst"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(775, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_0f1rg")
+theme_override_font_sizes/font_size = 112
+text = "Alternative ost: off"
+horizontal_alignment = 1
+
+[node name="OstButton" type="TextureButton" parent="VBoxContainer/Buttons/AltOst"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_0jv82")
+
+[node name="Speedrun" type="VBoxContainer" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="SpeedrunTitle" type="Label" parent="VBoxContainer/Buttons/Speedrun"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(775, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_0f1rg")
+theme_override_font_sizes/font_size = 112
+text = "Speedrun mode: off"
+horizontal_alignment = 1
+
+[node name="ModeButton" type="TextureButton" parent="VBoxContainer/Buttons/Speedrun"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_0jv82")
+
+[node name="Sliders" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="MasterSetting" type="VBoxContainer" parent="VBoxContainer/Sliders"]
+layout_mode = 2
+
+[node name="MasterTitle" type="Label" parent="VBoxContainer/Sliders/MasterSetting"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(775, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_0f1rg")
+theme_override_font_sizes/font_size = 112
+text = "master volume: 100"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer/Sliders/MasterSetting"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+rounded = true
+
+[node name="MusicSetting" type="VBoxContainer" parent="VBoxContainer/Sliders"]
+layout_mode = 2
+
+[node name="MusicTitle" type="Label" parent="VBoxContainer/Sliders/MusicSetting"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(775, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_0f1rg")
+theme_override_font_sizes/font_size = 112
+text = "music volume: 100"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/Sliders/MusicSetting"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+rounded = true
+
+[node name="SfxSetting" type="VBoxContainer" parent="VBoxContainer/Sliders"]
+layout_mode = 2
+
+[node name="SfxTitle" type="Label" parent="VBoxContainer/Sliders/SfxSetting"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(775, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_0f1rg")
+theme_override_font_sizes/font_size = 112
+text = "sfx volume: 100"
+horizontal_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="VBoxContainer/Sliders/SfxSetting"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+rounded = true
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -340.0
+offset_right = 256.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("4_nyvnv")
+
+[node name="Label" type="Label" parent="BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_0f1rg")
+theme_override_font_sizes/font_size = 92
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Buttons/AltOst/OstButton" to="." method="_on_ost_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Speedrun/ModeButton" to="." method="_on_mode_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Sliders/MasterSetting/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Sliders/MusicSetting/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Sliders/SfxSetting/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

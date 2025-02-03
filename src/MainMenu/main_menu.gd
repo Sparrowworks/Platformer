@@ -4,7 +4,7 @@ func _on_play_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_options_button_pressed() -> void:
-	pass # Replace with function body.
+	Composer.load_scene("res://src/Settings/Settings.tscn")
 
 func _on_help_button_pressed() -> void:
 	Composer.load_scene("res://src/Help/Help.tscn")

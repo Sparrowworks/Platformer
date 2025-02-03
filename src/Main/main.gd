@@ -1,4 +1,4 @@
 extends Control
 
-func _init() -> void:
+func _ready() -> void:
 	Composer.load_scene("res://src/MainMenu/MainMenu.tscn")
