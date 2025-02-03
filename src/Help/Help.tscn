@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://btlpt0cv4yxc"]
+
+[ext_resource type="Texture2D" uid="uid://couhmoclqr537" path="res://assets/images/Menu/background.png" id="1_kagkr"]
+[ext_resource type="Script" path="res://src/Help/Help.cs" id="1_mfjsq"]
+[ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_nuopy"]
+[ext_resource type="Texture2D" uid="uid://dl280hbnpwuad" path="res://assets/images/Menu/button.png" id="3_kq8k1"]
+
+[node name="Help" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mfjsq")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kagkr")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_nuopy")
+theme_override_font_sizes/font_size = 192
+text = "in-game controls:"
+horizontal_alignment = 1
+
+[node name="Help" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1434.5
+offset_top = -653.5
+offset_right = 1434.5
+offset_bottom = 453.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_nuopy")
+theme_override_font_sizes/font_size = 192
+text = "use wasd or arrow keys to walk
+press space to jump
+press q in game to go back to menu
+press r to quickly restart the level
+press enter to proceed to the next level"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -530.0
+offset_right = 256.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="SwitchButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("3_kq8k1")
+
+[node name="Label" type="Label" parent="Buttons/SwitchButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_nuopy")
+theme_override_font_sizes/font_size = 92
+text = "NEXT PAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("3_kq8k1")
+
+[node name="Label" type="Label" parent="Buttons/BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_nuopy")
+theme_override_font_sizes/font_size = 92
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Buttons/SwitchButton" to="." method="SwitchPage"]
+[connection signal="pressed" from="Buttons/BackButton" to="." method="OnBackPressed"]

@@ -3,6 +3,13 @@ using System;
 
 public partial class MainMenu : Control
 {
+    private Composer Composer;
+
+    public override void _Ready()
+    {
+        Composer = GetNode<Composer>("/root/Composer");
+    }
+
     private void OnPlayPressed()
     {
 
@@ -15,7 +22,7 @@ public partial class MainMenu : Control
 
     private void OnHelpPressed()
     {
-
+        Composer.LoadScene("res://src/Help/Help.tscn");
     }
 
     private void OnQuitPressed()

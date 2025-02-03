@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Global="*res://src/Global/Global.cs"
 Composer="*res://src/Composer/Composer.cs"
 
 [display]
