@@ -69,6 +69,6 @@ public partial class Help : Control
         if (IsChangingPage)
             return;
 
-        Composer.LoadScene("res://src/MainMenu/MainMenu.tscn");
+        Global.Composer.Call("load_scene", "res://src/MainMenu/MainMenu.tscn");
     }
 }
