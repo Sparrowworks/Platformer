@@ -1,0 +1,177 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw5q2i8s77hl3"]
+
+[ext_resource type="Script" path="res://src/LevelSelect/level_select.gd" id="1_1sdlc"]
+[ext_resource type="Texture2D" uid="uid://couhmoclqr537" path="res://assets/images/Menu/background.png" id="1_i6tlt"]
+[ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_omaui"]
+[ext_resource type="Texture2D" uid="uid://c2g18xoi7nudg" path="res://assets/images/Levels/Previews/1.png" id="3_h1u8p"]
+[ext_resource type="Texture2D" uid="uid://dl280hbnpwuad" path="res://assets/images/Menu/button.png" id="4_31fhw"]
+[ext_resource type="Texture2D" uid="uid://bkcs20kx8r44j" path="res://assets/images/Menu/buttonSmall.png" id="6_ykexa"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1sdlc")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i6tlt")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_omaui")
+theme_override_font_sizes/font_size = 192
+text = "Select a level:"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -766.0
+offset_right = 512.0
+offset_bottom = 966.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="LevelTitle" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_omaui")
+theme_override_font_sizes/font_size = 112
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="LevelPreview" type="TextureRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_h1u8p")
+
+[node name="PlayButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_31fhw")
+
+[node name="Label" type="Label" parent="VBoxContainer/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_omaui")
+theme_override_font_sizes/font_size = 92
+text = "Play level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_31fhw")
+
+[node name="Label" type="Label" parent="VBoxContainer/MenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_omaui")
+theme_override_font_sizes/font_size = 92
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelButtons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2000
+alignment = 1
+
+[node name="PrevButton" type="TextureButton" parent="LevelButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_ykexa")
+
+[node name="Label" type="Label" parent="LevelButtons/PrevButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_right = -6.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_omaui")
+theme_override_font_sizes/font_size = 96
+text = "<"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextButton" type="TextureButton" parent="LevelButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_ykexa")
+
+[node name="Label" type="Label" parent="LevelButtons/NextButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_right = -6.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_omaui")
+theme_override_font_sizes/font_size = 96
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="LevelButtons/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="LevelButtons/NextButton" to="." method="_on_next_button_pressed"]
