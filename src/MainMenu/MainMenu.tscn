@@ -1,0 +1,145 @@
+[gd_scene load_steps=5 format=3 uid="uid://sklh80qgvv5k"]
+
+[ext_resource type="Texture2D" uid="uid://couhmoclqr537" path="res://assets/images/Menu/background.png" id="1_443kv"]
+[ext_resource type="Script" path="res://src/MainMenu/MainMenu.cs" id="1_psuna"]
+[ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_djw3s"]
+[ext_resource type="Texture2D" uid="uid://dl280hbnpwuad" path="res://assets/images/Menu/button.png" id="3_ajwpo"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_psuna")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_443kv")
+
+[node name="Text" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="Text"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 192
+text = "ALIEN PLATFORMER"
+horizontal_alignment = 1
+
+[node name="DevTitle" type="Label" parent="Text"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 96
+text = "by sparrowworks"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -70.0
+offset_right = 256.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="PlayButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("3_ajwpo")
+
+[node name="Label" type="Label" parent="Buttons/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 92
+text = "Play Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("3_ajwpo")
+
+[node name="Label" type="Label" parent="Buttons/OptionsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 92
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HelpButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("3_ajwpo")
+
+[node name="Label" type="Label" parent="Buttons/HelpButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 92
+text = "HELP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("3_ajwpo")
+
+[node name="Label" type="Label" parent="Buttons/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 92
+text = "quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="OnPlayPressed"]
+[connection signal="pressed" from="Buttons/OptionsButton" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="Buttons/HelpButton" to="." method="OnHelpPressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="OnQuitPressed"]
