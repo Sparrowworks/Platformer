@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://sklh80qgvv5k"]
+[gd_scene load_steps=8 format=3 uid="uid://sklh80qgvv5k"]
 
 [ext_resource type="Texture2D" uid="uid://couhmoclqr537" path="res://assets/images/Menu/background.png" id="1_443kv"]
 [ext_resource type="Script" path="res://src/MainMenu/main_menu.gd" id="1_eoywx"]
 [ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_djw3s"]
 [ext_resource type="Texture2D" uid="uid://dl280hbnpwuad" path="res://assets/images/Menu/button.png" id="3_ajwpo"]
+[ext_resource type="Texture2D" uid="uid://he4vf8r7ftf0" path="res://assets/images/Menu/panel.png" id="5_uban1"]
 [ext_resource type="AudioStream" uid="uid://dcvgghry11tav" path="res://assets/audio/Menu/mainmenu.mp3" id="5_woh6v"]
+[ext_resource type="Texture2D" uid="uid://cp1vqfu53vv3u" path="res://assets/images/Menu/cross.png" id="6_o12y5"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -140,6 +142,118 @@ text = "quit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LevelSelectPanel" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -345.0
+offset_top = -460.0
+offset_right = 420.0
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_uban1")
+
+[node name="Title" type="Label" parent="LevelSelectPanel"]
+offset_left = 140.0
+offset_top = 20.0
+offset_right = 590.0
+offset_bottom = 102.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 72
+text = "Game select menu"
+horizontal_alignment = 1
+
+[node name="XButton" type="TextureButton" parent="LevelSelectPanel"]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 13.0
+offset_right = 685.0
+offset_bottom = 63.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("6_o12y5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelectPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="DevTitle" type="Label" parent="LevelSelectPanel/VBoxContainer"]
+custom_minimum_size = Vector2(765, 160)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 64
+text = "play a new game from
+the begginng"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="NewGameButton" type="TextureButton" parent="LevelSelectPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_ajwpo")
+
+[node name="Label" type="Label" parent="LevelSelectPanel/VBoxContainer/NewGameButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 92
+text = "New game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DevTitle2" type="Label" parent="LevelSelectPanel/VBoxContainer"]
+custom_minimum_size = Vector2(765, 160)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 64
+text = "play individual levels"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LevelSelectButton" type="TextureButton" parent="LevelSelectPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_ajwpo")
+
+[node name="Label" type="Label" parent="LevelSelectPanel/VBoxContainer/LevelSelectButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_djw3s")
+theme_override_font_sizes/font_size = 92
+text = "Select Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MenuTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_woh6v")
 autoplay = true
@@ -150,3 +264,6 @@ parameters/looping = true
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Buttons/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/XButton" to="." method="_on_x_button_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="LevelSelectPanel/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
