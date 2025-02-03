@@ -1,11 +1,8 @@
 using Godot;
 using Godot.Collections;
-using System;
 
 public partial class Help : Control
 {
-
-    private Composer Composer;
     private Label TitleLabel;
     private Label HelpLabel;
 
@@ -22,12 +19,11 @@ public partial class Help : Control
     private Array<string> HelpText = new()
     {
         "use wasd or arrow keys to walk\npress space to jump\npress q in game to go back to menu\npress r to quickly restart the level\npress enter to proceed to the next level",
-        "coded by Sp4r0w\nart & Blocks font made by kenney\nWatermelon Days font made by Khurasan\nButton sprites made by Viktor Gogela\nMusic by joshuuu (alt OST: Clustertruck OST)"
+        "coding: Sp4r0w & VargaDot\ntesting: VargaDot\nart & Blocks font: kenney\nWatermelon Days font: Khurasan\nButton sprites: Viktor Gogela\nMusic: joshuuu (alt OST: Clustertruck OST)"
     };
 
     public override void _Ready()
     {
-        Composer = GetNode<Composer>("/root/Composer");
         TitleLabel = GetNode<Label>("Title");
         HelpLabel = GetNode<Label>("Help");
     }
