@@ -2,11 +2,8 @@ extends Node2D
 
 signal game_end()
 
-@onready var time_timer: Timer = $TimeTimer
-
 @onready var game_theme: AudioStreamPlayer = $GameTheme
 @onready var score_increase: AudioStreamPlayer = $ScoreIncrease
-
 
 func _ready() -> void:
 	_set_game_theme()

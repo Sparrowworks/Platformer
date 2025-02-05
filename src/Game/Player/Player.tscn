@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bp1vmitw84bc2"]
+[gd_scene load_steps=25 format=3 uid="uid://bp1vmitw84bc2"]
 
 [ext_resource type="Script" path="res://src/Game/Player/player.gd" id="1_v5f2k"]
 [ext_resource type="Texture2D" uid="uid://1as82h7ujqf6" path="res://assets/images/Player/fall.png" id="2_eyrcq"]
@@ -7,7 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://cgm3oeh6fd0vl" path="res://assets/images/Player/stand.png" id="5_2ebug"]
 [ext_resource type="Texture2D" uid="uid://d2fkp3y7s80on" path="res://assets/images/Player/walk1.png" id="6_ed8jq"]
 [ext_resource type="Texture2D" uid="uid://c8i62nmsue7fp" path="res://assets/images/Player/walk2.png" id="7_xy11v"]
+[ext_resource type="Script" path="res://src/Game/Player/ui.gd" id="8_4b67c"]
 [ext_resource type="FontFile" uid="uid://bysfe8g4xv0r6" path="res://assets/fonts/Kenney Blocks.ttf" id="8_tie6r"]
+[ext_resource type="AudioStream" uid="uid://nflw3aptiysq" path="res://assets/audio/Player/hurt.mp3" id="9_o0bax"]
+[ext_resource type="AudioStream" uid="uid://cec4x1i4hdgsd" path="res://assets/audio/Player/jumplong.mp3" id="11_mg05k"]
+[ext_resource type="AudioStream" uid="uid://bg8hui3i8562" path="res://assets/audio/Player/landing.mp3" id="11_w2wr7"]
+[ext_resource type="AudioStream" uid="uid://chla4r43fbrl0" path="res://assets/audio/Player/death.mp3" id="12_lno0a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_61mhs"]
 animations = [{
@@ -59,6 +64,77 @@ animations = [{
 radius = 56.0
 height = 192.0
 
+[sub_resource type="Animation" id="Animation_uxnry"]
+resource_name = "Hurt"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6cvtx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nwm2e"]
+resource_name = "Immunity"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1), Color(0.253451, 0.253451, 9.62615e-08, 1), Color(1, 1, 0, 1), Color(0.253451, 0.253451, 9.62615e-08, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v78s8"]
+resource_name = "Kill"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rxq2"]
+_data = {
+"Hurt": SubResource("Animation_uxnry"),
+"Immunity": SubResource("Animation_nwm2e"),
+"Kill": SubResource("Animation_v78s8"),
+"RESET": SubResource("Animation_6cvtx")
+}
+
 [sub_resource type="Animation" id="Animation_vr16t"]
 resource_name = "Blink"
 loop_mode = 1
@@ -87,7 +163,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1su8d"]
@@ -99,7 +175,7 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyyqb"]
 bg_color = Color(0.0687983, 0.0687983, 0.0687982, 1)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_v5f2k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -107,28 +183,39 @@ sprite_frames = SubResource("SpriteFrames_61mhs")
 animation = &"stand"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_q8l4a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.65, 1.65)
+zoom = Vector2(1.35, 1.35)
+process_callback = 0
 limit_left = 0
 limit_top = 0
 limit_right = 3840
 limit_bottom = 2160
 position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_right_margin = 0.1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3rxq2")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("8_4b67c")
 
-[node name="DeadText" type="Label" parent="CanvasLayer/Control"]
-unique_name_in_owner = true
+[node name="DeadText" type="Label" parent="CanvasLayer/UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,14 +229,12 @@ text = "PRESS R TO RESTART"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DeadAnimation" type="AnimationPlayer" parent="CanvasLayer/Control/DeadText"]
-unique_name_in_owner = true
+[node name="DeadAnimation" type="AnimationPlayer" parent="CanvasLayer/UI/DeadText"]
 libraries = {
 "": SubResource("AnimationLibrary_1su8d")
 }
 
-[node name="EndText" type="VBoxContainer" parent="CanvasLayer/Control"]
-unique_name_in_owner = true
+[node name="EndText" type="VBoxContainer" parent="CanvasLayer/UI"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -159,7 +244,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="EndText" type="Label" parent="CanvasLayer/Control/EndText"]
+[node name="EndText" type="Label" parent="CanvasLayer/UI/EndText"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_tie6r")
@@ -168,11 +253,12 @@ text = "Level complete!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="CanvasLayer/Control/EndText"]
+[node name="Control" type="Control" parent="CanvasLayer/UI/EndText"]
 custom_minimum_size = Vector2(0, 324)
 layout_mode = 2
 
-[node name="Prompt" type="Label" parent="CanvasLayer/Control/EndText/Control"]
+[node name="Prompt" type="Label" parent="CanvasLayer/UI/EndText/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -188,13 +274,12 @@ text = "Press `enter` to continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PromptAnimation" type="AnimationPlayer" parent="CanvasLayer/Control/EndText/Control/Prompt"]
-unique_name_in_owner = true
+[node name="PromptAnimation" type="AnimationPlayer" parent="CanvasLayer/UI/EndText/Control/Prompt"]
 libraries = {
 "": SubResource("AnimationLibrary_1su8d")
 }
 
-[node name="TopBar" type="Panel" parent="CanvasLayer/Control"]
+[node name="TopBar" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -202,7 +287,7 @@ offset_bottom = 100.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iyyqb")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/TopBar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/TopBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -212,7 +297,7 @@ grow_vertical = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="ScoreText" type="Label" parent="CanvasLayer/Control/TopBar/HBoxContainer"]
+[node name="ScoreText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_tie6r")
@@ -220,7 +305,7 @@ theme_override_font_sizes/font_size = 64
 text = "SCORE: 00000"
 horizontal_alignment = 1
 
-[node name="CoinText" type="Label" parent="CanvasLayer/Control/TopBar/HBoxContainer"]
+[node name="CoinText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 custom_minimum_size = Vector2(490, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_tie6r")
@@ -228,7 +313,7 @@ theme_override_font_sizes/font_size = 64
 text = "Coins: 000"
 horizontal_alignment = 1
 
-[node name="HealthText" type="Label" parent="CanvasLayer/Control/TopBar/HBoxContainer"]
+[node name="HealthText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 custom_minimum_size = Vector2(435, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_tie6r")
@@ -236,7 +321,7 @@ theme_override_font_sizes/font_size = 64
 text = "Health: 0"
 horizontal_alignment = 1
 
-[node name="LevelText" type="Label" parent="CanvasLayer/Control/TopBar/HBoxContainer"]
+[node name="LevelText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 custom_minimum_size = Vector2(390, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_tie6r")
@@ -244,7 +329,7 @@ theme_override_font_sizes/font_size = 64
 text = "Level: 0"
 horizontal_alignment = 1
 
-[node name="TimeText" type="Label" parent="CanvasLayer/Control/TopBar/HBoxContainer"]
+[node name="TimeText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_tie6r")
@@ -252,11 +337,33 @@ theme_override_font_sizes/font_size = 64
 text = "Time: 000"
 horizontal_alignment = 1
 
-[node name="HelpText" type="Label" parent="CanvasLayer/Control/TopBar/HBoxContainer"]
+[node name="HelpText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_tie6r")
 theme_override_font_sizes/font_size = 64
 text = "q - quit; r  -restart"
 horizontal_alignment = 1
 
-[node name="JumpBuffer" type="Timer" parent="."]
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("11_mg05k")
+bus = &"SFX"
+
+[node name="LandSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("11_w2wr7")
+bus = &"SFX"
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_o0bax")
+bus = &"SFX"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("12_lno0a")
+bus = &"SFX"
+
+[node name="TimeTimer" type="Timer" parent="."]
+
+[connection signal="player_dead" from="." to="CanvasLayer/UI" method="_on_player_player_dead"]
+[connection signal="update_ui" from="." to="CanvasLayer/UI" method="_on_player_update_ui"]
+[connection signal="timeout" from="TimeTimer" to="." method="_on_time_timer_timeout"]

@@ -1,5 +1,8 @@
 class_name Player extends CharacterBody2D
 
+signal update_ui(score: int, coins: int, health: int, level: int, time: int)
+signal player_dead()
+
 @export var camera_limit_x: int = 3840:
 	set(val):
 		if camera_2d:
@@ -26,15 +29,15 @@ class_name Player extends CharacterBody2D
 @export var coyote_time: float = 0.2
 @export var buffer_time: float = 0.2
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var dead_text: Label = %DeadText
-@onready var dead_animation: AnimationPlayer = %DeadAnimation
-@onready var end_text: VBoxContainer = %EndText
-@onready var end_animation: AnimationPlayer = %PromptAnimation
-
-@onready var jump_buffer: Timer = $JumpBuffer
+@onready var jump_long: AudioStreamPlayer = $Sounds/Jump
+@onready var land_sound: AudioStreamPlayer = $Sounds/LandSound
+@onready var hurt_sound: AudioStreamPlayer = $Sounds/HurtSound
+@onready var death_sound: AudioStreamPlayer = $Sounds/DeathSound
+@onready var time_timer: Timer = $TimeTimer
 
 var applied_gravity: float
 var applied_fall_gravity: float
@@ -49,11 +52,53 @@ var is_coyote_active: bool = false
 var is_left_hold: bool
 var is_right_hold: bool
 
+var is_hurt: bool = false
+var health: int = 3
+
+var score: int = 0
+var coins: int = 0
+var time: int = 0
+
 func _ready() -> void:
+	var level: Level = get_parent()
+	time = level.level_time
+
 	camera_2d.limit_right = camera_limit_x
-	print(camera_2d.limit_right)
+	time_timer.start()
 
 	jump_count = jumps
+
+	update_ui.emit(score, coins, health, Globals.level, time)
+
+func _hurt() -> void:
+	if not is_hurt:
+		is_hurt = true
+		health -= 1
+		update_ui.emit(score, coins, health, Globals.level, time)
+
+		if health == 0:
+			_kill()
+			return
+
+		velocity.x = 0
+		velocity.y = -((jump_height * 10.0) * gravity)
+
+		animation_player.play("Hurt")
+		hurt_sound.play()
+
+		await animation_player.animation_finished
+		is_hurt = false
+
+func _kill() -> void:
+	set_process(false)
+	set_physics_process(false)
+
+	time_timer.stop()
+	animated_sprite_2d.animation = "hurt"
+
+	death_sound.play()
+	animation_player.play("Kill")
+	player_dead.emit()
 
 func _decelerate(delta: float) -> void:
 	if (abs(velocity.x) > 0) and (abs(velocity.x) <= abs((-max_speed / zero_time) * delta)):
@@ -65,6 +110,7 @@ func _decelerate(delta: float) -> void:
 
 func _jump() -> void:
 	if jump_count > 0:
+		jump_long.play()
 		velocity.y = -((jump_height * 10.0) * gravity)
 		jump_count -= 1
 		was_jump_pressed = false
@@ -96,6 +142,9 @@ func _process(delta: float) -> void:
 
 	if velocity.y > 40:
 		animated_sprite_2d.play("fall")
+
+	if Input.is_action_just_pressed("restart"):
+		_hurt()
 
 func _physics_process(delta: float) -> void:
 	var is_jump_tapped: bool = Input.is_action_just_pressed("jump")
@@ -145,6 +194,7 @@ func _physics_process(delta: float) -> void:
 		if is_jump_tapped and !is_on_wall():
 			if is_coyote_active:
 				is_coyote_active = false
+
 				_jump()
 			if buffer_time > 0:
 				was_jump_pressed = true
@@ -155,6 +205,9 @@ func _physics_process(delta: float) -> void:
 			_jump()
 
 		if is_on_floor():
+			if jump_count == 0 and is_equal_approx(velocity.y, 20):
+				land_sound.play()
+
 			jump_count = jumps
 			if coyote_time > 0:
 				is_coyote_active = true
@@ -163,4 +216,12 @@ func _physics_process(delta: float) -> void:
 			if was_jump_pressed:
 				_jump()
 
+	if position.y > 2160:
+		_kill()
+
 	move_and_slide()
+
+
+func _on_time_timer_timeout() -> void:
+	time -= 1
+	update_ui.emit(score, coins, health, Globals.level, time)

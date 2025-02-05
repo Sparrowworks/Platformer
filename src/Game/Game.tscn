@@ -16,8 +16,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TimeTimer" type="Timer" parent="."]
-
 [node name="ScoreIncrease" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_l3q66")
 volume_db = -20.0
