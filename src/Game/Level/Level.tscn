@@ -29,3 +29,5 @@ region_rect = Rect2(0, 0, 2048, 2048)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="LevelEnd" parent="." instance=ExtResource("2_uwdbo")]
+
+[connection signal="end_reached" from="LevelEnd" to="." method="_on_level_end_end_reached"]

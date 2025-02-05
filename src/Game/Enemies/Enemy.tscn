@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://5ln32fnvrhnl"]
+
+[ext_resource type="Script" path="res://src/Game/Enemies/enemy.gd" id="1_twkoc"]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_twkoc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="LeftRay" type="RayCast2D" parent="."]
+target_position = Vector2(0, 64)
+hit_from_inside = true
+
+[node name="RightRay" type="RayCast2D" parent="."]
+target_position = Vector2(0, 64)
+hit_from_inside = true
+
+[node name="PlayerRay" type="RayCast2D" parent="."]
+target_position = Vector2(-400, 0)
+hit_from_inside = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

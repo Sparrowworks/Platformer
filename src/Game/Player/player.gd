@@ -143,9 +143,6 @@ func _process(delta: float) -> void:
 	if velocity.y > 40:
 		animated_sprite_2d.play("fall")
 
-	if Input.is_action_just_pressed("restart"):
-		_hurt()
-
 func _physics_process(delta: float) -> void:
 	var is_jump_tapped: bool = Input.is_action_just_pressed("jump")
 	var is_jump_released: bool = Input.is_action_just_released("jump")

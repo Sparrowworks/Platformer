@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b2qkuxq0m7h3a"]
+[gd_scene load_steps=18 format=4 uid="uid://b2qkuxq0m7h3a"]
 
 [ext_resource type="PackedScene" uid="uid://cyqormotwv52p" path="res://src/Game/Level/Level.tscn" id="1_8c6le"]
 [ext_resource type="Texture2D" uid="uid://da1al3ahkoaqs" path="res://assets/images/Levels/Level1/dirt.png" id="2_n26qx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cj30oh5qxigaj" path="res://assets/images/Levels/Level1/angleLeft.png" id="6_doiph"]
 [ext_resource type="Texture2D" uid="uid://b52nokdhea6y0" path="res://assets/images/Levels/Level1/angleRight.png" id="7_gju26"]
 [ext_resource type="Texture2D" uid="uid://c5pnvvndenx5p" path="res://assets/images/Levels/Level1/platform.png" id="8_julr5"]
+[ext_resource type="Texture2D" uid="uid://c7ewjnm33hoh8" path="res://assets/images/Objects/tree.png" id="9_oc51u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8y8l"]
 texture = ExtResource("2_n26qx")
@@ -84,6 +85,9 @@ fall_velocity = 1000.0
 fall_factor = 3.5
 coyote_time = 0.1
 buffer_time = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Decorations" index="0"]
+texture = ExtResource("9_oc51u")
 
 [node name="LevelEnd" parent="." index="6"]
 position = Vector2(18144, 1760)
