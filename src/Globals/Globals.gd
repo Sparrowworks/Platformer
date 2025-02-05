@@ -1,5 +1,8 @@
 extends Node
 
+### Game variables
+var level: int = 1
+
 ### Settings
 var is_alternative_ost: bool = false
 var is_speedrun_mode: bool = false

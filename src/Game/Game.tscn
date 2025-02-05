@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdwafhasbnhtv"]
+
+[ext_resource type="Script" path="res://src/Game/game.gd" id="1_pl46v"]
+[ext_resource type="AudioStream" uid="uid://dlcfohgqmt0tn" path="res://assets/audio/Player/counter.mp3" id="2_l3q66"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_pl46v")
+
+[node name="SpeedrunUI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="SpeedrunUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeTimer" type="Timer" parent="."]
+
+[node name="ScoreIncrease" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_l3q66")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="GameTheme" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

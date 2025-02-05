@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ryb28d8fqo3n"
-path.s3tc="res://.godot/imported/platform3.png-39a5f3bb298bf58e619f01fa0cd9972f.s3tc.ctex"
+uid="uid://biih7ltb14iw7"
+path="res://.godot/imported/grassRight.png-19da30c8d7e7d42e0d19d891dded64ae.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Levels/Level1/platform3.png"
-dest_files=["res://.godot/imported/platform3.png-39a5f3bb298bf58e619f01fa0cd9972f.s3tc.ctex"]
+source_file="res://assets/images/Levels/Level1/grassRight.png"
+dest_files=["res://.godot/imported/grassRight.png-19da30c8d7e7d42e0d19d891dded64ae.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

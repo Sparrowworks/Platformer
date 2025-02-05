@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyqormotwv52p"]
+
+[ext_resource type="Script" path="res://src/Game/Level/level.gd" id="1_aukpg"]
+[ext_resource type="PackedScene" uid="uid://bp1vmitw84bc2" path="res://src/Game/Player/Player.tscn" id="1_ljisj"]
+[ext_resource type="PackedScene" uid="uid://qec4y3786h5l" path="res://src/Game/Level/LevelEnd/LevelEnd.tscn" id="2_uwdbo"]
+[ext_resource type="Texture2D" uid="uid://dkv24gmbdoun6" path="res://assets/images/Levels/Level1/blue_grass.png" id="2_uydun"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_aukpg")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(2048, 2048)
+
+[node name="Background" type="Sprite2D" parent="Parallax2D"]
+texture_repeat = 2
+texture = ExtResource("2_uydun")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 2048)
+
+[node name="Tiles" type="TileMapLayer" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_ljisj")]
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="LevelEnd" parent="." instance=ExtResource("2_uwdbo")]

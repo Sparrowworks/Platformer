@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://sklh80qgvv5k"]
+[gd_scene load_steps=7 format=3 uid="uid://sklh80qgvv5k"]
 
 [ext_resource type="Texture2D" uid="uid://couhmoclqr537" path="res://assets/images/Menu/background.png" id="1_443kv"]
 [ext_resource type="Script" path="res://src/MainMenu/main_menu.gd" id="1_eoywx"]
 [ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_djw3s"]
 [ext_resource type="Texture2D" uid="uid://dl280hbnpwuad" path="res://assets/images/Menu/button.png" id="3_ajwpo"]
 [ext_resource type="Texture2D" uid="uid://he4vf8r7ftf0" path="res://assets/images/Menu/panel.png" id="5_uban1"]
-[ext_resource type="AudioStream" uid="uid://dcvgghry11tav" path="res://assets/audio/Menu/mainmenu.mp3" id="5_woh6v"]
 [ext_resource type="Texture2D" uid="uid://cp1vqfu53vv3u" path="res://assets/images/Menu/cross.png" id="6_o12y5"]
 
 [node name="MainMenu" type="Control"]
@@ -159,6 +158,7 @@ grow_vertical = 2
 texture = ExtResource("5_uban1")
 
 [node name="Title" type="Label" parent="LevelSelectPanel"]
+layout_mode = 0
 offset_left = 140.0
 offset_top = 20.0
 offset_right = 590.0
@@ -253,12 +253,6 @@ theme_override_font_sizes/font_size = 92
 text = "Select Level"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="MenuTheme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_woh6v")
-autoplay = true
-bus = &"Music"
-parameters/looping = true
 
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
