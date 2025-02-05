@@ -4,4 +4,4 @@ extends Control
 
 
 func _on_menu_button_pressed() -> void:
-	Composer.load_scene("res://src/MainMenu/MainMenu.tscn")
+	Globals.go_to_with_zigzag("res://src/MainMenu/MainMenu.tscn")

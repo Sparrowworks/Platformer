@@ -14,10 +14,10 @@ var level_previews: Array = [
 var level_idx: int = 0
 
 func _on_play_button_pressed() -> void:
-	Composer.load_scene("res://src/Game/Game.tscn")
+	Globals.go_to_with_fade("res://src/Game/Game.tscn")
 
 func _on_menu_button_pressed() -> void:
-	Composer.load_scene("res://src/MainMenu/MainMenu.tscn")
+	Globals.go_to_with_zigzag("res://src/MainMenu/MainMenu.tscn")
 
 func _redraw_level() -> void:
 	level_title.text = "Level " + str(level_idx+1)

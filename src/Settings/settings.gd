@@ -61,4 +61,4 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 	_update_sliders()
 
 func _on_back_button_pressed() -> void:
-	Composer.load_scene("res://src/MainMenu/MainMenu.tscn")
+	Globals.go_to_with_zigzag("res://src/MainMenu/MainMenu.tscn")

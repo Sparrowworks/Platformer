@@ -49,4 +49,4 @@ func _on_back_button_pressed() -> void:
 	if is_switching:
 		return
 
-	Composer.load_scene("res://src/MainMenu/MainMenu.tscn")
+	Globals.go_to_with_zigzag("res://src/MainMenu/MainMenu.tscn")
