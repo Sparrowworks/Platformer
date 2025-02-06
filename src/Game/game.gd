@@ -30,7 +30,7 @@ func _load_level() -> void:
 func _on_level_end() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("restart"):
 		Globals.go_to_with_fade("res://src/Game/Game.tscn")
 
