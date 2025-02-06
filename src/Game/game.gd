@@ -1,6 +1,5 @@
 extends Node2D
 
-@warning_ignore("unused_signal")
 signal game_end()
 
 @onready var game_theme: AudioStreamPlayer = $GameTheme
