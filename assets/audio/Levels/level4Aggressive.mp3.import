@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/level4Aggressive.mp3-341781e6085dfd5dac5a6d34
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
