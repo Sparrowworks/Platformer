@@ -32,5 +32,5 @@ func fade_out() -> void:
 			Composer.clear_load_screen()
 	)
 
-func _on_finished_loading(scene: Node) -> void:
+func _on_finished_loading(_scene: Node) -> void:
 	fade_out()
