@@ -1,97 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://cognv6eb5twmd"]
+[gd_scene load_steps=5 format=3 uid="uid://cld53xklc0j71"]
 
-[ext_resource type="Script" path="res://src/Game/Objects/Health/health.gd" id="1_fxtnt"]
+[ext_resource type="PackedScene" uid="uid://cvrhx3it7audq" path="res://src/Game/Objects/Pickup/Pickup.tscn" id="1_lesbm"]
 [ext_resource type="Texture2D" uid="uid://bwbw7khcts2bs" path="res://assets/images/Objects/healthPack.png" id="2_1luau"]
 [ext_resource type="AudioStream" uid="uid://db66obb85kxxr" path="res://assets/audio/Objects/health.mp3" id="3_j2svt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3385c"]
-size = Vector2(144, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cytkv"]
+size = Vector2(160, 112)
 
-[sub_resource type="Animation" id="Animation_6maku"]
-resource_name = "Move"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.03333, 2.03333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -96), Vector2(0, 96), Vector2(0, -96)]
-}
+[node name="Health" instance=ExtResource("1_lesbm")]
 
-[sub_resource type="Animation" id="Animation_hg0bu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 96)]
-}
-
-[sub_resource type="Animation" id="Animation_8v2gm"]
-resource_name = "Collect"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_awaih"]
-_data = {
-"Collect": SubResource("Animation_8v2gm"),
-"Move": SubResource("Animation_6maku"),
-"RESET": SubResource("Animation_hg0bu")
-}
-
-[node name="Health" type="Node2D"]
-script = ExtResource("1_fxtnt")
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, 96)
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" parent="Area2D" index="0"]
 texture = ExtResource("2_1luau")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_3385c")
+[node name="CollisionShape2D" parent="Area2D" index="1"]
+shape = SubResource("RectangleShape2D_cytkv")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
-libraries = {
-"": SubResource("AnimationLibrary_awaih")
-}
-
-[node name="PickupSound" type="AudioStreamPlayer" parent="Area2D"]
+[node name="PickupSound" parent="Area2D" index="3"]
 stream = ExtResource("3_j2svt")
-bus = &"SFX"
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

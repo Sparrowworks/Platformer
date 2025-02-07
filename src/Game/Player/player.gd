@@ -222,3 +222,13 @@ func _physics_process(delta: float) -> void:
 func _on_time_timer_timeout() -> void:
 	time -= 1
 	update_ui.emit(score, coins, health, Globals.level, time)
+
+
+func _on_level_update_health() -> void:
+	health += 1
+	update_ui.emit(score, coins, health, Globals.level, time)
+
+func _on_level_update_score() -> void:
+	score += 100
+	coins += 1
+	update_ui.emit(score, coins, health, Globals.level, time)

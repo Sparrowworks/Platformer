@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d34p4pnmrpprx"
-path.s3tc="res://.godot/imported/waterHigh3.png-03bc5721a519f12e2119de92e508b3c8.s3tc.ctex"
+uid="uid://ccy31maa0hlt7"
+path.s3tc="res://.godot/imported/waterTop.png-e672f14ab74660537ea3fc857b761bcf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/Levels/Water/waterHigh3.png"
-dest_files=["res://.godot/imported/waterHigh3.png-03bc5721a519f12e2119de92e508b3c8.s3tc.ctex"]
+source_file="res://assets/images/Levels/Water/waterTop.png"
+dest_files=["res://.godot/imported/waterTop.png-e672f14ab74660537ea3fc857b761bcf.s3tc.ctex"]
 
 [params]
 

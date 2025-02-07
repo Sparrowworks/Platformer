@@ -20,6 +20,3 @@ grow_vertical = 2
 stream = ExtResource("2_l3q66")
 volume_db = -20.0
 bus = &"SFX"
-
-[node name="GameTheme" type="AudioStreamPlayer" parent="."]
-bus = &"Music"

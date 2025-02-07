@@ -203,7 +203,6 @@ libraries = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -341,7 +340,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_tie6r")
 theme_override_font_sizes/font_size = 64
-text = "q - quit; r  -restart"
+text = "q - quit; r  - restart"
 horizontal_alignment = 1
 
 [node name="Sounds" type="Node" parent="."]

@@ -5,9 +5,8 @@ extends Control
 var main: Main
 
 func _ready() -> void:
-	main = get_parent()
-	if not main.menu_theme.playing:
-		main.menu_theme.play()
+	if not Globals.menu_theme.playing:
+		Globals.menu_theme.play()
 
 func _on_play_button_pressed() -> void:
 	level_select_panel.show()
@@ -25,7 +24,7 @@ func _on_x_button_pressed() -> void:
 	level_select_panel.hide()
 
 func _on_new_game_button_pressed() -> void:
-	main.menu_theme.stop()
+	Globals.menu_theme.stop()
 	Globals.go_to_with_fade("res://src/Game/Game.tscn")
 
 func _on_level_select_button_pressed() -> void:

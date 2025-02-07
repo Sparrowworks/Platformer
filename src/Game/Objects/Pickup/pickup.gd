@@ -1,6 +1,6 @@
-class_name Coin extends Node2D
+class_name Pickup extends Node2D
 
-signal coin_collected()
+signal pickup_collected(object_name: String)
 
 @onready var animation_player: AnimationPlayer = $Area2D/AnimationPlayer
 @onready var pickup_sound: AudioStreamPlayer = $Area2D/PickupSound
@@ -11,8 +11,9 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		animation_player.pause()
-		coin_collected.emit()
+		pickup_collected.emit(self.name)
 		animation_player.play("Collect")
+		pickup_sound.play()
 
 		await animation_player.animation_finished
 
