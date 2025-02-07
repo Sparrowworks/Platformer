@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c011enung72xr"
-path="res://.godot/imported/treeFrozen.png-9cf2f32aa0d35996e74048ef12dcb8ea.ctex"
+uid="uid://cn5fefw0e3ypy"
+path="res://.godot/imported/treePineFrozen.png-84792dd9ac27d0b32b3be9efdf4fb7ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Objects/treeFrozen.png"
-dest_files=["res://.godot/imported/treeFrozen.png-9cf2f32aa0d35996e74048ef12dcb8ea.ctex"]
+source_file="res://assets/images/Objects/treePineFrozen.png"
+dest_files=["res://.godot/imported/treePineFrozen.png-84792dd9ac27d0b32b3be9efdf4fb7ae.ctex"]
 
 [params]
 
