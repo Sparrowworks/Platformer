@@ -18,7 +18,6 @@ func _ready() -> void:
 		pickup.pickup_collected.connect(player._on_pickup_collected)
 
 	for enemy: Enemy in get_tree().get_nodes_in_group("Enemy"):
-		print(enemy)
 		enemy.player_hit.connect(player._on_player_hit)
 
 func _on_level_end_end_reached() -> void:

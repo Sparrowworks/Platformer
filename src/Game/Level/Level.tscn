@@ -24,8 +24,10 @@ region_rect = Rect2(0, 0, 2048, 2048)
 [node name="Decorations" type="Node2D" parent="."]
 
 [node name="Objects" type="Node2D" parent="."]
+z_index = -1
 
 [node name="Enemies" type="Node2D" parent="."]
+z_index = 1
 
 [node name="LevelEnd" parent="." instance=ExtResource("2_uwdbo")]
 

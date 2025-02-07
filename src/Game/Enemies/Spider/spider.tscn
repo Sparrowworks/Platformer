@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3don2s5i3oud"]
+
+[ext_resource type="PackedScene" uid="uid://5ln32fnvrhnl" path="res://src/Game/Enemies/Enemy.tscn" id="1_xdk5j"]
+[ext_resource type="Script" path="res://src/Game/Enemies/Spider/spider.gd" id="2_wi507"]
+[ext_resource type="Texture2D" uid="uid://chejrgtp1u8aa" path="res://assets/images/Enemies/Spider/spider_dead.png" id="3_0glfl"]
+[ext_resource type="Texture2D" uid="uid://csq1a3kbucnyx" path="res://assets/images/Enemies/Spider/spider_walk1.png" id="3_chp3f"]
+[ext_resource type="Texture2D" uid="uid://byoah3e2dis1c" path="res://assets/images/Enemies/Spider/spider.png" id="3_tqfbr"]
+[ext_resource type="Texture2D" uid="uid://d134ljeeuucj5" path="res://assets/images/Enemies/Spider/spider_walk2.png" id="4_r4yew"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lekpy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0glfl")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tqfbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_chp3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tqfbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r4yew")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n8w5"]
+size = Vector2(277.333, 181.333)
+
+[node name="Spider" instance=ExtResource("1_xdk5j")]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("2_wi507")
+speed = 250.0
+chase_speed = 500.0
+does_chase = true
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_lekpy")
+animation = &"walk"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(5.08626e-06, -5.33333)
+shape = SubResource("RectangleShape2D_3n8w5")
+
+[node name="LeftRay" parent="." index="2"]
+position = Vector2(-138.667, 0)
+
+[node name="RightRay" parent="." index="3"]
+position = Vector2(138.667, 0)

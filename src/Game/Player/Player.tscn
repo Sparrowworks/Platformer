@@ -175,7 +175,11 @@ _data = {
 bg_color = Color(0.0687983, 0.0687983, 0.0687982, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 3
 script = ExtResource("1_v5f2k")
+max_time = 0.1
+coyote_time = 0.1
+buffer_time = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_61mhs")

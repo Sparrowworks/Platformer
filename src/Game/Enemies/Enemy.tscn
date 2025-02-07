@@ -46,11 +46,11 @@ script = ExtResource("1_twkoc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="LeftRay" type="RayCast2D" parent="."]
-target_position = Vector2(0, 64)
+target_position = Vector2(0, 128)
 hit_from_inside = true
 
 [node name="RightRay" type="RayCast2D" parent="."]
-target_position = Vector2(0, 64)
+target_position = Vector2(0, 128)
 hit_from_inside = true
 
 [node name="PlayerRay" type="RayCast2D" parent="."]

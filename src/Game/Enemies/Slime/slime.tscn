@@ -38,8 +38,14 @@ speed = 250.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_3n5hs")
-animation = &"dead"
+animation = &"walk"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_ym253")
+
+[node name="LeftRay" parent="." index="2"]
+position = Vector2(-97, 0)
+
+[node name="RightRay" parent="." index="3"]
+position = Vector2(97, 0)
