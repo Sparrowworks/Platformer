@@ -29,10 +29,10 @@ func _on_switch_button_pressed() -> void:
 	page_switch.set_ease(Tween.EASE_IN_OUT)
 
 	page_switch.tween_property(help, "position:x", 4000, 1)
-	page_switch.tween_callback(_on_switch_done)
+	page_switch.tween_callback(_on_page_switch)
 
 	page_switch.tween_property(help, "position:x", 485.5, 1)
-	page_switch.tween_callback(_on_page_switch)
+	page_switch.tween_callback(_on_switch_done)
 
 func _on_page_switch() -> void:
 	page = (page + 1) % 2

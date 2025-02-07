@@ -34,5 +34,5 @@ func move_to_back() -> void:
 			Composer.clear_load_screen()
 	)
 
-func _on_finished_loading(scene: Node) -> void:
+func _on_finished_loading(_scene: Node) -> void:
 	move_to_back()

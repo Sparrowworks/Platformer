@@ -14,6 +14,8 @@ var level_previews: Array = [
 var level_idx: int = 0
 
 func _on_play_button_pressed() -> void:
+	var main: Main = get_parent()
+	main.menu_theme.stop()
 	Globals.go_to_with_fade("res://src/Game/Game.tscn")
 
 func _on_menu_button_pressed() -> void:

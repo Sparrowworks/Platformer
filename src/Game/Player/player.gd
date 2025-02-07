@@ -123,7 +123,7 @@ func _buffer_jump() -> void:
 	await get_tree().create_timer(buffer_time).timeout
 	was_jump_pressed = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	is_left_hold = Input.is_action_pressed("left")
 	is_right_hold = Input.is_action_pressed("right")
 
