@@ -94,7 +94,7 @@ func _kill() -> void:
 	set_physics_process(false)
 
 	time_timer.stop()
-	animated_sprite_2d.animation = "hurt"
+	animated_sprite_2d.play("hurt")
 
 	death_sound.play()
 	animation_player.play("Kill")
@@ -223,12 +223,17 @@ func _on_time_timer_timeout() -> void:
 	time -= 1
 	update_ui.emit(score, coins, health, Globals.level, time)
 
+func _on_player_hit(is_hurt: bool) -> void:
+	if is_hurt:
+		_hurt()
+	else:
+		velocity.y = -((jump_height * 10.0) * gravity)
 
-func _on_level_update_health() -> void:
-	health += 1
-	update_ui.emit(score, coins, health, Globals.level, time)
+func _on_pickup_collected(object_name: String) -> void:
+	if object_name.contains("Coin"):
+		score += 100
+		coins += 1
+	elif object_name.contains("Health"):
+		health += 1
 
-func _on_level_update_score() -> void:
-	score += 100
-	coins += 1
 	update_ui.emit(score, coins, health, Globals.level, time)

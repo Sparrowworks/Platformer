@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b2qkuxq0m7h3a"]
+[gd_scene load_steps=30 format=4 uid="uid://b2qkuxq0m7h3a"]
 
 [ext_resource type="PackedScene" uid="uid://cyqormotwv52p" path="res://src/Game/Level/Level.tscn" id="1_8c6le"]
 [ext_resource type="Texture2D" uid="uid://da1al3ahkoaqs" path="res://assets/images/Levels/Level1/dirt.png" id="2_n26qx"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ncy1ik4enrjv" path="res://src/Game/Objects/Coin/Coin.tscn" id="13_5471s"]
 [ext_resource type="PackedScene" uid="uid://cld53xklc0j71" path="res://src/Game/Objects/Health/Health.tscn" id="14_01x0i"]
 [ext_resource type="Texture2D" uid="uid://defgcnsmiywf2" path="res://assets/images/Objects/mushroomRed.png" id="14_ytxfw"]
+[ext_resource type="PackedScene" uid="uid://ejjsj65mcwdw" path="res://src/Game/Enemies/Slime/slime.tscn" id="19_d5v0h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8y8l"]
 texture = ExtResource("2_n26qx")
@@ -275,6 +276,9 @@ position = Vector2(7296, 1504)
 
 [node name="Health3" parent="Objects" index="15" instance=ExtResource("14_01x0i")]
 position = Vector2(12224, 1504)
+
+[node name="Slime" parent="Enemies" index="0" instance=ExtResource("19_d5v0h")]
+position = Vector2(2304, 1880)
 
 [node name="LevelEnd" parent="." index="6"]
 position = Vector2(18152, 1728)

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://ejjsj65mcwdw"]
+
+[ext_resource type="PackedScene" uid="uid://5ln32fnvrhnl" path="res://src/Game/Enemies/Enemy.tscn" id="1_po126"]
+[ext_resource type="Script" path="res://src/Game/Enemies/Slime/slime.gd" id="2_x1oo3"]
+[ext_resource type="Texture2D" uid="uid://rc6vg5b5mcft" path="res://assets/images/Enemies/Slime/slimeGreen_dead.png" id="3_e6vch"]
+[ext_resource type="Texture2D" uid="uid://nmakjesnp8tc" path="res://assets/images/Enemies/Slime/slimeGreen.png" id="4_up1hd"]
+[ext_resource type="Texture2D" uid="uid://dnadt7oiv85fc" path="res://assets/images/Enemies/Slime/slimeGreen_walk.png" id="5_8odhx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3n5hs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_e6vch")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_up1hd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8odhx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym253"]
+size = Vector2(192, 136)
+
+[node name="Slime" instance=ExtResource("1_po126")]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("2_x1oo3")
+speed = 250.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_3n5hs")
+animation = &"dead"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_ym253")

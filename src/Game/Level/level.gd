@@ -15,13 +15,11 @@ func _ready() -> void:
 	player.camera_limit_x = (tiles.get_used_rect().size.x * 128) - 128
 
 	for pickup: Pickup in get_tree().get_nodes_in_group("Pickup"):
-		pickup.pickup_collected.connect(_on_pickup_collected)
+		pickup.pickup_collected.connect(player._on_pickup_collected)
+
+	for enemy: Enemy in get_tree().get_nodes_in_group("Enemy"):
+		print(enemy)
+		enemy.player_hit.connect(player._on_player_hit)
 
 func _on_level_end_end_reached() -> void:
 	level_end.emit()
-
-func _on_pickup_collected(object_name: String) -> void:
-	if object_name.contains("Coin"):
-		update_score.emit()
-	elif object_name.contains("Health"):
-		update_health.emit()

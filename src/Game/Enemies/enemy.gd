@@ -1,6 +1,6 @@
-class_name Enemy extends CharacterBody2D
+class_name Enemy extends Area2D
 
-signal player_hit()
+signal player_hit(is_hurt: bool)
 
 @export var speed: float = 500.0
 @export var chase_speed: float = 750.0
@@ -15,8 +15,28 @@ signal player_hit()
 
 var direction: Vector2 = Vector2.LEFT
 
-func _physics_process(delta: float) -> void:
+func move(delta: float) -> void:
 	pass
 
-func _kill() -> void:
-	pass
+func kill() -> void:
+	collision_shape_2d.set_deferred("disabled", true)
+	set_physics_process(false)
+
+	animation_player.play("Kill")
+	await animation_player.animation_finished
+
+	queue_free()
+
+func _physics_process(delta: float) -> void:
+	move(delta)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		var player: Player = body as Player
+		print(player.velocity.y)
+		if player.velocity.y == 0:
+			player_hit.emit(true)
+		else:
+			player_hit.emit(false)
+			kill()

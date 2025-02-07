@@ -1,8 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://5ln32fnvrhnl"]
+[gd_scene load_steps=5 format=3 uid="uid://5ln32fnvrhnl"]
 
 [ext_resource type="Script" path="res://src/Game/Enemies/enemy.gd" id="1_twkoc"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_n31oe"]
+resource_name = "Kill"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7g63v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5aljj"]
+_data = {
+"Kill": SubResource("Animation_n31oe"),
+"RESET": SubResource("Animation_7g63v")
+}
+
+[node name="Enemy" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_twkoc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -22,3 +58,8 @@ target_position = Vector2(-400, 0)
 hit_from_inside = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5aljj")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
