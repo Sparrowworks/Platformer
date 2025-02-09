@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2utxsfmvud5e"
-path.s3tc="res://.godot/imported/blue_shroom.png-bcd40a7b125e148f31a140d7da7cd3ed.s3tc.ctex"
+uid="uid://ci4bso4aedgjt"
+path="res://.godot/imported/brickPlatform.png-06151f663c6f140432f5406180b90d23.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Levels/Level4/blue_shroom.png"
-dest_files=["res://.godot/imported/blue_shroom.png-bcd40a7b125e148f31a140d7da7cd3ed.s3tc.ctex"]
+source_file="res://assets/images/Levels/Level5/brickPlatform.png"
+dest_files=["res://.godot/imported/brickPlatform.png-06151f663c6f140432f5406180b90d23.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

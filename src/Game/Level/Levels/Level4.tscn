@@ -1,0 +1,79 @@
+[gd_scene load_steps=20 format=3 uid="uid://bg1ameehuyc67"]
+
+[ext_resource type="PackedScene" uid="uid://cyqormotwv52p" path="res://src/Game/Level/Level.tscn" id="1_i624m"]
+[ext_resource type="Texture2D" uid="uid://cvor41vp01juy" path="res://assets/images/Levels/Level4/blue_land.png" id="2_ykgyg"]
+[ext_resource type="Texture2D" uid="uid://dxs8ktmiu2e5e" path="res://assets/images/Levels/Water/water.png" id="3_0b6ot"]
+[ext_resource type="Texture2D" uid="uid://ccy31maa0hlt7" path="res://assets/images/Levels/Water/waterTop.png" id="4_m72uc"]
+[ext_resource type="Texture2D" uid="uid://c1sas35q3ik7w" path="res://assets/images/Levels/Level4/angleLeft.png" id="5_a4dc2"]
+[ext_resource type="Texture2D" uid="uid://h7wpelvdn1e6" path="res://assets/images/Levels/Level4/angleRight.png" id="6_wavru"]
+[ext_resource type="Texture2D" uid="uid://ct6ogxgvm1lx2" path="res://assets/images/Levels/Level4/dirt.png" id="7_g3yw4"]
+[ext_resource type="Texture2D" uid="uid://cly1j160elxp2" path="res://assets/images/Levels/Level4/snow.png" id="8_uygv7"]
+[ext_resource type="Texture2D" uid="uid://c0afxp47vhubg" path="res://assets/images/Levels/Level4/snowLeft.png" id="9_8sqs8"]
+[ext_resource type="Texture2D" uid="uid://dbohjp32dx080" path="res://assets/images/Levels/Level4/snowRight.png" id="10_q1qt5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q3ogn"]
+texture = ExtResource("3_0b6ot")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4kee0"]
+texture = ExtResource("4_m72uc")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3p2c2"]
+texture = ExtResource("5_a4dc2")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ee4ow"]
+texture = ExtResource("6_wavru")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, 64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvfxp"]
+texture = ExtResource("7_g3yw4")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, 64, -64, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6rik4"]
+texture = ExtResource("8_uygv7")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, 64, -64, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygjds"]
+texture = ExtResource("9_8sqs8")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, 64, -64, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdco0"]
+texture = ExtResource("10_q1qt5")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, 64, -64, -64, -64)
+
+[sub_resource type="TileSet" id="TileSet_f3fd1"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 15
+physics_layer_0/collision_mask = 15
+sources/0 = SubResource("TileSetAtlasSource_q3ogn")
+sources/1 = SubResource("TileSetAtlasSource_4kee0")
+sources/2 = SubResource("TileSetAtlasSource_3p2c2")
+sources/3 = SubResource("TileSetAtlasSource_ee4ow")
+sources/4 = SubResource("TileSetAtlasSource_uvfxp")
+sources/5 = SubResource("TileSetAtlasSource_6rik4")
+sources/6 = SubResource("TileSetAtlasSource_ygjds")
+sources/7 = SubResource("TileSetAtlasSource_rdco0")
+
+[node name="Level4" instance=ExtResource("1_i624m")]
+
+[node name="Background" parent="Parallax2D" index="0"]
+texture = ExtResource("2_ykgyg")
+
+[node name="Tiles" parent="." index="1"]
+tile_set = SubResource("TileSet_f3fd1")

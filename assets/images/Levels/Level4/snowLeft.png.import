@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpahtcgfgfj1i"
-path="res://.godot/imported/sheet.png-53b6a8fcd335ab3515607bcc67d30225.ctex"
+uid="uid://c0afxp47vhubg"
+path="res://.godot/imported/snowLeft.png-354afdcbd60edffbf76deb973a988a39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Levels/Level5/sheet.png"
-dest_files=["res://.godot/imported/sheet.png-53b6a8fcd335ab3515607bcc67d30225.ctex"]
+source_file="res://assets/images/Levels/Level4/snowLeft.png"
+dest_files=["res://.godot/imported/snowLeft.png-354afdcbd60edffbf76deb973a988a39.ctex"]
 
 [params]
 

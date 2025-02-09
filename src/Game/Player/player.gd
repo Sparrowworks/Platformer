@@ -56,7 +56,6 @@ var is_right_hold: bool
 
 var is_hurt: bool = false
 var is_immune: bool = false
-var health: int = 3
 
 var score: int = 0
 var coins: int = 0
@@ -73,15 +72,15 @@ func _ready() -> void:
 
 	jump_count = jumps
 
-	update_ui.emit(score, coins, health, Globals.level, time)
+	update_ui.emit(score, coins, Globals.player_health, Globals.level, time)
 
 func _hurt() -> void:
 	if not is_hurt:
 		is_hurt = true
-		health -= 1
-		update_ui.emit(score, coins, health, Globals.level, time)
+		Globals.player_health -= 1
+		update_ui.emit(score, coins, Globals.player_health, Globals.level, time)
 
-		if health == 0:
+		if Globals.player_health == 0:
 			_kill()
 			return
 
@@ -227,10 +226,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_time_timer_timeout() -> void:
 	time -= 1
-	update_ui.emit(score, coins, health, Globals.level, time)
+	update_ui.emit(score, coins, Globals.player_health, Globals.level, time)
 
-func _on_player_hit(is_hurt: bool) -> void:
-	if is_hurt:
+func _on_player_hit(hurt: bool) -> void:
+	if hurt:
 		_hurt()
 	else:
 		velocity.y = -((jump_height * 10.0) * gravity)
@@ -240,13 +239,13 @@ func _on_pickup_collected(object_name: String) -> void:
 		score += 100
 		coins += 1
 	elif object_name.contains("Health"):
-		health += 1
+		Globals.player_health += 1
 	elif object_name.contains("Immunity"):
 		is_immune = true
 		animation_player.play("Immunity")
 		immunity_timer.start()
 
-	update_ui.emit(score, coins, health, Globals.level, time)
+	update_ui.emit(score, coins, Globals.player_health, Globals.level, time)
 
 func _on_immunity_timeout() -> void:
 	is_immune = false

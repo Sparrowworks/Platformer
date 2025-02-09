@@ -1,9 +1,5 @@
 class_name Level extends Node2D
 
-signal update_score()
-signal update_health()
-signal update_immunity()
-
 signal level_end()
 
 @onready var tiles: TileMapLayer = $Tiles

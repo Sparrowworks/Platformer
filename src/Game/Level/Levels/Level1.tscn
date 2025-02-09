@@ -347,6 +347,3 @@ jump_power = 3.25
 
 [node name="LevelEnd" parent="." index="6"]
 position = Vector2(18152, 1728)
-
-[connection signal="update_health" from="." to="Player" method="_on_level_update_health"]
-[connection signal="update_score" from="." to="Player" method="_on_level_update_score"]

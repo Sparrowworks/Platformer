@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnrepsd2ewixp"
-path="res://.godot/imported/sheet.png-945f510df7ab51fc31c9da291a38005d.ctex"
+uid="uid://d2utxsfmvud5e"
+path.s3tc="res://.godot/imported/blue_shroom.png-161914f8c473a663431c31546605a887.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/images/Levels/Level3/sheet.png"
-dest_files=["res://.godot/imported/sheet.png-945f510df7ab51fc31c9da291a38005d.ctex"]
+source_file="res://assets/images/Levels/Level3/blue_shroom.png"
+dest_files=["res://.godot/imported/blue_shroom.png-161914f8c473a663431c31546605a887.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

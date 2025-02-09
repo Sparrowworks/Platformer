@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvor41vp01juy"
-path.s3tc="res://.godot/imported/blue_land.png-ec96a60d23396d6c0543322d8b416157.s3tc.ctex"
+uid="uid://ggukj8ph0yhm"
+path="res://.godot/imported/brickRight.png-fb86303c84f1a07ad146a25c8150e0cb.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Levels/Level3/blue_land.png"
-dest_files=["res://.godot/imported/blue_land.png-ec96a60d23396d6c0543322d8b416157.s3tc.ctex"]
+source_file="res://assets/images/Levels/Level5/brickRight.png"
+dest_files=["res://.godot/imported/brickRight.png-fb86303c84f1a07ad146a25c8150e0cb.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

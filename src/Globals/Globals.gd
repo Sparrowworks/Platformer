@@ -1,8 +1,26 @@
 extends Node
 
 ### Game variables
+var is_new_game: bool = true
+
 var level: int = 1
+
 var player: Player
+var player_health: int = 3
+
+var total_time: float = 0
+var total_score: int = 0
+var total_kills: int = 0
+var total_deaths: int = 0
+
+var start_time: float = 0.0
+var level_speedrun_times: Dictionary = {
+	"level1": 0.000,
+	"level2": 0.000,
+	"level3": 0.000,
+	"level4": 0.000,
+	"level5": 0.000,
+}
 
 var menu_theme: AudioStreamPlayer
 var game_theme: AudioStreamPlayer

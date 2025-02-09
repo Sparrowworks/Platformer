@@ -1,0 +1,57 @@
+[gd_scene load_steps=14 format=3 uid="uid://4dtrtik7oct5"]
+
+[ext_resource type="PackedScene" uid="uid://cyqormotwv52p" path="res://src/Game/Level/Level.tscn" id="1_1nref"]
+[ext_resource type="Texture2D" uid="uid://cy2i2dhn63nvp" path="res://assets/images/Levels/Level5/background.png" id="2_rep3v"]
+[ext_resource type="Texture2D" uid="uid://oonr1lm2r66" path="res://assets/images/Levels/Level5/angleLeft.png" id="2_vslom"]
+[ext_resource type="Texture2D" uid="uid://cy6b71lt4cttd" path="res://assets/images/Levels/Level5/angleRight.png" id="3_gw8vj"]
+[ext_resource type="Texture2D" uid="uid://dfjl37cj0hvmb" path="res://assets/images/Levels/Level5/brick.png" id="4_1ah14"]
+[ext_resource type="Texture2D" uid="uid://in1esex3lbab" path="res://assets/images/Levels/Level5/dirt.png" id="5_ff57m"]
+[ext_resource type="Texture2D" uid="uid://ci4bso4aedgjt" path="res://assets/images/Levels/Level5/brickPlatform.png" id="6_05qk3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysr1r"]
+texture = ExtResource("2_vslom")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avu4t"]
+texture = ExtResource("3_gw8vj")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, 64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83fun"]
+texture = ExtResource("4_1ah14")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, 64, -64, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5pyj"]
+texture = ExtResource("5_ff57m")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, 64, -64, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_00xn5"]
+texture = ExtResource("6_05qk3")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
+
+[sub_resource type="TileSet" id="TileSet_epmb1"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 15
+physics_layer_0/collision_mask = 15
+sources/0 = SubResource("TileSetAtlasSource_ysr1r")
+sources/1 = SubResource("TileSetAtlasSource_avu4t")
+sources/2 = SubResource("TileSetAtlasSource_83fun")
+sources/3 = SubResource("TileSetAtlasSource_g5pyj")
+sources/4 = SubResource("TileSetAtlasSource_00xn5")
+
+[node name="Level5" instance=ExtResource("1_1nref")]
+
+[node name="Background" parent="Parallax2D" index="0"]
+texture = ExtResource("2_rep3v")
+
+[node name="Tiles" parent="." index="1"]
+tile_set = SubResource("TileSet_epmb1")
