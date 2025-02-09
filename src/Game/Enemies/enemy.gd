@@ -75,7 +75,7 @@ func collision_check(body: Node2D) -> void:
 			else:
 				player_hit.emit(false)
 				kill()
-	elif not body.is_in_group("Enemy") or not body.is_in_group("Pickup"):
+	else:
 		if direction == Vector2.RIGHT:
 			turn_left()
 		else:
