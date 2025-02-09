@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://b2qkuxq0m7h3a"]
+[gd_scene load_steps=33 format=4 uid="uid://b2qkuxq0m7h3a"]
 
 [ext_resource type="PackedScene" uid="uid://cyqormotwv52p" path="res://src/Game/Level/Level.tscn" id="1_8c6le"]
 [ext_resource type="Texture2D" uid="uid://da1al3ahkoaqs" path="res://assets/images/Levels/Level1/dirt.png" id="2_n26qx"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ejjsj65mcwdw" path="res://src/Game/Enemies/Slime/slime.tscn" id="19_d5v0h"]
 [ext_resource type="PackedScene" uid="uid://d3don2s5i3oud" path="res://src/Game/Enemies/Spider/spider.tscn" id="20_oua8u"]
 [ext_resource type="PackedScene" uid="uid://dqs1efi88vvs0" path="res://src/Game/Enemies/Bee/Bee.tscn" id="21_42bul"]
+[ext_resource type="PackedScene" uid="uid://buso7iw1ogkt8" path="res://src/Game/Enemies/Piranha/Piranha.tscn" id="22_6ensv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8y8l"]
 texture = ExtResource("2_n26qx")
@@ -91,6 +92,7 @@ sources/8 = SubResource("TileSetAtlasSource_lokgk")
 [node name="Level" instance=ExtResource("1_8c6le")]
 
 [node name="Parallax2D" parent="." index="0"]
+z_index = -2
 repeat_times = 3
 
 [node name="Background" parent="Parallax2D" index="0"]
@@ -336,6 +338,45 @@ collision_mask = 1
 position = Vector2(17896, 912)
 collision_layer = 1
 collision_mask = 1
+
+[node name="Piranha" parent="Enemies" index="10" instance=ExtResource("22_6ensv")]
+z_index = -1
+z_as_relative = false
+position = Vector2(12792, 2815)
+jump_power = 3.25
+
+[node name="Piranha2" parent="Enemies" index="11" instance=ExtResource("22_6ensv")]
+z_index = -1
+z_as_relative = false
+position = Vector2(9920, 2815)
+jump_power = 3.25
+delay = 1.0
+
+[node name="Piranha3" parent="Enemies" index="12" instance=ExtResource("22_6ensv")]
+z_index = -1
+z_as_relative = false
+position = Vector2(12792, 2815)
+jump_power = 3.25
+
+[node name="Piranha4" parent="Enemies" index="13" instance=ExtResource("22_6ensv")]
+z_index = -1
+z_as_relative = false
+position = Vector2(13560, 2815)
+jump_power = 3.25
+delay = 1.0
+
+[node name="Piranha5" parent="Enemies" index="14" instance=ExtResource("22_6ensv")]
+z_index = -1
+z_as_relative = false
+position = Vector2(14984, 2815)
+jump_power = 3.25
+delay = 1.0
+
+[node name="Piranha6" parent="Enemies" index="15" instance=ExtResource("22_6ensv")]
+z_index = -1
+z_as_relative = false
+position = Vector2(16768, 2815)
+jump_power = 3.25
 
 [node name="LevelEnd" parent="." index="6"]
 position = Vector2(18152, 1728)
