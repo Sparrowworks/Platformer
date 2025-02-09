@@ -71,11 +71,13 @@ _data = {
 "RESET": SubResource("Animation_hg0bu")
 }
 
-[node name="Pickup" type="Node2D" groups=["Pickup"]]
+[node name="Pickup" type="Node2D" groups=["PickupInternal"]]
 script = ExtResource("1_tfu1k")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Pickup"]]
 position = Vector2(0, 96)
+collision_layer = 15
+collision_mask = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 

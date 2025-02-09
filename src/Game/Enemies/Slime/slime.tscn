@@ -29,7 +29,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym253"]
-size = Vector2(192, 136)
+size = Vector2(192, 125.333)
 
 [node name="Slime" instance=ExtResource("1_po126")]
 scale = Vector2(0.75, 0.75)
@@ -41,11 +41,14 @@ sprite_frames = SubResource("SpriteFrames_3n5hs")
 animation = &"walk"
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -4)
+position = Vector2(0, -9.33333)
 shape = SubResource("RectangleShape2D_ym253")
 
-[node name="LeftRay" parent="." index="2"]
+[node name="TopPos" parent="." index="2"]
+position = Vector2(0, 64)
+
+[node name="LeftRay" parent="." index="3"]
 position = Vector2(-97, 0)
 
-[node name="RightRay" parent="." index="3"]
+[node name="RightRay" parent="." index="4"]
 position = Vector2(97, 0)

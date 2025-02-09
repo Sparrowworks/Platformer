@@ -39,11 +39,15 @@ _data = {
 }
 
 [node name="Enemy" type="Area2D" groups=["Enemy"]]
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_twkoc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="TopPos" type="Marker2D" parent="."]
 
 [node name="LeftRay" type="RayCast2D" parent="."]
 target_position = Vector2(0, 128)
@@ -54,7 +58,8 @@ target_position = Vector2(0, 128)
 hit_from_inside = true
 
 [node name="PlayerRay" type="RayCast2D" parent="."]
-target_position = Vector2(-400, 0)
+target_position = Vector2(-1920, 0)
+collision_mask = 2
 hit_from_inside = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -43,7 +43,6 @@ scale = Vector2(0.75, 0.75)
 script = ExtResource("2_wi507")
 speed = 250.0
 chase_speed = 500.0
-does_chase = true
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_lekpy")
@@ -53,8 +52,14 @@ animation = &"walk"
 position = Vector2(5.08626e-06, -5.33333)
 shape = SubResource("RectangleShape2D_3n8w5")
 
-[node name="LeftRay" parent="." index="2"]
+[node name="TopPos" parent="." index="2"]
+position = Vector2(0, 85.3333)
+
+[node name="LeftRay" parent="." index="3"]
 position = Vector2(-138.667, 0)
 
-[node name="RightRay" parent="." index="3"]
+[node name="RightRay" parent="." index="4"]
 position = Vector2(138.667, 0)
+
+[connection signal="player_tracked" from="." to="." method="_on_player_tracked"]
+[connection signal="player_tracked_stopped" from="." to="." method="_on_player_tracked_stopped"]

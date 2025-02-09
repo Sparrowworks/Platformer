@@ -2,6 +2,7 @@ extends Node
 
 ### Game variables
 var level: int = 1
+var player: Player
 
 var menu_theme: AudioStreamPlayer
 var game_theme: AudioStreamPlayer

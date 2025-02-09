@@ -14,7 +14,7 @@ signal level_end()
 func _ready() -> void:
 	player.camera_limit_x = (tiles.get_used_rect().size.x * 128) - 128
 
-	for pickup: Pickup in get_tree().get_nodes_in_group("Pickup"):
+	for pickup: Pickup in get_tree().get_nodes_in_group("PickupInternal"):
 		pickup.pickup_collected.connect(player._on_pickup_collected)
 
 	for enemy: Enemy in get_tree().get_nodes_in_group("Enemy"):

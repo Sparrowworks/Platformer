@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqs1efi88vvs0"]
+
+[ext_resource type="PackedScene" uid="uid://5ln32fnvrhnl" path="res://src/Game/Enemies/Enemy.tscn" id="1_wgr3f"]
+[ext_resource type="Script" path="res://src/Game/Enemies/Bee/bee.gd" id="2_w5wxy"]
+[ext_resource type="Texture2D" uid="uid://cgrmi2p6r52n" path="res://assets/images/Enemies/Bee/bee_dead.png" id="3_foq1o"]
+[ext_resource type="Texture2D" uid="uid://ciujm65ynducu" path="res://assets/images/Enemies/Bee/bee.png" id="3_ml47b"]
+[ext_resource type="Texture2D" uid="uid://chohlubbsena5" path="res://assets/images/Enemies/Bee/bee_fly.png" id="4_7e4tl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jagk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_foq1o")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ml47b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7e4tl")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwsm3"]
+size = Vector2(184, 192)
+
+[node name="Bee" instance=ExtResource("1_wgr3f")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_w5wxy")
+speed = 250.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_8jagk")
+animation = &"fly"
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_cwsm3")
+
+[node name="TopPos" parent="." index="2"]
+position = Vector2(0, -40)
+
+[node name="PlayerRay" parent="." index="5"]
+rotation = 3.92699
+target_position = Vector2(0, -2400)
+
+[connection signal="player_tracked" from="." to="." method="_on_player_tracked"]

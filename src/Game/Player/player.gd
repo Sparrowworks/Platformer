@@ -32,6 +32,7 @@ signal player_dead()
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var feet_pos: Marker2D = $FeetPos
 
 @onready var jump_long: AudioStreamPlayer = $Sounds/Jump
 @onready var land_sound: AudioStreamPlayer = $Sounds/LandSound
@@ -60,6 +61,8 @@ var coins: int = 0
 var time: int = 0
 
 func _ready() -> void:
+	Globals.player = self
+
 	var level: Level = get_parent()
 	time = level.level_time
 
@@ -90,6 +93,7 @@ func _hurt() -> void:
 		is_hurt = false
 
 func _kill() -> void:
+	$CollisionShape2D.set_deferred("disabled", true)
 	set_process(false)
 	set_physics_process(false)
 
