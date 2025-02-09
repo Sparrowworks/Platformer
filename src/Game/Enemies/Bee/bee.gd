@@ -2,6 +2,7 @@ class_name Bee extends Enemy
 
 var time: float
 var is_chasing: bool = false
+var movement_tween: Tween
 
 func _ready() -> void:
 	animated_sprite_2d.play("fly")
@@ -23,6 +24,11 @@ func move(delta: float) -> void:
 		time += delta
 		global_position += Vector2(direction.x, sin(time*3)) * actual_speed * delta
 
+func kill() -> void:
+	if movement_tween != null:
+		movement_tween.pause()
+
+	super()
 
 func _on_player_tracked() -> void:
 	if not is_chasing:
@@ -30,9 +36,9 @@ func _on_player_tracked() -> void:
 
 		var initial_pos: Vector2 = global_position
 		var desired_pos: Vector2 = Vector2(Globals.player.global_position.x, Globals.player.global_position.y)
-		prints("Desired: ", desired_pos)
 		var time: float = clampf((desired_pos.y - initial_pos.y)/2000, 0.5, 1)
-		var movement_tween: Tween = get_tree().create_tween()
+
+		movement_tween = get_tree().create_tween()
 		movement_tween.tween_property(self, "global_position", desired_pos, time)
 		movement_tween.tween_callback(
 			func() -> void:

@@ -60,15 +60,16 @@ func kill() -> void:
 
 	queue_free()
 
-func _physics_process(delta: float) -> void:
-	move(delta)
-
-func _on_body_entered(body: Node2D) -> void:
+func collision_check(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		if Globals.player.is_immune:
+			player_hit.emit(false)
+			kill()
+			return
+
 		if Globals.player.velocity.y == 0:
 			player_hit.emit(true)
 		else:
-			prints(Globals.player.feet_pos.global_position.y, top_pos.global_position.y)
 			if Globals.player.feet_pos.global_position.y >= top_pos.global_position.y:
 				player_hit.emit(true)
 			else:
@@ -79,3 +80,9 @@ func _on_body_entered(body: Node2D) -> void:
 			turn_left()
 		else:
 			turn_right()
+
+func _physics_process(delta: float) -> void:
+	move(delta)
+
+func _on_body_entered(body: Node2D) -> void:
+	collision_check(body)

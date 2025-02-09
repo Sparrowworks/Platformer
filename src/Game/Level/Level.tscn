@@ -9,25 +9,28 @@
 script = ExtResource("1_aukpg")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -2
 scroll_scale = Vector2(0.65, 0.65)
 repeat_size = Vector2(2048, 0)
+repeat_times = 3
 
 [node name="Background" type="Sprite2D" parent="Parallax2D"]
 texture = ExtResource("2_uydun")
 centered = false
-region_rect = Rect2(0, 0, 2048, 2048)
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 2160)
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_ljisj")]
 
 [node name="Decorations" type="Node2D" parent="."]
+z_index = 1
 
 [node name="Objects" type="Node2D" parent="."]
-z_index = -1
 
 [node name="Enemies" type="Node2D" parent="."]
-z_index = 1
+z_index = 2
 
 [node name="LevelEnd" parent="." instance=ExtResource("2_uwdbo")]
 

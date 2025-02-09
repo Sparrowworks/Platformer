@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://b2qkuxq0m7h3a"]
+[gd_scene load_steps=31 format=4 uid="uid://b2qkuxq0m7h3a"]
 
 [ext_resource type="PackedScene" uid="uid://cyqormotwv52p" path="res://src/Game/Level/Level.tscn" id="1_8c6le"]
 [ext_resource type="Texture2D" uid="uid://da1al3ahkoaqs" path="res://assets/images/Levels/Level1/dirt.png" id="2_n26qx"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://biih7ltb14iw7" path="res://assets/images/Levels/Level1/grassRight.png" id="5_jsmiy"]
 [ext_resource type="Texture2D" uid="uid://cj30oh5qxigaj" path="res://assets/images/Levels/Level1/angleLeft.png" id="6_doiph"]
 [ext_resource type="Texture2D" uid="uid://b52nokdhea6y0" path="res://assets/images/Levels/Level1/angleRight.png" id="7_gju26"]
-[ext_resource type="Texture2D" uid="uid://c5pnvvndenx5p" path="res://assets/images/Levels/Level1/platform.png" id="8_julr5"]
 [ext_resource type="Texture2D" uid="uid://dxs8ktmiu2e5e" path="res://assets/images/Levels/Water/water.png" id="9_603pn"]
 [ext_resource type="Texture2D" uid="uid://nj0k1jgvmkva" path="res://assets/images/Objects/signRight.png" id="9_lmbq7"]
 [ext_resource type="Texture2D" uid="uid://fqcgtkysl8v" path="res://assets/images/Objects/tree.png" id="9_oc51u"]
@@ -59,12 +58,6 @@ texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 64, 64, 64, 64, -64)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ff8b"]
-texture = ExtResource("8_julr5")
-texture_region_size = Vector2i(128, 73)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, -64, 32, 64, 32, 64, -32)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1olqh"]
 texture = ExtResource("9_603pn")
 texture_region_size = Vector2i(128, 128)
@@ -85,19 +78,13 @@ sources/2 = SubResource("TileSetAtlasSource_4di45")
 sources/3 = SubResource("TileSetAtlasSource_np6di")
 sources/4 = SubResource("TileSetAtlasSource_3okvr")
 sources/5 = SubResource("TileSetAtlasSource_aipmf")
-sources/6 = SubResource("TileSetAtlasSource_0ff8b")
 sources/7 = SubResource("TileSetAtlasSource_1olqh")
 sources/8 = SubResource("TileSetAtlasSource_lokgk")
 
 [node name="Level" instance=ExtResource("1_8c6le")]
 
 [node name="Parallax2D" parent="." index="0"]
-z_index = -2
-repeat_times = 3
-
-[node name="Background" parent="Parallax2D" index="0"]
-region_enabled = true
-region_rect = Rect2(0, 0, 2048, 2160)
+repeat_size = Vector2(2046, 0)
 
 [node name="Tiles" parent="." index="1"]
 position = Vector2(2, 0)
@@ -106,14 +93,6 @@ tile_set = SubResource("TileSet_6ond5")
 
 [node name="Player" parent="." index="2"]
 position = Vector2(272, 1824)
-max_speed = 800.0
-max_time = 0.5
-jump_height = 5.5
-fall_velocity = 1000.0
-fall_factor = 3.5
-
-[node name="Decorations" parent="." index="3"]
-z_index = 1
 
 [node name="ArrowRight" type="Sprite2D" parent="Decorations" index="0"]
 position = Vector2(696, 1856)
@@ -235,9 +214,6 @@ texture = ExtResource("14_ytxfw")
 position = Vector2(15536, 1512)
 texture = ExtResource("14_ytxfw")
 
-[node name="Objects" parent="." index="4"]
-z_index = 0
-
 [node name="Coin" parent="Objects" index="0" groups=["Pickup"] instance=ExtResource("13_5471s")]
 position = Vector2(1008, 1760)
 
@@ -278,16 +254,13 @@ position = Vector2(14592, 1248)
 position = Vector2(16384, 1376)
 
 [node name="Health" parent="Objects" index="13" groups=["Pickup"] instance=ExtResource("14_01x0i")]
-position = Vector2(2816, 1480)
+position = Vector2(4352, 1472)
 
 [node name="Health2" parent="Objects" index="14" groups=["Pickup"] instance=ExtResource("14_01x0i")]
-position = Vector2(7296, 1504)
+position = Vector2(7296, 1592)
 
 [node name="Health3" parent="Objects" index="15" groups=["Pickup"] instance=ExtResource("14_01x0i")]
-position = Vector2(12224, 1504)
-
-[node name="Enemies" parent="." index="5"]
-z_index = 2
+position = Vector2(12224, 1600)
 
 [node name="Slime" parent="Enemies" index="0" instance=ExtResource("19_d5v0h")]
 position = Vector2(2552, 1872)
@@ -340,40 +313,34 @@ collision_layer = 1
 collision_mask = 1
 
 [node name="Piranha" parent="Enemies" index="10" instance=ExtResource("22_6ensv")]
-z_index = -1
 z_as_relative = false
 position = Vector2(12792, 2815)
 jump_power = 3.25
 
 [node name="Piranha2" parent="Enemies" index="11" instance=ExtResource("22_6ensv")]
-z_index = -1
 z_as_relative = false
 position = Vector2(9920, 2815)
 jump_power = 3.25
 delay = 1.0
 
 [node name="Piranha3" parent="Enemies" index="12" instance=ExtResource("22_6ensv")]
-z_index = -1
 z_as_relative = false
 position = Vector2(12792, 2815)
 jump_power = 3.25
 
 [node name="Piranha4" parent="Enemies" index="13" instance=ExtResource("22_6ensv")]
-z_index = -1
 z_as_relative = false
 position = Vector2(13560, 2815)
 jump_power = 3.25
 delay = 1.0
 
 [node name="Piranha5" parent="Enemies" index="14" instance=ExtResource("22_6ensv")]
-z_index = -1
 z_as_relative = false
 position = Vector2(14984, 2815)
 jump_power = 3.25
 delay = 1.0
 
 [node name="Piranha6" parent="Enemies" index="15" instance=ExtResource("22_6ensv")]
-z_index = -1
 z_as_relative = false
 position = Vector2(16768, 2815)
 jump_power = 3.25

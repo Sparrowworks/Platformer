@@ -39,6 +39,7 @@ signal player_dead()
 @onready var hurt_sound: AudioStreamPlayer = $Sounds/HurtSound
 @onready var death_sound: AudioStreamPlayer = $Sounds/DeathSound
 @onready var time_timer: Timer = $TimeTimer
+@onready var immunity_timer: Timer = $ImmunityTimer
 
 var applied_gravity: float
 var applied_fall_gravity: float
@@ -54,6 +55,7 @@ var is_left_hold: bool
 var is_right_hold: bool
 
 var is_hurt: bool = false
+var is_immune: bool = false
 var health: int = 3
 
 var score: int = 0
@@ -239,5 +241,13 @@ func _on_pickup_collected(object_name: String) -> void:
 		coins += 1
 	elif object_name.contains("Health"):
 		health += 1
+	elif object_name.contains("Immunity"):
+		is_immune = true
+		animation_player.play("Immunity")
+		immunity_timer.start()
 
 	update_ui.emit(score, coins, health, Globals.level, time)
+
+func _on_immunity_timeout() -> void:
+	is_immune = false
+	animation_player.stop()

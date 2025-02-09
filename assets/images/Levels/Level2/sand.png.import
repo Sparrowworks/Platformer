@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnmean71kyq2j"
-path="res://.godot/imported/sheet.png-f3ffccbee0610921c22c5ef651920fab.ctex"
+uid="uid://bpx4fof26lrgv"
+path="res://.godot/imported/sand.png-b62d54d630659759e5becf3d48b37b9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Levels/Level2/sheet.png"
-dest_files=["res://.godot/imported/sheet.png-f3ffccbee0610921c22c5ef651920fab.ctex"]
+source_file="res://assets/images/Levels/Level2/sand.png"
+dest_files=["res://.godot/imported/sand.png-b62d54d630659759e5becf3d48b37b9b.ctex"]
 
 [params]
 

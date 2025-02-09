@@ -37,6 +37,7 @@ animations = [{
 size = Vector2(152, 240)
 
 [node name="Piranha" instance=ExtResource("1_oidsl")]
+z_index = -1
 position = Vector2(1880, 1720)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("2_bapft")

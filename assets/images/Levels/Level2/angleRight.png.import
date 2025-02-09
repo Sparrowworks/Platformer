@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnxoo0ns4wa0i"
-path="res://.godot/imported/sheet.png-52377e23ca7b08b83521b20bde0d4866.ctex"
+uid="uid://bg45pmrf3e83e"
+path="res://.godot/imported/angleRight.png-febc41c7dc77d892abaf69ee5d111cec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Levels/Level1/sheet.png"
-dest_files=["res://.godot/imported/sheet.png-52377e23ca7b08b83521b20bde0d4866.ctex"]
+source_file="res://assets/images/Levels/Level2/angleRight.png"
+dest_files=["res://.godot/imported/angleRight.png-febc41c7dc77d892abaf69ee5d111cec.ctex"]
 
 [params]
 

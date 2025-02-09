@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5pnvvndenx5p"
-path="res://.godot/imported/platform.png-33b0c1235e06c2606d9808a93e6a2ba9.ctex"
+uid="uid://dw2o4sxf36mr"
+path="res://.godot/imported/sandRight.png-398301f8c18590c4dce4b05c6128d18b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Levels/Level1/platform.png"
-dest_files=["res://.godot/imported/platform.png-33b0c1235e06c2606d9808a93e6a2ba9.ctex"]
+source_file="res://assets/images/Levels/Level2/sandRight.png"
+dest_files=["res://.godot/imported/sandRight.png-398301f8c18590c4dce4b05c6128d18b.ctex"]
 
 [params]
 

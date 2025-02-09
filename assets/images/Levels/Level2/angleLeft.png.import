@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfh2q326iqeev"
-path="res://.godot/imported/platformLeft.png-7dc3af2c87a0690cafa480eb77d1d483.ctex"
+uid="uid://bcs72a5xhuxx"
+path="res://.godot/imported/angleLeft.png-c10e59b36323d337f22582461129cdab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Levels/Level1/platformLeft.png"
-dest_files=["res://.godot/imported/platformLeft.png-7dc3af2c87a0690cafa480eb77d1d483.ctex"]
+source_file="res://assets/images/Levels/Level2/angleLeft.png"
+dest_files=["res://.godot/imported/angleLeft.png-c10e59b36323d337f22582461129cdab.ctex"]
 
 [params]
 
