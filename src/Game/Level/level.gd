@@ -16,5 +16,8 @@ func _ready() -> void:
 	for enemy: Enemy in get_tree().get_nodes_in_group("Enemy"):
 		enemy.player_hit.connect(player._on_player_hit)
 
+	for spinner: Spinner in get_tree().get_nodes_in_group("EnemySpinner"):
+		spinner.player_hit.connect(player._on_player_hit)
+
 func _on_level_end_end_reached() -> void:
 	level_end.emit()

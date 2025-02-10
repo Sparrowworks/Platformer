@@ -98,7 +98,7 @@ tile_set = SubResource("TileSet_buwvj")
 position = Vector2(136, 1816)
 
 [node name="ArrowRight" type="Sprite2D" parent="Decorations" index="0"]
-position = Vector2(696, 1856)
+position = Vector2(328, 1856)
 texture = ExtResource("11_uh4in")
 
 [node name="Decoration" type="Sprite2D" parent="Decorations" index="1"]

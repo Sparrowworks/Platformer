@@ -93,7 +93,7 @@ tile_set = SubResource("TileSet_rpqf1")
 position = Vector2(224, 1824)
 
 [node name="ArrowRight" type="Sprite2D" parent="Decorations" index="0"]
-position = Vector2(464, 1848)
+position = Vector2(464, 1856)
 texture = ExtResource("11_fiadc")
 
 [node name="Decoration" type="Sprite2D" parent="Decorations" index="1"]
