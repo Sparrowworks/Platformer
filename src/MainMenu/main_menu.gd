@@ -25,6 +25,7 @@ func _on_x_button_pressed() -> void:
 
 func _on_new_game_button_pressed() -> void:
 	Globals.menu_theme.stop()
+	Globals.level = 1
 	Globals.go_to_with_fade("res://src/Game/Game.tscn")
 
 func _on_level_select_button_pressed() -> void:
