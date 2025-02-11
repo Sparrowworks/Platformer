@@ -228,6 +228,7 @@ grow_vertical = 2
 script = ExtResource("8_4b67c")
 
 [node name="DeadText" type="Label" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -258,6 +259,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="EndText" type="Label" parent="CanvasLayer/UI/EndText"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_tie6r")
@@ -271,6 +273,7 @@ custom_minimum_size = Vector2(0, 324)
 layout_mode = 2
 
 [node name="Prompt" type="Label" parent="CanvasLayer/UI/EndText/Control"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 5

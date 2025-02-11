@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://v8ckqkbwot24"]
+[gd_scene load_steps=31 format=4 uid="uid://v8ckqkbwot24"]
 
 [ext_resource type="PackedScene" uid="uid://cyqormotwv52p" path="res://src/Game/Level/Level.tscn" id="1_44oci"]
 [ext_resource type="Texture2D" uid="uid://bo6hk08x5jsld" path="res://assets/images/Levels/Level3/dirt.png" id="2_iwebj"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dxs8ktmiu2e5e" path="res://assets/images/Levels/Water/water.png" id="9_vqaq5"]
 [ext_resource type="Texture2D" uid="uid://nj0k1jgvmkva" path="res://assets/images/Objects/signRight.png" id="11_fiadc"]
 [ext_resource type="Texture2D" uid="uid://c3x8euiu3vi07" path="res://assets/images/Objects/rock.png" id="12_my8g1"]
+[ext_resource type="Texture2D" uid="uid://b1wgume0oi05p" path="res://assets/images/Levels/Level3/castleSmall.png" id="13_46q47"]
 [ext_resource type="Texture2D" uid="uid://dnwb34bff8mg" path="res://assets/images/Objects/treePine.png" id="13_d3ejp"]
 [ext_resource type="Texture2D" uid="uid://cklfroc556cpa" path="res://assets/images/Objects/bush.png" id="14_fms0y"]
 [ext_resource type="PackedScene" uid="uid://ncy1ik4enrjv" path="res://src/Game/Objects/Coin/Coin.tscn" id="15_n3gdc"]
@@ -81,6 +82,7 @@ sources/6 = SubResource("TileSetAtlasSource_fq8tl")
 sources/7 = SubResource("TileSetAtlasSource_2qpdj")
 
 [node name="Level3" instance=ExtResource("1_44oci")]
+level_time = 180
 
 [node name="Background" parent="Parallax2D" index="0"]
 texture = ExtResource("2_s6gkg")
@@ -144,103 +146,107 @@ texture = ExtResource("12_my8g1")
 position = Vector2(22336, 600)
 texture = ExtResource("12_my8g1")
 
-[node name="Decoration2" type="Sprite2D" parent="Decorations" index="13"]
+[node name="Decoration38" type="Sprite2D" parent="Decorations" index="13"]
+position = Vector2(22640, 560)
+texture = ExtResource("13_46q47")
+
+[node name="Decoration2" type="Sprite2D" parent="Decorations" index="14"]
 position = Vector2(744, 1672)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration3" type="Sprite2D" parent="Decorations" index="14"]
+[node name="Decoration3" type="Sprite2D" parent="Decorations" index="15"]
 position = Vector2(976, 1672)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration5" type="Sprite2D" parent="Decorations" index="15"]
+[node name="Decoration5" type="Sprite2D" parent="Decorations" index="16"]
 position = Vector2(2248, 1672)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration7" type="Sprite2D" parent="Decorations" index="16"]
+[node name="Decoration7" type="Sprite2D" parent="Decorations" index="17"]
 position = Vector2(1960, 1672)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration6" type="Sprite2D" parent="Decorations" index="17"]
+[node name="Decoration6" type="Sprite2D" parent="Decorations" index="18"]
 position = Vector2(2584, 1672)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration8" type="Sprite2D" parent="Decorations" index="18"]
+[node name="Decoration8" type="Sprite2D" parent="Decorations" index="19"]
 position = Vector2(2856, 1288)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration11" type="Sprite2D" parent="Decorations" index="19"]
+[node name="Decoration11" type="Sprite2D" parent="Decorations" index="20"]
 position = Vector2(4408, 776)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration14" type="Sprite2D" parent="Decorations" index="20"]
+[node name="Decoration14" type="Sprite2D" parent="Decorations" index="21"]
 position = Vector2(5376, 904)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration16" type="Sprite2D" parent="Decorations" index="21"]
+[node name="Decoration16" type="Sprite2D" parent="Decorations" index="22"]
 position = Vector2(8192, 1032)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration17" type="Sprite2D" parent="Decorations" index="22"]
+[node name="Decoration17" type="Sprite2D" parent="Decorations" index="23"]
 position = Vector2(9232, 1544)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration24" type="Sprite2D" parent="Decorations" index="23"]
+[node name="Decoration24" type="Sprite2D" parent="Decorations" index="24"]
 position = Vector2(15624, 1288)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration25" type="Sprite2D" parent="Decorations" index="24"]
+[node name="Decoration25" type="Sprite2D" parent="Decorations" index="25"]
 position = Vector2(15848, 1288)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration26" type="Sprite2D" parent="Decorations" index="25"]
+[node name="Decoration26" type="Sprite2D" parent="Decorations" index="26"]
 position = Vector2(16080, 1288)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration31" type="Sprite2D" parent="Decorations" index="26"]
+[node name="Decoration31" type="Sprite2D" parent="Decorations" index="27"]
 position = Vector2(19776, 392)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration32" type="Sprite2D" parent="Decorations" index="27"]
+[node name="Decoration32" type="Sprite2D" parent="Decorations" index="28"]
 position = Vector2(21768, 392)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration18" type="Sprite2D" parent="Decorations" index="28"]
+[node name="Decoration18" type="Sprite2D" parent="Decorations" index="29"]
 position = Vector2(10024, 1800)
 texture = ExtResource("13_d3ejp")
 
-[node name="Decoration4" type="Sprite2D" parent="Decorations" index="29"]
+[node name="Decoration4" type="Sprite2D" parent="Decorations" index="30"]
 position = Vector2(1800, 1880)
 texture = ExtResource("14_fms0y")
 
-[node name="Decoration10" type="Sprite2D" parent="Decorations" index="30"]
+[node name="Decoration10" type="Sprite2D" parent="Decorations" index="31"]
 position = Vector2(4224, 984)
 texture = ExtResource("14_fms0y")
 
-[node name="Decoration12" type="Sprite2D" parent="Decorations" index="31"]
+[node name="Decoration12" type="Sprite2D" parent="Decorations" index="32"]
 position = Vector2(5232, 1112)
 texture = ExtResource("14_fms0y")
 
-[node name="Decoration13" type="Sprite2D" parent="Decorations" index="32"]
+[node name="Decoration13" type="Sprite2D" parent="Decorations" index="33"]
 position = Vector2(5520, 1112)
 texture = ExtResource("14_fms0y")
 
-[node name="Decoration22" type="Sprite2D" parent="Decorations" index="33"]
+[node name="Decoration22" type="Sprite2D" parent="Decorations" index="34"]
 position = Vector2(8336, 1240)
 texture = ExtResource("14_fms0y")
 
-[node name="Decoration27" type="Sprite2D" parent="Decorations" index="34"]
+[node name="Decoration27" type="Sprite2D" parent="Decorations" index="35"]
 position = Vector2(11520, 1752)
 texture = ExtResource("14_fms0y")
 
-[node name="Decoration28" type="Sprite2D" parent="Decorations" index="35"]
+[node name="Decoration28" type="Sprite2D" parent="Decorations" index="36"]
 position = Vector2(16464, 1496)
 texture = ExtResource("14_fms0y")
 
-[node name="Decoration29" type="Sprite2D" parent="Decorations" index="36"]
+[node name="Decoration29" type="Sprite2D" parent="Decorations" index="37"]
 position = Vector2(17784, 984)
 texture = ExtResource("14_fms0y")
 
-[node name="Decoration30" type="Sprite2D" parent="Decorations" index="37"]
+[node name="Decoration30" type="Sprite2D" parent="Decorations" index="38"]
 position = Vector2(17608, 984)
 texture = ExtResource("14_fms0y")
 
@@ -451,4 +457,4 @@ position = Vector2(15568, 1432)
 position = Vector2(20728, 664)
 
 [node name="LevelEnd" parent="." index="6"]
-position = Vector2(22536, 576)
+position = Vector2(22144, 576)

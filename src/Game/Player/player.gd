@@ -34,6 +34,10 @@ signal player_dead()
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var feet_pos: Marker2D = $FeetPos
 
+@onready var dead_text: Label = %DeadText
+@onready var end_text: Label = %EndText
+@onready var prompt: Label = %Prompt
+
 @onready var jump_long: AudioStreamPlayer = $Sounds/Jump
 @onready var land_sound: AudioStreamPlayer = $Sounds/LandSound
 @onready var hurt_sound: AudioStreamPlayer = $Sounds/HurtSound
@@ -63,6 +67,11 @@ var time: int = 0
 
 func _ready() -> void:
 	Globals.player = self
+
+	if Globals.level == 5:
+		dead_text.add_theme_color_override("font_color", Color.WHITE)
+		end_text.add_theme_color_override("font_color", Color.WHITE)
+		prompt.add_theme_color_override("font_color", Color.WHITE)
 
 	var level: Level = get_parent()
 	time = level.level_time

@@ -40,8 +40,7 @@ func _on_player_tracked() -> void:
 
 		movement_tween = get_tree().create_tween()
 		movement_tween.tween_property(self, "global_position", desired_pos, fly_time)
-		await movement_tween.step_finished
-		await get_tree().create_timer(0.2)
+		movement_tween.tween_property(self, "global_position", desired_pos, 0.5)
 		movement_tween.tween_property(self, "global_position", initial_pos, fly_time)
 		movement_tween.tween_callback(
 			func() -> void:
