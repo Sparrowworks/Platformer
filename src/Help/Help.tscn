@@ -33,7 +33,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_nuopy")
 theme_override_font_sizes/font_size = 192
-text = "in-game controls:"
+text = "Story:"
 horizontal_alignment = 1
 
 [node name="Help" type="Label" parent="."]
@@ -52,13 +52,12 @@ grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_nuopy")
-theme_override_font_sizes/font_size = 192
-text = "use wasd or arrow keys to walk
-press space to jump
-press q in game to go back to menu
-press r to quickly restart the level
-press enter to proceed to the next level"
+theme_override_font_sizes/font_size = 144
+text = "You are an alien who has been travelling space with a spaceship.
+unfortunately, a collision with an asteroid forced you to land on earth and catapult yourself. now you have to find your vehicle to get back home."
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1

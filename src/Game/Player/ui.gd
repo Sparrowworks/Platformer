@@ -2,8 +2,11 @@ class_name UI extends Control
 
 @onready var dead_text: Label = $DeadText
 @onready var dead_animation: AnimationPlayer = $DeadText/DeadAnimation
-@onready var end_text: VBoxContainer = $EndText
-@onready var prompt_animation: AnimationPlayer = $EndText/Control/Prompt/PromptAnimation
+
+@onready var end_text_container: VBoxContainer = %EndTextContainer
+@onready var end_text: Label = %EndText
+@onready var prompt: Label = %Prompt
+@onready var prompt_animation: AnimationPlayer = %PromptAnimation
 
 @onready var score_text: Label = $TopBar/HBoxContainer/ScoreText
 @onready var coin_text: Label = $TopBar/HBoxContainer/CoinText
@@ -16,6 +19,11 @@ func _ready() -> void:
 	prompt_animation.play("RESET")
 	dead_text.hide()
 	end_text.hide()
+
+func set_color_white() -> void:
+	dead_text.add_theme_color_override("font_color", Color.WHITE)
+	end_text.add_theme_color_override("font_color", Color.WHITE)
+	prompt.add_theme_color_override("font_color", Color.WHITE)
 
 func _on_player_update_ui(score: int, coins: int, health: int, level: int, time: int) -> void:
 	score_text.text = "Score: " + str(score)
@@ -34,7 +42,10 @@ func _on_player_update_ui(score: int, coins: int, health: int, level: int, time:
 	else:
 		time_text.modulate = Color.WHITE
 
-
 func _on_player_player_dead() -> void:
 	dead_text.show()
 	dead_animation.play("Blink")
+
+func _on_game_end() -> void:
+	end_text_container.show()
+	prompt_animation.play("Blink")

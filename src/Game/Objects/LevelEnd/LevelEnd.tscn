@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://qec4y3786h5l"]
+[gd_scene load_steps=7 format=3 uid="uid://qec4y3786h5l"]
 
 [ext_resource type="Texture2D" uid="uid://b11j2m4uepxqn" path="res://assets/images/Objects/exitSign.png" id="1_3x1yh"]
 [ext_resource type="Script" path="res://src/Game/Objects/LevelEnd/level_end.gd" id="1_6rniq"]
-[ext_resource type="AudioStream" uid="uid://c4e3iq24wsg8f" path="res://assets/audio/Player/levelwin.mp3" id="3_0x33g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emjt0"]
 size = Vector2(144, 3880)
@@ -81,9 +80,6 @@ shape = SubResource("RectangleShape2D_emjt0")
 libraries = {
 "": SubResource("AnimationLibrary_wyy12")
 }
-
-[node name="WinSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_0x33g")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

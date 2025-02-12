@@ -34,14 +34,14 @@ signal player_dead()
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var feet_pos: Marker2D = $FeetPos
 
-@onready var dead_text: Label = %DeadText
-@onready var end_text: Label = %EndText
-@onready var prompt: Label = %Prompt
+@onready var ui: UI = $CanvasLayer/UI
 
 @onready var jump_long: AudioStreamPlayer = $Sounds/Jump
 @onready var land_sound: AudioStreamPlayer = $Sounds/LandSound
 @onready var hurt_sound: AudioStreamPlayer = $Sounds/HurtSound
 @onready var death_sound: AudioStreamPlayer = $Sounds/DeathSound
+@onready var enemy_kill_sound: AudioStreamPlayer = $Sounds/EnemyKillSound
+
 @onready var time_timer: Timer = $TimeTimer
 @onready var immunity_timer: Timer = $ImmunityTimer
 
@@ -61,33 +61,28 @@ var is_right_hold: bool
 var is_hurt: bool = false
 var is_immune: bool = false
 
-var score: int = 0
-var coins: int = 0
-var time: int = 0
-
 func _ready() -> void:
 	Globals.player = self
+	Globals.game.game_end.connect(ui._on_game_end)
 
 	if Globals.level == 5:
-		dead_text.add_theme_color_override("font_color", Color.WHITE)
-		end_text.add_theme_color_override("font_color", Color.WHITE)
-		prompt.add_theme_color_override("font_color", Color.WHITE)
+		ui.set_color_white()
 
 	var level: Level = get_parent()
-	time = level.level_time
+	Globals.level_time = level.level_time
 
 	camera_2d.limit_right = camera_limit_x
 	time_timer.start()
 
 	jump_count = jumps
 
-	update_ui.emit(score, coins, Globals.player_health, Globals.level, time)
+	update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
 
 func _hurt() -> void:
 	if not is_hurt:
 		is_hurt = true
 		Globals.player_health -= 1
-		update_ui.emit(score, coins, Globals.player_health, Globals.level, time)
+		update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
 
 		if Globals.player_health == 0:
 			_kill()
@@ -103,6 +98,7 @@ func _hurt() -> void:
 		is_hurt = false
 
 func _kill() -> void:
+	Globals.total_deaths += 1
 	$CollisionShape2D.set_deferred("disabled", true)
 	set_process(false)
 	set_physics_process(false)
@@ -234,28 +230,40 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_time_timer_timeout() -> void:
-	time -= 1
-	update_ui.emit(score, coins, Globals.player_health, Globals.level, time)
+	Globals.level_time -= 1
+	update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
 
 func _on_player_hit(hurt: bool) -> void:
 	if hurt:
 		_hurt()
 	else:
+		enemy_kill_sound.play()
+		Globals.level_kills += 1
+		Globals.level_score += 50
 		velocity.y = -((jump_height * 10.0) * gravity)
 
 func _on_pickup_collected(object_name: String) -> void:
 	if object_name.contains("Coin"):
-		score += 100
-		coins += 1
+		Globals.level_score += 100
+		Globals.level_coins += 1
 	elif object_name.contains("Health"):
 		Globals.player_health += 1
 	elif object_name.contains("Immunity"):
+		Globals.game_theme.pitch_scale = 1.25
 		is_immune = true
 		animation_player.play("Immunity")
 		immunity_timer.start()
 
-	update_ui.emit(score, coins, Globals.player_health, Globals.level, time)
+	update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
 
 func _on_immunity_timeout() -> void:
+	Globals.game_theme.pitch_scale = 1
 	is_immune = false
 	animation_player.stop()
+
+func _on_level_end_reached() -> void:
+	time_timer.stop()
+	set_physics_process(false)
+	set_process(false)
+	$CollisionShape2D.set_deferred("disabled", true)
+	animation_player.play("Kill")

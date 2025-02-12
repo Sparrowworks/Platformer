@@ -307,18 +307,24 @@ position = Vector2(1920, 2816)
 [node name="Piranha2" parent="Enemies" index="20" instance=ExtResource("22_nl45r")]
 z_as_relative = false
 position = Vector2(13952, 2816)
+jump_power = 4.0
 
 [node name="Piranha3" parent="Enemies" index="21" instance=ExtResource("22_nl45r")]
 z_as_relative = false
 position = Vector2(14912, 2816)
+jump_power = 4.0
+delay = 1.0
 
 [node name="Piranha4" parent="Enemies" index="22" instance=ExtResource("22_nl45r")]
 z_as_relative = false
 position = Vector2(15936, 2816)
+jump_power = 4.0
 
 [node name="Piranha5" parent="Enemies" index="23" instance=ExtResource("22_nl45r")]
 z_as_relative = false
 position = Vector2(16960, 2816)
+jump_power = 4.0
+delay = 1.0
 
 [node name="LevelEnd" parent="." index="6"]
 position = Vector2(18296, 1472)

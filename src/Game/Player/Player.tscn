@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bp1vmitw84bc2"]
+[gd_scene load_steps=26 format=3 uid="uid://bp1vmitw84bc2"]
 
 [ext_resource type="Script" path="res://src/Game/Player/player.gd" id="1_v5f2k"]
 [ext_resource type="Texture2D" uid="uid://1as82h7ujqf6" path="res://assets/images/Player/fall.png" id="2_eyrcq"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cec4x1i4hdgsd" path="res://assets/audio/Player/jumplong.mp3" id="11_mg05k"]
 [ext_resource type="AudioStream" uid="uid://bg8hui3i8562" path="res://assets/audio/Player/landing.mp3" id="11_w2wr7"]
 [ext_resource type="AudioStream" uid="uid://chla4r43fbrl0" path="res://assets/audio/Player/death.mp3" id="12_lno0a"]
+[ext_resource type="AudioStream" uid="uid://bvqttg28sy0yn" path="res://assets/audio/Enemies/kill.mp3" id="14_40sua"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_61mhs"]
 animations = [{
@@ -248,7 +249,8 @@ libraries = {
 "": SubResource("AnimationLibrary_1su8d")
 }
 
-[node name="EndText" type="VBoxContainer" parent="CanvasLayer/UI"]
+[node name="EndTextContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -258,7 +260,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="EndText" type="Label" parent="CanvasLayer/UI/EndText"]
+[node name="EndText" type="Label" parent="CanvasLayer/UI/EndTextContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -268,11 +270,11 @@ text = "Level complete!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="CanvasLayer/UI/EndText"]
+[node name="Control" type="Control" parent="CanvasLayer/UI/EndTextContainer"]
 custom_minimum_size = Vector2(0, 324)
 layout_mode = 2
 
-[node name="Prompt" type="Label" parent="CanvasLayer/UI/EndText/Control"]
+[node name="Prompt" type="Label" parent="CanvasLayer/UI/EndTextContainer/Control"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -290,7 +292,8 @@ text = "Press `enter` to continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PromptAnimation" type="AnimationPlayer" parent="CanvasLayer/UI/EndText/Control/Prompt"]
+[node name="PromptAnimation" type="AnimationPlayer" parent="CanvasLayer/UI/EndTextContainer/Control/Prompt"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_1su8d")
 }
@@ -376,6 +379,11 @@ bus = &"SFX"
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("12_lno0a")
+bus = &"SFX"
+
+[node name="EnemyKillSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("14_40sua")
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="TimeTimer" type="Timer" parent="."]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdwafhasbnhtv"]
+[gd_scene load_steps=4 format=3 uid="uid://bdwafhasbnhtv"]
 
 [ext_resource type="Script" path="res://src/Game/game.gd" id="1_pl46v"]
 [ext_resource type="AudioStream" uid="uid://dlcfohgqmt0tn" path="res://assets/audio/Player/counter.mp3" id="2_l3q66"]
+[ext_resource type="AudioStream" uid="uid://c4e3iq24wsg8f" path="res://assets/audio/Player/levelwin.mp3" id="3_6di1p"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_pl46v")
@@ -20,3 +21,11 @@ grow_vertical = 2
 stream = ExtResource("2_l3q66")
 volume_db = -20.0
 bus = &"SFX"
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6di1p")
+
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 0.01
+
+[connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
