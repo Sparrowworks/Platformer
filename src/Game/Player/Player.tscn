@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bp1vmitw84bc2"]
+[gd_scene load_steps=30 format=3 uid="uid://bp1vmitw84bc2"]
 
 [ext_resource type="Script" path="res://src/Game/Player/player.gd" id="1_v5f2k"]
 [ext_resource type="Texture2D" uid="uid://1as82h7ujqf6" path="res://assets/images/Player/fall.png" id="2_eyrcq"]
@@ -175,19 +175,65 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyyqb"]
 bg_color = Color(0.0687983, 0.0687983, 0.0687982, 1)
 
+[sub_resource type="Animation" id="Animation_jxpc3"]
+resource_name = "Decrease"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_llybt"]
+resource_name = "Increase"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jpeke"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xv8gm"]
+_data = {
+"Decrease": SubResource("Animation_jxpc3"),
+"Increase": SubResource("Animation_llybt"),
+"RESET": SubResource("Animation_jpeke")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 3
 collision_layer = 15
 collision_mask = 15
 script = ExtResource("1_v5f2k")
-max_speed = 800.0
-max_time = 0.5
-zero_time = 0.1
-jump_height = 5.5
-fall_velocity = 1000.0
-fall_factor = 3.5
-coyote_time = 0.1
-buffer_time = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_61mhs")
@@ -319,30 +365,52 @@ alignment = 1
 [node name="ScoreText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_tie6r")
 theme_override_font_sizes/font_size = 64
 text = "SCORE: 00000"
 horizontal_alignment = 1
 
+[node name="ScoreAnim" type="AnimationPlayer" parent="CanvasLayer/UI/TopBar/HBoxContainer/ScoreText"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_xv8gm")
+}
+
 [node name="CoinText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 custom_minimum_size = Vector2(490, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_tie6r")
 theme_override_font_sizes/font_size = 64
 text = "Coins: 000"
 horizontal_alignment = 1
 
+[node name="CoinAnim" type="AnimationPlayer" parent="CanvasLayer/UI/TopBar/HBoxContainer/CoinText"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_xv8gm")
+}
+
 [node name="HealthText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 custom_minimum_size = Vector2(435, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_tie6r")
 theme_override_font_sizes/font_size = 64
 text = "Health: 0"
 horizontal_alignment = 1
 
+[node name="HealthAnim" type="AnimationPlayer" parent="CanvasLayer/UI/TopBar/HBoxContainer/HealthText"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_xv8gm")
+}
+
 [node name="LevelText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 custom_minimum_size = Vector2(390, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_tie6r")
 theme_override_font_sizes/font_size = 64
 text = "Level: 0"

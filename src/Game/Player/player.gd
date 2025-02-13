@@ -16,18 +16,21 @@ signal player_dead()
 			camera_2d.limit_bottom = camera_limit_x
 
 @export_group("Movement")
-@export var max_speed: float = 500.0
-@export var max_time: float = 0.2
-@export var zero_time: float = 0.2
+var max_speed: float = 800.0
+var initial_speed: float = 500.0
+var current_speed: float = 0
+var speed_increment: float = 1000
+var direction: Vector2
 
 @export_group("Jumping")
-@export var jumps: int = 1
-@export var jump_height: float = 3.5
-@export var gravity: float = 20.0
-@export var fall_velocity: float = 700.0
-@export var fall_factor: float = 2.0
-@export var coyote_time: float = 0.2
-@export var buffer_time: float = 0.2
+var gravity: float
+var max_jump_vel: float
+var min_jump_vel: float
+var max_jump_height: float = 128 * 3.25
+var min_jump_height: float = 128 * 1.25
+var jump_duration: float = 0.5
+var coyote_time: float = 0.05
+var buffer_time: float = 0.05
 
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -45,13 +48,11 @@ signal player_dead()
 @onready var time_timer: Timer = $TimeTimer
 @onready var immunity_timer: Timer = $ImmunityTimer
 
-var applied_gravity: float
-var applied_fall_gravity: float
-
 var acceleration: float
 var deceleration: float
 var jump_magnitude: float = 500.0
 var jump_count: int = 0
+var jumps: int = 1
 var was_jump_pressed: bool = false
 var is_coyote_active: bool = false
 
@@ -74,6 +75,10 @@ func _ready() -> void:
 	camera_2d.limit_right = camera_limit_x
 	time_timer.start()
 
+	gravity = (2 * max_jump_height) / pow(jump_duration, 2)
+	max_jump_vel = -sqrt(2 * gravity * max_jump_height)
+	min_jump_vel = -sqrt(2 * gravity * min_jump_height)
+
 	jump_count = jumps
 
 	update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
@@ -82,6 +87,7 @@ func _hurt() -> void:
 	if not is_hurt:
 		is_hurt = true
 		Globals.player_health -= 1
+		ui.play_health_anim("Decrease")
 		update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
 
 		if Globals.player_health == 0:
@@ -89,7 +95,7 @@ func _hurt() -> void:
 			return
 
 		velocity.x = 0
-		velocity.y = -((jump_height * 10.0) * gravity)
+		velocity.y += min_jump_vel
 
 		animation_player.play("Hurt")
 		hurt_sound.play()
@@ -110,18 +116,10 @@ func _kill() -> void:
 	animation_player.play("Kill")
 	player_dead.emit()
 
-func _decelerate(delta: float) -> void:
-	if (abs(velocity.x) > 0) and (abs(velocity.x) <= abs((-max_speed / zero_time) * delta)):
-		velocity.x = 0
-	elif velocity.x > 0:
-		velocity.x += (-max_speed / zero_time) * delta
-	elif velocity.x < 0:
-		velocity.x -= (-max_speed / zero_time) * delta
-
 func _jump() -> void:
 	if jump_count > 0:
 		jump_long.play()
-		velocity.y = -((jump_height * 10.0) * gravity)
+		velocity.y = max_jump_vel
 		jump_count -= 1
 		was_jump_pressed = false
 
@@ -157,37 +155,29 @@ func _physics_process(delta: float) -> void:
 	var is_jump_tapped: bool = Input.is_action_just_pressed("jump")
 	var is_jump_released: bool = Input.is_action_just_released("jump")
 
-	if is_right_hold and is_left_hold:
-		_decelerate(delta)
-	elif is_right_hold:
-		if velocity.x > max_speed:
-			velocity.x = max_speed
-		else:
-			velocity.x += (max_speed / max_time) * delta
-		if velocity.x < 0:
-			_decelerate(delta)
-	elif is_left_hold:
-		if velocity.x < -max_speed:
-			velocity.x = -max_speed
-		else:
-			velocity.x -= (max_speed / max_time) * delta
-		if velocity.x > 0:
-			_decelerate(delta)
+	if Input.is_action_pressed("left"):
+		direction = Vector2.LEFT
 
-	if !(is_left_hold or is_right_hold):
-		_decelerate(delta)
+		if current_speed < 1:
+			current_speed = initial_speed
 
-	if velocity.y > 0:
-		applied_gravity = gravity * fall_factor
-	else:
-		applied_gravity = gravity
+		if current_speed <= max_speed:
+			current_speed += speed_increment * delta
 
-	applied_fall_gravity = fall_velocity
+	if Input.is_action_pressed("right"):
+		direction = Vector2.RIGHT
 
-	if velocity.y < applied_fall_gravity:
-		velocity.y += applied_gravity
-	elif velocity.y > applied_fall_gravity:
-		velocity.y = applied_fall_gravity
+		if current_speed < 1:
+			current_speed = initial_speed
+
+		if current_speed <= max_speed:
+			current_speed += speed_increment * delta
+
+	if not Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
+		current_speed = 0
+
+	velocity.x = current_speed * direction.x
+	velocity.y += gravity * delta
 
 	if is_jump_released and velocity.y < 0:
 		velocity.y = velocity.y / 2
@@ -240,14 +230,18 @@ func _on_player_hit(hurt: bool) -> void:
 		enemy_kill_sound.play()
 		Globals.level_kills += 1
 		Globals.level_score += 50
-		velocity.y = -((jump_height * 10.0) * gravity)
+		ui.play_score_anim("Increase")
+		velocity.y = max_jump_vel
 
 func _on_pickup_collected(object_name: String) -> void:
 	if object_name.contains("Coin"):
 		Globals.level_score += 100
 		Globals.level_coins += 1
+		ui.play_score_anim("Increase")
+		ui.play_coin_anim("Increase")
 	elif object_name.contains("Health"):
 		Globals.player_health += 1
+		ui.play_health_anim("Increase")
 	elif object_name.contains("Immunity"):
 		Globals.game_theme.pitch_scale = 1.25
 		is_immune = true

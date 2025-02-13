@@ -14,6 +14,10 @@ class_name UI extends Control
 @onready var level_text: Label = $TopBar/HBoxContainer/LevelText
 @onready var time_text: Label = $TopBar/HBoxContainer/TimeText
 
+@onready var score_anim: AnimationPlayer = %ScoreAnim
+@onready var coin_anim: AnimationPlayer = %CoinAnim
+@onready var health_anim: AnimationPlayer = %HealthAnim
+
 func _ready() -> void:
 	dead_animation.play("RESET")
 	prompt_animation.play("RESET")
@@ -24,6 +28,27 @@ func set_color_white() -> void:
 	dead_text.add_theme_color_override("font_color", Color.WHITE)
 	end_text.add_theme_color_override("font_color", Color.WHITE)
 	prompt.add_theme_color_override("font_color", Color.WHITE)
+
+func play_score_anim(animation: String) -> void:
+	if score_anim.is_playing() and score_anim.current_animation == animation:
+		score_anim.play(animation)
+	else:
+		score_anim.play("RESET")
+		score_anim.play(animation)
+
+func play_coin_anim(animation: String) -> void:
+	if coin_anim.is_playing() and coin_anim.current_animation == animation:
+		coin_anim.play(animation)
+	else:
+		coin_anim.play("RESET")
+		coin_anim.play(animation)
+
+func play_health_anim(animation: String) -> void:
+	if health_anim.is_playing() and health_anim.current_animation == animation:
+		health_anim.play(animation)
+	else:
+		health_anim.play("RESET")
+		health_anim.play(animation)
 
 func _on_player_update_ui(score: int, coins: int, health: int, level: int, time: int) -> void:
 	score_text.text = "Score: " + str(score)

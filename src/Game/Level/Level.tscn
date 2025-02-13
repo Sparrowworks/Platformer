@@ -10,15 +10,17 @@ script = ExtResource("1_aukpg")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -2
-scroll_scale = Vector2(0.65, 0.65)
+scroll_scale = Vector2(0.2, 1)
 repeat_size = Vector2(2048, 0)
 repeat_times = 3
+limit_begin = Vector2(0, 0)
 
 [node name="Background" type="Sprite2D" parent="Parallax2D"]
 texture = ExtResource("2_uydun")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2048, 2160)
+region_filter_clip_enabled = true
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 

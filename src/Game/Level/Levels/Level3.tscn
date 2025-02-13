@@ -413,20 +413,17 @@ position = Vector2(9408, 1888)
 
 [node name="Barnacle5" parent="Enemies" index="19" instance=ExtResource("19_ilctl")]
 z_as_relative = false
-position = Vector2(13120, 1864)
-scale = Vector2(0.6, 0.6)
+position = Vector2(13120, 1888)
 max_delay = 2.0
 
 [node name="Barnacle6" parent="Enemies" index="20" instance=ExtResource("19_ilctl")]
 z_as_relative = false
-position = Vector2(13888, 1864)
-scale = Vector2(0.6, 0.6)
+position = Vector2(13888, 1888)
 max_delay = 2.0
 
 [node name="Barnacle7" parent="Enemies" index="21" instance=ExtResource("19_ilctl")]
 z_as_relative = false
-position = Vector2(14656, 1864)
-scale = Vector2(0.6, 0.6)
+position = Vector2(14656, 1888)
 max_delay = 2.0
 
 [node name="Barnacle8" parent="Enemies" index="22" instance=ExtResource("19_ilctl")]
