@@ -73,8 +73,9 @@ func collision_check(body: Node2D) -> void:
 			if Globals.player.feet_pos.global_position.y >= top_pos.global_position.y:
 				player_hit.emit(true)
 			else:
-				player_hit.emit(false)
-				kill()
+				if not Globals.player.is_hurt:
+					player_hit.emit(false)
+					kill()
 	else:
 		if direction == Vector2.RIGHT:
 			turn_left()

@@ -8,6 +8,7 @@ var level: int = 1
 
 var player: Player
 var player_health: int = 3
+var end_player_health: int = 3
 
 var level_score: int = 0
 var level_coins: int = 0
@@ -19,20 +20,22 @@ var total_score: int = 0
 var total_kills: int = 0
 var total_deaths: int = 0
 
-var start_time: float = 0.0
-var level_speedrun_times: Dictionary = {
-	"level1": 0.000,
-	"level2": 0.000,
-	"level3": 0.000,
-	"level4": 0.000,
-	"level5": 0.000,
-}
-
 var menu_theme: AudioStreamPlayer
 var game_theme: AudioStreamPlayer
 var button_click: AudioStreamPlayer
 
 var _current_game_theme: String = ""
+
+### Speedrun
+var start_time: float = 0.0
+var level_speedrun_times: Dictionary = {
+	1: 0.000,
+	2: 0.000,
+	3: 0.000,
+	4: 0.000,
+	5: 0.000,
+	6: 0.000,
+}
 
 ### Settings
 var is_alternative_ost: bool = false
@@ -44,6 +47,8 @@ var sfx_volume: float = 100.0
 
 func new_game() -> void:
 	_current_game_theme = ""
+
+	end_player_health = 3
 
 	is_new_game = true
 	level = 1
@@ -60,6 +65,9 @@ func new_game() -> void:
 
 func new_level() -> void:
 	_current_game_theme = ""
+
+	end_player_health = 3
+
 	level_coins = 0
 	level_kills = 0
 	level_score = 0
@@ -79,6 +87,7 @@ func reset_level() -> void:
 
 func set_game_theme() -> void:
 	Globals.game_theme.pitch_scale = 1
+	print(_current_game_theme)
 
 	if _current_game_theme == "":
 		if is_alternative_ost:
@@ -101,6 +110,9 @@ func set_game_theme() -> void:
 			game_theme.stop()
 			game_theme.stream = load(_current_game_theme)
 			game_theme.play()
+		else:
+			if not game_theme.playing:
+				game_theme.play()
 
 func go_to_with_fade(scene: String) -> void:
 	var transition: Node = Composer.setup_load_screen("res://src/Composer/LoadingScreens/Fade/FadeScreen.tscn")

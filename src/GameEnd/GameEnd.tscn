@@ -50,10 +50,10 @@ offset_right = 357.5
 offset_bottom = 584.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Desc" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(2000, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -65,18 +65,64 @@ You have managed to find the lost ufo ship and now you can return to your home p
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Scores" type="Label" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_xjw4d")
 theme_override_font_sizes/font_size = 112
-text = "Your stats:
+text = "Your stats:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-total time:
-Total score:
-total deaths:
-enemies killed:"
+[node name="TimeText" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_xjw4d")
+theme_override_font_sizes/font_size = 112
+text = "total time:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreText" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_xjw4d")
+theme_override_font_sizes/font_size = 112
+text = "Total score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathsText" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_xjw4d")
+theme_override_font_sizes/font_size = 112
+text = "total deaths:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemiesText" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_xjw4d")
+theme_override_font_sizes/font_size = 112
+text = "enemies killed:"
 horizontal_alignment = 1
 vertical_alignment = 1
 

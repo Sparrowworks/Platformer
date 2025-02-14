@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdwafhasbnhtv"]
+[gd_scene load_steps=5 format=3 uid="uid://bdwafhasbnhtv"]
 
 [ext_resource type="Script" path="res://src/Game/game.gd" id="1_pl46v"]
+[ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_bfx2m"]
 [ext_resource type="AudioStream" uid="uid://dlcfohgqmt0tn" path="res://assets/audio/Player/counter.mp3" id="2_l3q66"]
 [ext_resource type="AudioStream" uid="uid://c4e3iq24wsg8f" path="res://assets/audio/Player/levelwin.mp3" id="3_6di1p"]
 
@@ -8,6 +9,7 @@
 script = ExtResource("1_pl46v")
 
 [node name="SpeedrunUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="SpeedrunUI"]
 layout_mode = 3
@@ -16,6 +18,83 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SpeedrunUI/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -193.0
+offset_right = 425.0
+offset_bottom = 193.0
+grow_vertical = 2
+
+[node name="Level1" type="Label" parent="SpeedrunUI/Control/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_bfx2m")
+theme_override_font_sizes/font_size = 64
+text = "Level 1: 0.00"
+vertical_alignment = 1
+
+[node name="Level2" type="Label" parent="SpeedrunUI/Control/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_bfx2m")
+theme_override_font_sizes/font_size = 64
+text = "Level 2: 0.00"
+vertical_alignment = 1
+
+[node name="Level3" type="Label" parent="SpeedrunUI/Control/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_bfx2m")
+theme_override_font_sizes/font_size = 64
+text = "Level 3: 0.00"
+vertical_alignment = 1
+
+[node name="Level4" type="Label" parent="SpeedrunUI/Control/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_bfx2m")
+theme_override_font_sizes/font_size = 64
+text = "Level 4: 0.00"
+vertical_alignment = 1
+
+[node name="Level5" type="Label" parent="SpeedrunUI/Control/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_bfx2m")
+theme_override_font_sizes/font_size = 64
+text = "Level 5: 0.00"
+vertical_alignment = 1
+
+[node name="Level6" type="Label" parent="SpeedrunUI/Control/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_bfx2m")
+theme_override_font_sizes/font_size = 64
+text = "Total: 0.00"
+vertical_alignment = 1
 
 [node name="ScoreIncrease" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_l3q66")

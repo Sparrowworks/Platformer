@@ -41,10 +41,12 @@ func _update_sliders() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(Globals.sfx_volume/100))
 
 func _on_ost_button_pressed() -> void:
+	Globals.button_click.play()
 	Globals.is_alternative_ost = !Globals.is_alternative_ost
 	_update_buttons()
 
 func _on_mode_button_pressed() -> void:
+	Globals.button_click.play()
 	Globals.is_speedrun_mode = !Globals.is_speedrun_mode
 	_update_buttons()
 

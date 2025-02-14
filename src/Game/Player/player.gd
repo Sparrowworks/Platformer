@@ -111,7 +111,6 @@ func _kill() -> void:
 
 	time_timer.stop()
 	animated_sprite_2d.play("hurt")
-
 	death_sound.play()
 	animation_player.play("Kill")
 	player_dead.emit()
@@ -173,6 +172,9 @@ func _physics_process(delta: float) -> void:
 		if current_speed <= max_speed:
 			current_speed += speed_increment * delta
 
+		if current_speed > max_speed:
+			current_speed = max_speed
+
 	if not Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
 		current_speed = 0
 
@@ -223,6 +225,10 @@ func _on_time_timer_timeout() -> void:
 	Globals.level_time -= 1
 	update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
 
+	if Globals.level_time == 0:
+		time_timer.stop()
+		_kill()
+
 func _on_player_hit(hurt: bool) -> void:
 	if hurt:
 		_hurt()
@@ -243,6 +249,7 @@ func _on_pickup_collected(object_name: String) -> void:
 		Globals.player_health += 1
 		ui.play_health_anim("Increase")
 	elif object_name.contains("Immunity"):
+		max_speed *= 1.5
 		Globals.game_theme.pitch_scale = 1.25
 		is_immune = true
 		animation_player.play("Immunity")
@@ -251,9 +258,12 @@ func _on_pickup_collected(object_name: String) -> void:
 	update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
 
 func _on_immunity_timeout() -> void:
+	max_speed /= 1.5
 	Globals.game_theme.pitch_scale = 1
 	is_immune = false
-	animation_player.stop()
+
+	if Globals.player_health > 0:
+		animation_player.stop()
 
 func _on_level_end_reached() -> void:
 	time_timer.stop()

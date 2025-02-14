@@ -1,12 +1,18 @@
 extends Control
 
 @onready var level_select_panel: TextureRect = $LevelSelectPanel
+@onready var version_text: Label = $VersionText
 
 var main: Main
 
 func _ready() -> void:
 	if not Globals.menu_theme.playing:
 		Globals.menu_theme.play()
+
+	version_text.text = "v" + ProjectSettings.get_setting("application/config/version")
+
+	if OS.get_name() == "Web":
+		$Buttons/QuitButton.hide()
 
 func _on_play_button_pressed() -> void:
 	Globals.button_click.play()
