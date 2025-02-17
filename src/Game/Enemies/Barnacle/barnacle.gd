@@ -23,23 +23,20 @@ func collision_check(body: Node2D) -> void:
 			kill()
 			return
 
-		if Globals.player.velocity.y == 0:
+		if animated_sprite_2d.animation == "open":
 			player_hit.emit(true)
-		else:
-			if animated_sprite_2d.animation == "open":
+			hide_timer.paused = true
+			animated_sprite_2d.play("bite")
+			await animated_sprite_2d.animation_finished
+			hide_timer.paused = false
+			animated_sprite_2d.play("open")
+		elif animated_sprite_2d.animation == "close":
+			if Globals.player.velocity.y == 0:
 				player_hit.emit(true)
-				hide_timer.paused = true
-				animated_sprite_2d.play("bite")
-				await animated_sprite_2d.animation_finished
-				hide_timer.paused = false
-				animated_sprite_2d.play("open")
-			elif animated_sprite_2d.animation == "close":
-				if Globals.player.feet_pos.global_position.y >= top_pos.global_position.y:
-					player_hit.emit(true)
-				else:
-					if not Globals.player.is_hurt:
-						player_hit.emit(false)
-						kill()
+			else:
+				if Globals.player.feet_pos.global_position.y < top_pos.global_position.y:
+					player_hit.emit(false)
+					kill()
 
 func _on_show_timer_timeout() -> void:
 	animated_sprite_2d.play("close")

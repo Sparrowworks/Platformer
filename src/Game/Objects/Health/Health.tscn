@@ -8,7 +8,7 @@
 size = Vector2(160, 112)
 
 [node name="Health" instance=ExtResource("1_lesbm")]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.45, 0.45)
 
 [node name="Sprite2D" parent="Area2D" index="0"]
 texture = ExtResource("2_1luau")

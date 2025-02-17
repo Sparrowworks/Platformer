@@ -36,7 +36,7 @@ func _on_player_tracked() -> void:
 
 		var initial_pos: Vector2 = global_position
 		var desired_pos: Vector2 = Vector2(Globals.player.global_position.x, Globals.player.global_position.y)
-		var fly_time: float = clampf((desired_pos.y - initial_pos.y)/2000, 0.5, 1)
+		var fly_time: float = clampf((desired_pos.y - initial_pos.y)/2000, 1, 1.5)
 
 		movement_tween = get_tree().create_tween()
 		movement_tween.tween_property(self, "global_position", desired_pos, fly_time)

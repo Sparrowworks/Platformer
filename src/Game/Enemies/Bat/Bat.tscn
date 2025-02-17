@@ -38,7 +38,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmw28"]
-size = Vector2(149.333, 192)
+size = Vector2(277.333, 192)
 
 [node name="Bat" instance=ExtResource("1_iya1w")]
 scale = Vector2(0.75, 0.75)
@@ -46,13 +46,11 @@ script = ExtResource("2_o1y7h")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_r8lk6")
-animation = &"hang"
+animation = &"fly"
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-5.08626e-06, 0)
 shape = SubResource("RectangleShape2D_tmw28")
-
-[node name="TopPos" parent="." index="2"]
-position = Vector2(0, -85.3333)
 
 [node name="PlayerRay" parent="." index="5"]
 rotation = 3.92699

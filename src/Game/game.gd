@@ -103,6 +103,8 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("restart"):
 		if Globals.is_new_game:
 			Globals.player_health = Globals.end_player_health
+		else:
+			Globals.player_health = 3
 
 		Globals.go_to_with_fade("res://src/Game/Game.tscn")
 

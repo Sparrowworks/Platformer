@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1qgcoa3fk54u"]
+[gd_scene load_steps=11 format=3 uid="uid://c1qgcoa3fk54u"]
 
 [ext_resource type="Texture2D" uid="uid://cyfkfcncw0b8m" path="res://assets/images/Enemies/Spinner/spinner_dead.png" id="1_bbl37"]
 [ext_resource type="Script" path="res://src/Game/Enemies/Spinner/spinner.gd" id="1_eq8dl"]
@@ -27,7 +27,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6mln"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ntf5b"]
+radius = 128.444
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ximry"]
 size = Vector2(256, 256)
 
 [sub_resource type="Animation" id="Animation_n31oe"]
@@ -68,6 +71,7 @@ _data = {
 
 [node name="Spinner" type="CharacterBody2D" groups=["EnemySpinner"]]
 scale = Vector2(0.75, 0.75)
+collision_layer = 0
 script = ExtResource("1_eq8dl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -76,8 +80,16 @@ animation = &"spin"
 frame = 1
 frame_progress = 1.0
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_ntf5b")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_g6mln")
+position = Vector2(7.62939e-06, 0)
+shape = SubResource("RectangleShape2D_ximry")
 
 [node name="WallRay" type="RayCast2D" parent="."]
 target_position = Vector2(-140.8, 0)
@@ -95,3 +107,4 @@ libraries = {
 
 [connection signal="player_tracked" from="." to="." method="_on_player_tracked"]
 [connection signal="player_tracked_stopped" from="." to="." method="_on_player_tracked_stopped"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

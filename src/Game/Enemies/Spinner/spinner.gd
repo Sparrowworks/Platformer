@@ -62,10 +62,7 @@ func move(delta: float) -> void:
 	velocity.x = direction.x * actual_speed
 	velocity.y += gravity
 
-	var is_colliding: bool = move_and_slide()
-	if is_colliding:
-		var collider: Node = get_last_slide_collision().get_collider() as Node2D
-		collision_check(collider)
+	move_and_slide()
 
 func kill() -> void:
 	collision_shape_2d.set_deferred("disabled", true)
@@ -99,3 +96,7 @@ func _on_player_tracked() -> void:
 func _on_player_tracked_stopped() -> void:
 	actual_speed = speed
 	animated_sprite_2d.speed_scale = 1
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	collision_check(body)
