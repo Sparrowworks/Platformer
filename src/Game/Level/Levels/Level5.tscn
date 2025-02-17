@@ -83,63 +83,60 @@ position = Vector2(4656, 1560)
 [node name="Ghost3" parent="Enemies" index="2" instance=ExtResource("8_anfgq")]
 position = Vector2(5680, 1560)
 
-[node name="Ghost4" parent="Enemies" index="3" instance=ExtResource("8_anfgq")]
-position = Vector2(7728, 1304)
-
-[node name="Ghost5" parent="Enemies" index="4" instance=ExtResource("8_anfgq")]
+[node name="Ghost5" parent="Enemies" index="3" instance=ExtResource("8_anfgq")]
 position = Vector2(9264, 1176)
 
-[node name="Barnacle" parent="Enemies" index="5" instance=ExtResource("9_tipt4")]
+[node name="Barnacle" parent="Enemies" index="4" instance=ExtResource("9_tipt4")]
 z_as_relative = false
 position = Vector2(3608, 2016)
 
-[node name="Barnacle2" parent="Enemies" index="6" instance=ExtResource("9_tipt4")]
+[node name="Barnacle2" parent="Enemies" index="5" instance=ExtResource("9_tipt4")]
 z_as_relative = false
 position = Vector2(4168, 1760)
 
-[node name="Barnacle3" parent="Enemies" index="7" instance=ExtResource("9_tipt4")]
+[node name="Barnacle3" parent="Enemies" index="6" instance=ExtResource("9_tipt4")]
 z_as_relative = false
 position = Vector2(6592, 1632)
 
-[node name="Barnacle4" parent="Enemies" index="8" instance=ExtResource("9_tipt4")]
+[node name="Barnacle4" parent="Enemies" index="7" instance=ExtResource("9_tipt4")]
 z_as_relative = false
 position = Vector2(7504, 1504)
 
-[node name="Barnacle5" parent="Enemies" index="9" instance=ExtResource("9_tipt4")]
+[node name="Barnacle5" parent="Enemies" index="8" instance=ExtResource("9_tipt4")]
 z_as_relative = false
 position = Vector2(12240, 1376)
 
-[node name="Bat" parent="Enemies" index="10" instance=ExtResource("10_6op6q")]
+[node name="Bat" parent="Enemies" index="9" instance=ExtResource("10_6op6q")]
 position = Vector2(1304, 1215)
 
-[node name="Bat2" parent="Enemies" index="11" instance=ExtResource("10_6op6q")]
+[node name="Bat2" parent="Enemies" index="10" instance=ExtResource("10_6op6q")]
 position = Vector2(2176, 1215)
 
-[node name="Bat3" parent="Enemies" index="12" instance=ExtResource("10_6op6q")]
+[node name="Bat3" parent="Enemies" index="11" instance=ExtResource("10_6op6q")]
 position = Vector2(3200, 1215)
 
-[node name="Bat4" parent="Enemies" index="13" instance=ExtResource("10_6op6q")]
+[node name="Bat4" parent="Enemies" index="12" instance=ExtResource("10_6op6q")]
 position = Vector2(4408, 815)
 
-[node name="Bat5" parent="Enemies" index="14" instance=ExtResource("10_6op6q")]
+[node name="Bat5" parent="Enemies" index="13" instance=ExtResource("10_6op6q")]
 position = Vector2(6264, 815)
 
-[node name="Bat6" parent="Enemies" index="15" instance=ExtResource("10_6op6q")]
+[node name="Bat6" parent="Enemies" index="14" instance=ExtResource("10_6op6q")]
 position = Vector2(7616, 815)
 
-[node name="Bat7" parent="Enemies" index="16" instance=ExtResource("10_6op6q")]
+[node name="Bat7" parent="Enemies" index="15" instance=ExtResource("10_6op6q")]
 position = Vector2(8760, 815)
 
-[node name="Bat8" parent="Enemies" index="17" instance=ExtResource("10_6op6q")]
+[node name="Bat8" parent="Enemies" index="16" instance=ExtResource("10_6op6q")]
 position = Vector2(10232, 815)
 
-[node name="Bat9" parent="Enemies" index="18" instance=ExtResource("10_6op6q")]
+[node name="Bat9" parent="Enemies" index="17" instance=ExtResource("10_6op6q")]
 position = Vector2(10856, 815)
 
-[node name="Bat10" parent="Enemies" index="19" instance=ExtResource("10_6op6q")]
+[node name="Bat10" parent="Enemies" index="18" instance=ExtResource("10_6op6q")]
 position = Vector2(11392, 815)
 
-[node name="Bat11" parent="Enemies" index="20" instance=ExtResource("10_6op6q")]
+[node name="Bat11" parent="Enemies" index="19" instance=ExtResource("10_6op6q")]
 position = Vector2(12232, 815)
 
 [node name="LevelEnd" parent="." index="6"]

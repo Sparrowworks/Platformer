@@ -90,12 +90,12 @@ func _hurt() -> void:
 		ui.play_health_anim("Decrease")
 		update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
 
-		if Globals.player_health == 0:
+		if Globals.player_health <= 0:
 			_kill()
 			return
 
 		velocity.x = 0
-		velocity.y += min_jump_vel
+		velocity.y = max_jump_vel
 
 		animation_player.play("Hurt")
 		hurt_sound.play()
@@ -266,6 +266,7 @@ func _on_immunity_timeout() -> void:
 		animation_player.stop()
 
 func _on_level_end_reached() -> void:
+	immunity_timer.stop()
 	time_timer.stop()
 	set_physics_process(false)
 	set_process(false)

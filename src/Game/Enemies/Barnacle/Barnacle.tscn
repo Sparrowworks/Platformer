@@ -75,9 +75,6 @@ frame_progress = 1.0
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_5hod7")
 
-[node name="TopPos" parent="." index="2"]
-position = Vector2(0, -72)
-
 [node name="ShowTimer" type="Timer" parent="." index="7"]
 wait_time = 1.5
 one_shot = true

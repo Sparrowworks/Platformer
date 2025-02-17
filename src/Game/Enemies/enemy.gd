@@ -60,8 +60,8 @@ func kill() -> void:
 
 	queue_free()
 
-func collision_check(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+func collision_check(area: Area2D) -> void:
+	if area.is_in_group("Player"):
 		if Globals.player.is_immune:
 			player_hit.emit(false)
 			kill()
@@ -76,14 +76,16 @@ func collision_check(body: Node2D) -> void:
 				if not Globals.player.is_hurt:
 					player_hit.emit(false)
 					kill()
-	else:
-		if direction == Vector2.RIGHT:
-			turn_left()
-		else:
-			turn_right()
 
 func _physics_process(delta: float) -> void:
 	move(delta)
 
+func _on_area_entered(area: Area2D) -> void:
+	collision_check(area)
+
 func _on_body_entered(body: Node2D) -> void:
-	collision_check(body)
+	if not body.is_in_group("Player"):
+		if direction == Vector2.RIGHT:
+			turn_left()
+		else:
+			turn_right()

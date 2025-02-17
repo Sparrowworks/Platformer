@@ -65,7 +65,7 @@ func _on_player_tracked() -> void:
 		is_chasing = true
 
 		var desired_pos: Vector2 = Vector2(Globals.player.global_position.x, Globals.player.global_position.y)
-		var fly_time: float = clampf((desired_pos.y - initial_pos.y)/2000, 0.5, 1)
+		var fly_time: float = clampf((desired_pos.y - initial_pos.y)/2000, 1, 1.5)
 		animated_sprite_2d.play("fly")
 
 		movement_tween = get_tree().create_tween()
