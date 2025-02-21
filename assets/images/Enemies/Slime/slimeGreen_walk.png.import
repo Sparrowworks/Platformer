@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnadt7oiv85fc"
-path.s3tc="res://.godot/imported/slimeGreen_walk.png-758ba17d7600964230e80d4acff9f0c8.s3tc.ctex"
+path="res://.godot/imported/slimeGreen_walk.png-758ba17d7600964230e80d4acff9f0c8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Enemies/Slime/slimeGreen_walk.png"
-dest_files=["res://.godot/imported/slimeGreen_walk.png-758ba17d7600964230e80d4acff9f0c8.s3tc.ctex"]
+dest_files=["res://.godot/imported/slimeGreen_walk.png-758ba17d7600964230e80d4acff9f0c8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

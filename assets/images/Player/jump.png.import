@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://g0gycl6whrrw"
-path.s3tc="res://.godot/imported/jump.png-76e0965a116472eb7e7cc7646a84631f.s3tc.ctex"
+path="res://.godot/imported/jump.png-76e0965a116472eb7e7cc7646a84631f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Player/jump.png"
-dest_files=["res://.godot/imported/jump.png-76e0965a116472eb7e7cc7646a84631f.s3tc.ctex"]
+dest_files=["res://.godot/imported/jump.png-76e0965a116472eb7e7cc7646a84631f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

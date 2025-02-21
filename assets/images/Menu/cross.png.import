@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp1vqfu53vv3u"
-path.s3tc="res://.godot/imported/cross.png-86116c2ead59f4ef79e1f77bd9a34ae6.s3tc.ctex"
+path="res://.godot/imported/cross.png-86116c2ead59f4ef79e1f77bd9a34ae6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Menu/cross.png"
-dest_files=["res://.godot/imported/cross.png-86116c2ead59f4ef79e1f77bd9a34ae6.s3tc.ctex"]
+dest_files=["res://.godot/imported/cross.png-86116c2ead59f4ef79e1f77bd9a34ae6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

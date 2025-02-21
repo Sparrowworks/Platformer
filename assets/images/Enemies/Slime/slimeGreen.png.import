@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nmakjesnp8tc"
-path.s3tc="res://.godot/imported/slimeGreen.png-d0438325f87039b04929ab4e37d789bf.s3tc.ctex"
+path="res://.godot/imported/slimeGreen.png-d0438325f87039b04929ab4e37d789bf.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Enemies/Slime/slimeGreen.png"
-dest_files=["res://.godot/imported/slimeGreen.png-d0438325f87039b04929ab4e37d789bf.s3tc.ctex"]
+dest_files=["res://.godot/imported/slimeGreen.png-d0438325f87039b04929ab4e37d789bf.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

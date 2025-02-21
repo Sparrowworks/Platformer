@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo0wtbs5rteud"
-path.s3tc="res://.godot/imported/barnacle.png-185ab9a70472132dc14ba6f4b18a0fab.s3tc.ctex"
+path="res://.godot/imported/barnacle.png-185ab9a70472132dc14ba6f4b18a0fab.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Enemies/Barnacle/barnacle.png"
-dest_files=["res://.godot/imported/barnacle.png-185ab9a70472132dc14ba6f4b18a0fab.s3tc.ctex"]
+dest_files=["res://.godot/imported/barnacle.png-185ab9a70472132dc14ba6f4b18a0fab.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

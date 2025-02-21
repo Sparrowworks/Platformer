@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpxrat5meamfd"
-path.s3tc="res://.godot/imported/mushroomBrown.png-6ffb79c40d2728c98601a61f20f95b1b.s3tc.ctex"
+path="res://.godot/imported/mushroomBrown.png-6ffb79c40d2728c98601a61f20f95b1b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Objects/mushroomBrown.png"
-dest_files=["res://.godot/imported/mushroomBrown.png-6ffb79c40d2728c98601a61f20f95b1b.s3tc.ctex"]
+dest_files=["res://.godot/imported/mushroomBrown.png-6ffb79c40d2728c98601a61f20f95b1b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

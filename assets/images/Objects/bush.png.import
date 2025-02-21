@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cklfroc556cpa"
-path.s3tc="res://.godot/imported/bush.png-3b12cfa6b0c76b79c02b22bac4aa6086.s3tc.ctex"
+path="res://.godot/imported/bush.png-3b12cfa6b0c76b79c02b22bac4aa6086.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Objects/bush.png"
-dest_files=["res://.godot/imported/bush.png-3b12cfa6b0c76b79c02b22bac4aa6086.s3tc.ctex"]
+dest_files=["res://.godot/imported/bush.png-3b12cfa6b0c76b79c02b22bac4aa6086.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

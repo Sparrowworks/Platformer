@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csq1a3kbucnyx"
-path.s3tc="res://.godot/imported/spider_walk1.png-d65c628f6fea0db2a0388741a30ef397.s3tc.ctex"
+path="res://.godot/imported/spider_walk1.png-d65c628f6fea0db2a0388741a30ef397.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Enemies/Spider/spider_walk1.png"
-dest_files=["res://.godot/imported/spider_walk1.png-d65c628f6fea0db2a0388741a30ef397.s3tc.ctex"]
+dest_files=["res://.godot/imported/spider_walk1.png-d65c628f6fea0db2a0388741a30ef397.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

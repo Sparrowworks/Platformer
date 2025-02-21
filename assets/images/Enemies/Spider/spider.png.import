@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byoah3e2dis1c"
-path.s3tc="res://.godot/imported/spider.png-dc4a0041c8be8432c9db9b924f51da08.s3tc.ctex"
+path="res://.godot/imported/spider.png-dc4a0041c8be8432c9db9b924f51da08.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Enemies/Spider/spider.png"
-dest_files=["res://.godot/imported/spider.png-dc4a0041c8be8432c9db9b924f51da08.s3tc.ctex"]
+dest_files=["res://.godot/imported/spider.png-dc4a0041c8be8432c9db9b924f51da08.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

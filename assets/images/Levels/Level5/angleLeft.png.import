@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/angleLeft.png-94c7f1c5195c9184e14b59e59dc7826
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

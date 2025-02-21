@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/grassRight.png-b110f0d890eb240350d3249728f51c
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

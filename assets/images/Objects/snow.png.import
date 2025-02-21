@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bk6i23pyrpc68"
-path.s3tc="res://.godot/imported/snow.png-8ec08d76692deaa2d07616329e0fbe7e.s3tc.ctex"
+path="res://.godot/imported/snow.png-8ec08d76692deaa2d07616329e0fbe7e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Objects/snow.png"
-dest_files=["res://.godot/imported/snow.png-8ec08d76692deaa2d07616329e0fbe7e.s3tc.ctex"]
+dest_files=["res://.godot/imported/snow.png-8ec08d76692deaa2d07616329e0fbe7e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

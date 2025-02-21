@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkv24gmbdoun6"
-path.s3tc="res://.godot/imported/blue_grass.png-c401fac7cefc0fb3f34aa76fa153f209.s3tc.ctex"
+path="res://.godot/imported/blue_grass.png-c401fac7cefc0fb3f34aa76fa153f209.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Levels/Level1/blue_grass.png"
-dest_files=["res://.godot/imported/blue_grass.png-c401fac7cefc0fb3f34aa76fa153f209.s3tc.ctex"]
+dest_files=["res://.godot/imported/blue_grass.png-c401fac7cefc0fb3f34aa76fa153f209.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

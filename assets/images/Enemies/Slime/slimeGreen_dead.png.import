@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rc6vg5b5mcft"
-path.s3tc="res://.godot/imported/slimeGreen_dead.png-c78a2fbf6b06f05e9e77b8fc0f48817f.s3tc.ctex"
+path="res://.godot/imported/slimeGreen_dead.png-c78a2fbf6b06f05e9e77b8fc0f48817f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Enemies/Slime/slimeGreen_dead.png"
-dest_files=["res://.godot/imported/slimeGreen_dead.png-c78a2fbf6b06f05e9e77b8fc0f48817f.s3tc.ctex"]
+dest_files=["res://.godot/imported/slimeGreen_dead.png-c78a2fbf6b06f05e9e77b8fc0f48817f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

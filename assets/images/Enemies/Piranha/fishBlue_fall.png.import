@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://uo1aqj252i5v"
-path.s3tc="res://.godot/imported/fishBlue_fall.png-8cb2de0510a8e50d4ff102d745bbceb8.s3tc.ctex"
+path="res://.godot/imported/fishBlue_fall.png-8cb2de0510a8e50d4ff102d745bbceb8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/Enemies/Piranha/fishBlue_fall.png"
-dest_files=["res://.godot/imported/fishBlue_fall.png-8cb2de0510a8e50d4ff102d745bbceb8.s3tc.ctex"]
+dest_files=["res://.godot/imported/fishBlue_fall.png-8cb2de0510a8e50d4ff102d745bbceb8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

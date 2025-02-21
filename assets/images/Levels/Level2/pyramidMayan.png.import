@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/pyramidMayan.png-3d1f244c5c791dbd8333ab362b0e
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
