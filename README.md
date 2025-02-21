@@ -1,3 +1,5 @@
+# WARNING ! This is an old version that has been abandonded. It is stored here for archiving purposes only.
+
 # Platformer
 Play the game here: https://sp4r0w.itch.io/platformer
 
