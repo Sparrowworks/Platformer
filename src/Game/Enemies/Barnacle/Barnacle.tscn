@@ -57,7 +57,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hod7"]
-size = Vector2(160, 224)
+size = Vector2(128, 178.667)
 
 [node name="Barnacle" instance=ExtResource("1_yvr1m")]
 z_index = -1
@@ -72,8 +72,11 @@ frame = 5
 frame_progress = 1.0
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -8)
+position = Vector2(0, 14.6667)
 shape = SubResource("RectangleShape2D_5hod7")
+
+[node name="TopPos" parent="." index="2"]
+position = Vector2(0, 85.3333)
 
 [node name="ShowTimer" type="Timer" parent="." index="7"]
 wait_time = 1.5

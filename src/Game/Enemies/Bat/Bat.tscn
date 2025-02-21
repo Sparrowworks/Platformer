@@ -52,6 +52,9 @@ animation = &"fly"
 position = Vector2(-5.08626e-06, 0)
 shape = SubResource("RectangleShape2D_tmw28")
 
+[node name="TopPos" parent="." index="2"]
+position = Vector2(0, 64)
+
 [node name="PlayerRay" parent="." index="5"]
 rotation = 3.92699
 target_position = Vector2(0, -2400)

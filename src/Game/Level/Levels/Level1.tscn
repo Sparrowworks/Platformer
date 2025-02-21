@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://d3don2s5i3oud" path="res://src/Game/Enemies/Spider/spider.tscn" id="20_oua8u"]
 [ext_resource type="PackedScene" uid="uid://dqs1efi88vvs0" path="res://src/Game/Enemies/Bee/Bee.tscn" id="21_42bul"]
 [ext_resource type="PackedScene" uid="uid://buso7iw1ogkt8" path="res://src/Game/Enemies/Piranha/Piranha.tscn" id="22_6ensv"]
-[ext_resource type="PackedScene" uid="uid://c1qgcoa3fk54u" path="res://src/Game/Enemies/Spinner/Spinner.tscn" id="23_2ktq8"]
+[ext_resource type="PackedScene" uid="uid://t5ate7rpmi3l" path="res://src/Game/Enemies/Barnacle/Barnacle.tscn" id="23_er1xv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8y8l"]
 texture = ExtResource("2_n26qx")
@@ -265,28 +265,28 @@ position = Vector2(7296, 1592)
 [node name="Health3" parent="Objects" index="15" groups=["Pickup"] instance=ExtResource("14_01x0i")]
 position = Vector2(12224, 1584)
 
-[node name="Slime" parent="Enemies" index="0" instance=ExtResource("19_d5v0h")]
-position = Vector2(2552, 1872)
-collision_layer = 1
-collision_mask = 1
-
-[node name="Slime2" parent="Enemies" index="1" instance=ExtResource("19_d5v0h")]
+[node name="Slime2" parent="Enemies" index="0" instance=ExtResource("19_d5v0h")]
 position = Vector2(9536, 1616)
 collision_layer = 1
 collision_mask = 1
 
-[node name="Slime3" parent="Enemies" index="2" instance=ExtResource("19_d5v0h")]
+[node name="Slime3" parent="Enemies" index="1" instance=ExtResource("19_d5v0h")]
 position = Vector2(12456, 1616)
 collision_layer = 1
 collision_mask = 1
 
-[node name="Slime4" parent="Enemies" index="3" instance=ExtResource("19_d5v0h")]
+[node name="Slime4" parent="Enemies" index="2" instance=ExtResource("19_d5v0h")]
 position = Vector2(17328, 1624)
 collision_layer = 1
 collision_mask = 1
 
-[node name="Slime6" parent="Enemies" index="4" instance=ExtResource("19_d5v0h")]
+[node name="Slime6" parent="Enemies" index="3" instance=ExtResource("19_d5v0h")]
 position = Vector2(8032, 1872)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Slime7" parent="Enemies" index="4" instance=ExtResource("19_d5v0h")]
+position = Vector2(2568, 1872)
 collision_layer = 1
 collision_mask = 1
 
@@ -318,38 +318,51 @@ collision_mask = 1
 [node name="Piranha" parent="Enemies" index="10" instance=ExtResource("22_6ensv")]
 z_as_relative = false
 position = Vector2(12792, 2815)
+collision_layer = 15
+collision_mask = 15
 jump_power = 3.25
 
 [node name="Piranha2" parent="Enemies" index="11" instance=ExtResource("22_6ensv")]
 z_as_relative = false
 position = Vector2(9920, 2815)
+collision_layer = 15
+collision_mask = 15
 jump_power = 3.25
 delay = 1.0
 
 [node name="Piranha3" parent="Enemies" index="12" instance=ExtResource("22_6ensv")]
 z_as_relative = false
 position = Vector2(12792, 2815)
+collision_layer = 15
+collision_mask = 15
 jump_power = 3.25
 
 [node name="Piranha4" parent="Enemies" index="13" instance=ExtResource("22_6ensv")]
 z_as_relative = false
 position = Vector2(13560, 2815)
+collision_layer = 15
+collision_mask = 15
 jump_power = 3.25
 delay = 1.0
 
 [node name="Piranha5" parent="Enemies" index="14" instance=ExtResource("22_6ensv")]
 z_as_relative = false
 position = Vector2(14984, 2815)
+collision_layer = 15
+collision_mask = 15
 jump_power = 3.25
 delay = 1.0
 
 [node name="Piranha6" parent="Enemies" index="15" instance=ExtResource("22_6ensv")]
 z_as_relative = false
 position = Vector2(16768, 2815)
+collision_layer = 15
+collision_mask = 15
 jump_power = 3.25
 
-[node name="Spinner" parent="Enemies" index="16" instance=ExtResource("23_2ktq8")]
-position = Vector2(2344, 1824)
+[node name="Barnacle" parent="Enemies" index="16" instance=ExtResource("23_er1xv")]
+z_as_relative = false
+position = Vector2(1216, 2008)
 
 [node name="LevelEnd" parent="." index="6"]
 position = Vector2(18232, 1728)

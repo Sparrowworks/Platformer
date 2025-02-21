@@ -21,3 +21,7 @@ func _ready() -> void:
 
 func _on_level_end_end_reached() -> void:
 	level_end.emit()
+
+func _on_player_player_dead() -> void:
+	var game: Game = get_parent()
+	game.is_counting_time = false

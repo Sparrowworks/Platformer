@@ -36,7 +36,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n8w5"]
-size = Vector2(277.333, 181.333)
+size = Vector2(256, 181.333)
 
 [node name="Spider" instance=ExtResource("1_xdk5j")]
 scale = Vector2(0.75, 0.75)
@@ -49,7 +49,7 @@ sprite_frames = SubResource("SpriteFrames_lekpy")
 animation = &"walk"
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(5.08626e-06, -5.33333)
+position = Vector2(1.27157e-06, -5.33333)
 shape = SubResource("RectangleShape2D_3n8w5")
 
 [node name="TopPos" parent="." index="2"]

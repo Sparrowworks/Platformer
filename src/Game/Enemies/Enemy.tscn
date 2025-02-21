@@ -39,8 +39,8 @@ _data = {
 }
 
 [node name="Enemy" type="Area2D" groups=["Enemy"]]
-collision_layer = 15
-collision_mask = 15
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_twkoc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

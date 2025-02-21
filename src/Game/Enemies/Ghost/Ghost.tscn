@@ -34,7 +34,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hm8w"]
-size = Vector2(208, 280)
+size = Vector2(192, 280)
 
 [node name="Ghost" instance=ExtResource("1_sq7q0")]
 scale = Vector2(0.75, 0.75)

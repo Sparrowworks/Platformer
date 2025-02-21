@@ -21,10 +21,13 @@ var total_kills: int = 0
 var total_deaths: int = 0
 
 var menu_theme: AudioStreamPlayer
-var game_theme: AudioStreamPlayer
 var button_click: AudioStreamPlayer
+var game_theme: AudioStreamPlayer
+var game_themes: Array = [
 
-var _current_game_theme: String = ""
+]
+
+var _current_game_theme: int = 0
 
 ### Speedrun
 var start_time: float = 0.0
@@ -46,8 +49,9 @@ var music_volume: float = 100.0
 var sfx_volume: float = 100.0
 
 func new_game() -> void:
-	_current_game_theme = ""
+	_current_game_theme = 0
 
+	player_health = 3
 	end_player_health = 3
 
 	is_new_game = true
@@ -64,8 +68,9 @@ func new_game() -> void:
 	total_time = 0
 
 func new_level() -> void:
-	_current_game_theme = ""
+	_current_game_theme = 0
 
+	player_health = 3
 	end_player_health = 3
 
 	level_coins = 0
@@ -86,33 +91,25 @@ func reset_level() -> void:
 	level_time = 0
 
 func set_game_theme() -> void:
-	Globals.game_theme.pitch_scale = 1
-	print(_current_game_theme)
+	var this_game_theme: int = 0
 
-	if _current_game_theme == "":
-		if is_alternative_ost:
-			_current_game_theme = "res://assets/audio/Levels/level" + str(level) + "Aggressive.mp3"
-		else:
-			_current_game_theme = "res://assets/audio/Levels/level" + str(level) + ".mp3"
+	this_game_theme += (Globals.level-1)
+	if is_alternative_ost:
+		this_game_theme += 5
 
-		game_theme.stream = load(_current_game_theme)
-		game_theme.play()
-	else:
-		var new_game_theme: String
-		if is_alternative_ost:
-			new_game_theme = "res://assets/audio/Levels/level" + str(level) + "Aggressive.mp3"
-		else:
-			new_game_theme = "res://assets/audio/Levels/level" + str(level) + ".mp3"
-
-		if _current_game_theme != new_game_theme:
-			_current_game_theme = new_game_theme
-
-			game_theme.stop()
-			game_theme.stream = load(_current_game_theme)
+	if _current_game_theme == this_game_theme:
+		game_theme = game_themes[this_game_theme]
+		game_theme.pitch_scale = 1
+		if not game_theme.playing:
 			game_theme.play()
-		else:
-			if not game_theme.playing:
-				game_theme.play()
+	else:
+		_current_game_theme = this_game_theme
+		if game_theme:
+			game_theme.stop()
+
+		game_theme = game_themes[this_game_theme]
+		game_theme.pitch_scale = 1
+		game_theme.play()
 
 func go_to_with_fade(scene: String) -> void:
 	var transition: Node = Composer.setup_load_screen("res://src/Composer/LoadingScreens/Fade/FadeScreen.tscn")

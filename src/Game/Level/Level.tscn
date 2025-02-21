@@ -37,5 +37,6 @@ z_index = 2
 
 [node name="LevelEnd" parent="." instance=ExtResource("2_uwdbo")]
 
+[connection signal="player_dead" from="Player" to="." method="_on_player_player_dead"]
 [connection signal="end_reached" from="LevelEnd" to="." method="_on_level_end_end_reached"]
 [connection signal="end_reached" from="LevelEnd" to="Player" method="_on_level_end_reached"]

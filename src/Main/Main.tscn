@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://di5wocp78iprb"]
+[gd_scene load_steps=14 format=3 uid="uid://di5wocp78iprb"]
 
 [ext_resource type="Script" path="res://src/Main/main.gd" id="1_a30yj"]
 [ext_resource type="AudioStream" uid="uid://dcvgghry11tav" path="res://assets/audio/Menu/mainmenu.mp3" id="2_n611n"]
+[ext_resource type="AudioStream" uid="uid://d22rkgh6hp1sx" path="res://assets/audio/Levels/level1.mp3" id="3_44jqm"]
 [ext_resource type="AudioStream" uid="uid://w1r8ykixtiik" path="res://assets/audio/Menu/buttonClick.mp3" id="3_x017f"]
+[ext_resource type="AudioStream" uid="uid://cuf6om2r60vxx" path="res://assets/audio/Levels/level2.mp3" id="4_en8xt"]
+[ext_resource type="AudioStream" uid="uid://73sg7csl4ltn" path="res://assets/audio/Levels/level3.mp3" id="5_icmn0"]
+[ext_resource type="AudioStream" uid="uid://dnegjwpufanqg" path="res://assets/audio/Levels/level4.mp3" id="6_nukvx"]
+[ext_resource type="AudioStream" uid="uid://b8ksqb7x30ugc" path="res://assets/audio/Levels/level5.mp3" id="7_grtay"]
+[ext_resource type="AudioStream" uid="uid://cousjptnw73lg" path="res://assets/audio/Levels/level1Aggressive.mp3" id="8_fgofx"]
+[ext_resource type="AudioStream" uid="uid://3ugocdfgw3dt" path="res://assets/audio/Levels/level2Aggressive.mp3" id="9_nh1vb"]
+[ext_resource type="AudioStream" uid="uid://e1j757ootxmw" path="res://assets/audio/Levels/level3Aggressive.mp3" id="10_gl627"]
+[ext_resource type="AudioStream" uid="uid://cj0ar5u58fspj" path="res://assets/audio/Levels/level4Aggressive.mp3" id="11_68ims"]
+[ext_resource type="AudioStream" uid="uid://dgfbgaqjvamq7" path="res://assets/audio/Levels/level5Aggressive.mp3" id="12_vjhid"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_a30yj")
@@ -11,7 +21,53 @@ script = ExtResource("1_a30yj")
 stream = ExtResource("2_n611n")
 bus = &"Music"
 
-[node name="GameTheme" type="AudioStreamPlayer" parent="."]
+[node name="GameTheme1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_44jqm")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="GameTheme2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_en8xt")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="GameTheme3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_icmn0")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="GameTheme4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nukvx")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="GameTheme5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_grtay")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="GameTheme6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_fgofx")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="GameTheme7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_nh1vb")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="GameTheme8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_gl627")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="GameTheme9" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_68ims")
+volume_db = -10.0
+bus = &"Music"
+
+[node name="GameTheme10" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_vjhid")
 volume_db = -10.0
 bus = &"Music"
 

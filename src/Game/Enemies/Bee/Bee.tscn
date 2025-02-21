@@ -43,6 +43,9 @@ animation = &"fly"
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_cwsm3")
 
+[node name="TopPos" parent="." index="2"]
+position = Vector2(0, 64)
+
 [node name="PlayerRay" parent="." index="5"]
 rotation = 3.92699
 target_position = Vector2(0, -2400)

@@ -16,6 +16,7 @@ signal game_end()
 
 var level: Level
 var is_counting_time: bool = true
+var is_game_over: bool = false
 
 func _ready() -> void:
 	Globals.game = self
@@ -113,7 +114,7 @@ func _process(_delta: float) -> void:
 			Globals.game_theme.stop()
 			Globals.go_to_with_fade("res://src/MainMenu/MainMenu.tscn")
 
-	if Input.is_action_just_pressed("switch"):
+	if Input.is_action_just_pressed("switch") and is_game_over:
 		if Globals.is_new_game:
 			Globals.level += 1
 			if Globals.level == 6:
@@ -125,6 +126,8 @@ func _process(_delta: float) -> void:
 			Globals.go_to_with_fade("res://src/GameEnd/GameEnd.tscn")
 
 func _on_end_timer_timeout() -> void:
+	is_game_over = true
+
 	if Globals.level_time > 0:
 		Globals.total_score += 1
 		Globals.level_score += 1
