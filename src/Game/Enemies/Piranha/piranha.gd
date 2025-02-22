@@ -34,6 +34,7 @@ func move(delta: float) -> void:
 		time += delta
 		y_direction = abs(cos(time) * jump_power * 2)
 		if global_position.y - init_pos.y > -1.0:
+			collision_shape_2d.set_deferred("disabled", true)
 			y_direction = 0.0
 			is_falling = false
 			global_position = init_pos
@@ -42,5 +43,6 @@ func move(delta: float) -> void:
 	global_position += Vector2(0, y_direction) * actual_speed * delta
 
 func _on_jump_timer_timeout() -> void:
+	collision_shape_2d.set_deferred("disabled", false)
 	time = 0.0
 	is_jumping = true

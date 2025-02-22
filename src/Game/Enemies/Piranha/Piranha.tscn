@@ -51,6 +51,7 @@ animation = &"jump"
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_wexve")
+disabled = true
 
 [node name="JumpTimer" type="Timer" parent="." index="7"]
 one_shot = true

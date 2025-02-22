@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://b2qkuxq0m7h3a"]
+[gd_scene load_steps=32 format=4 uid="uid://b2qkuxq0m7h3a"]
 
 [ext_resource type="PackedScene" uid="uid://cyqormotwv52p" path="res://src/Game/Level/Level.tscn" id="1_8c6le"]
 [ext_resource type="Texture2D" uid="uid://da1al3ahkoaqs" path="res://assets/images/Levels/Level1/dirt.png" id="2_n26qx"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://d3don2s5i3oud" path="res://src/Game/Enemies/Spider/spider.tscn" id="20_oua8u"]
 [ext_resource type="PackedScene" uid="uid://dqs1efi88vvs0" path="res://src/Game/Enemies/Bee/Bee.tscn" id="21_42bul"]
 [ext_resource type="PackedScene" uid="uid://buso7iw1ogkt8" path="res://src/Game/Enemies/Piranha/Piranha.tscn" id="22_6ensv"]
-[ext_resource type="PackedScene" uid="uid://t5ate7rpmi3l" path="res://src/Game/Enemies/Barnacle/Barnacle.tscn" id="23_er1xv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8y8l"]
 texture = ExtResource("2_n26qx")
@@ -359,10 +358,6 @@ position = Vector2(16768, 2815)
 collision_layer = 15
 collision_mask = 15
 jump_power = 3.25
-
-[node name="Barnacle" parent="Enemies" index="16" instance=ExtResource("23_er1xv")]
-z_as_relative = false
-position = Vector2(1216, 2008)
 
 [node name="LevelEnd" parent="." index="6"]
 position = Vector2(18232, 1728)

@@ -8,11 +8,11 @@
 [ext_resource type="AudioStream" uid="uid://gyyantokytcy" path="res://assets/audio/Levels/level3.mp3" id="5_icmn0"]
 [ext_resource type="AudioStream" uid="uid://cw8b4af5exbfv" path="res://assets/audio/Levels/level4.mp3" id="6_nukvx"]
 [ext_resource type="AudioStream" uid="uid://nqrkxb30mum5" path="res://assets/audio/Levels/level5.mp3" id="7_grtay"]
-[ext_resource type="AudioStream" uid="uid://chg1l8wsb05r3" path="res://assets/audio/Levels/level1Aggressive.mp3" id="8_fgofx"]
-[ext_resource type="AudioStream" uid="uid://dglu2s52rykco" path="res://assets/audio/Levels/level2Aggressive.mp3" id="9_nh1vb"]
-[ext_resource type="AudioStream" uid="uid://bf4ybvm57c1u1" path="res://assets/audio/Levels/level3Aggressive.mp3" id="10_gl627"]
-[ext_resource type="AudioStream" uid="uid://bd54ctl7uy6mu" path="res://assets/audio/Levels/level4Aggressive.mp3" id="11_68ims"]
-[ext_resource type="AudioStream" uid="uid://sjy4tosi2qwo" path="res://assets/audio/Levels/level5Aggressive.mp3" id="12_vjhid"]
+[ext_resource type="AudioStream" uid="uid://yk5xlj3hynuc" path="res://assets/audio/Levels/level1Alternative.mp3" id="8_fgofx"]
+[ext_resource type="AudioStream" uid="uid://bpje573asaxt1" path="res://assets/audio/Levels/level2Alternative.mp3" id="9_nh1vb"]
+[ext_resource type="AudioStream" uid="uid://bivdb6h3lwp7j" path="res://assets/audio/Levels/level3Alternative.mp3" id="10_gl627"]
+[ext_resource type="AudioStream" uid="uid://crua0civjdt0g" path="res://assets/audio/Levels/level4Alternative.mp3" id="11_68ims"]
+[ext_resource type="AudioStream" uid="uid://uuvdvh65bxr2" path="res://assets/audio/Levels/level5Alternative.mp3" id="12_vjhid"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_a30yj")
