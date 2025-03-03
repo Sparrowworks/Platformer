@@ -1,13 +1,13 @@
 [gd_scene load_steps=31 format=3 uid="uid://bp1vmitw84bc2"]
 
-[ext_resource type="Script" path="res://src/Game/Player/player.gd" id="1_v5f2k"]
+[ext_resource type="Script" uid="uid://b55t85em3ov76" path="res://src/Game/Player/player.gd" id="1_v5f2k"]
 [ext_resource type="Texture2D" uid="uid://1as82h7ujqf6" path="res://assets/images/Player/fall.png" id="2_eyrcq"]
 [ext_resource type="Texture2D" uid="uid://c1iflrat7fp65" path="res://assets/images/Player/hurt.png" id="3_121sm"]
 [ext_resource type="Texture2D" uid="uid://g0gycl6whrrw" path="res://assets/images/Player/jump.png" id="4_cpllv"]
 [ext_resource type="Texture2D" uid="uid://cgm3oeh6fd0vl" path="res://assets/images/Player/stand.png" id="5_2ebug"]
 [ext_resource type="Texture2D" uid="uid://d2fkp3y7s80on" path="res://assets/images/Player/walk1.png" id="6_ed8jq"]
 [ext_resource type="Texture2D" uid="uid://c8i62nmsue7fp" path="res://assets/images/Player/walk2.png" id="7_xy11v"]
-[ext_resource type="Script" path="res://src/Game/Player/ui.gd" id="8_4b67c"]
+[ext_resource type="Script" uid="uid://dh618ifgokkjw" path="res://src/Game/Player/ui.gd" id="8_4b67c"]
 [ext_resource type="FontFile" uid="uid://bysfe8g4xv0r6" path="res://assets/fonts/Kenney Blocks.ttf" id="8_tie6r"]
 [ext_resource type="AudioStream" uid="uid://nflw3aptiysq" path="res://assets/audio/Player/hurt.mp3" id="9_o0bax"]
 [ext_resource type="AudioStream" uid="uid://cec4x1i4hdgsd" path="res://assets/audio/Player/jumplong.mp3" id="11_mg05k"]
@@ -133,10 +133,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3rxq2"]
 _data = {
-"Hurt": SubResource("Animation_uxnry"),
-"Immunity": SubResource("Animation_nwm2e"),
-"Kill": SubResource("Animation_v78s8"),
-"RESET": SubResource("Animation_6cvtx")
+&"Hurt": SubResource("Animation_uxnry"),
+&"Immunity": SubResource("Animation_nwm2e"),
+&"Kill": SubResource("Animation_v78s8"),
+&"RESET": SubResource("Animation_6cvtx")
 }
 
 [sub_resource type="Animation" id="Animation_vr16t"]
@@ -172,8 +172,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1su8d"]
 _data = {
-"Blink": SubResource("Animation_vr16t"),
-"RESET": SubResource("Animation_xar1s")
+&"Blink": SubResource("Animation_vr16t"),
+&"RESET": SubResource("Animation_xar1s")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyyqb"]
@@ -228,9 +228,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xv8gm"]
 _data = {
-"Decrease": SubResource("Animation_jxpc3"),
-"Increase": SubResource("Animation_llybt"),
-"RESET": SubResource("Animation_jpeke")
+&"Decrease": SubResource("Animation_jxpc3"),
+&"Increase": SubResource("Animation_llybt"),
+&"RESET": SubResource("Animation_jpeke")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -273,7 +273,7 @@ position = Vector2(0, 91)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3rxq2")
+&"": SubResource("AnimationLibrary_3rxq2")
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -305,7 +305,7 @@ vertical_alignment = 1
 
 [node name="DeadAnimation" type="AnimationPlayer" parent="CanvasLayer/UI/DeadText"]
 libraries = {
-"": SubResource("AnimationLibrary_1su8d")
+&"": SubResource("AnimationLibrary_1su8d")
 }
 
 [node name="EndTextContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
@@ -354,7 +354,7 @@ vertical_alignment = 1
 [node name="PromptAnimation" type="AnimationPlayer" parent="CanvasLayer/UI/EndTextContainer/Control/Prompt"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_1su8d")
+&"": SubResource("AnimationLibrary_1su8d")
 }
 
 [node name="TopBar" type="Panel" parent="CanvasLayer/UI"]
@@ -387,7 +387,7 @@ horizontal_alignment = 1
 [node name="ScoreAnim" type="AnimationPlayer" parent="CanvasLayer/UI/TopBar/HBoxContainer/ScoreText"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_xv8gm")
+&"": SubResource("AnimationLibrary_xv8gm")
 }
 
 [node name="CoinText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
@@ -402,7 +402,7 @@ horizontal_alignment = 1
 [node name="CoinAnim" type="AnimationPlayer" parent="CanvasLayer/UI/TopBar/HBoxContainer/CoinText"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_xv8gm")
+&"": SubResource("AnimationLibrary_xv8gm")
 }
 
 [node name="HealthText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
@@ -417,7 +417,7 @@ horizontal_alignment = 1
 [node name="HealthAnim" type="AnimationPlayer" parent="CanvasLayer/UI/TopBar/HBoxContainer/HealthText"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_xv8gm")
+&"": SubResource("AnimationLibrary_xv8gm")
 }
 
 [node name="LevelText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]

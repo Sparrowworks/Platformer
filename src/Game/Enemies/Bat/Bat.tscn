@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cojneeyfou7cr"]
 
 [ext_resource type="PackedScene" uid="uid://5ln32fnvrhnl" path="res://src/Game/Enemies/Enemy.tscn" id="1_iya1w"]
-[ext_resource type="Script" path="res://src/Game/Enemies/Bat/bat.gd" id="2_o1y7h"]
+[ext_resource type="Script" uid="uid://dosrswb1l8dkv" path="res://src/Game/Enemies/Bat/bat.gd" id="2_o1y7h"]
 [ext_resource type="Texture2D" uid="uid://0rbe5pgffr5y" path="res://assets/images/Enemies/Bat/bat_hang.png" id="3_h4c83"]
 [ext_resource type="Texture2D" uid="uid://co022x748xfrf" path="res://assets/images/Enemies/Bat/bat_dead.png" id="3_rnl84"]
 [ext_resource type="Texture2D" uid="uid://bjdt4jo7nps0q" path="res://assets/images/Enemies/Bat/bat.png" id="4_deo78"]

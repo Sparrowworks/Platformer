@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://sklh80qgvv5k"]
 
 [ext_resource type="Texture2D" uid="uid://couhmoclqr537" path="res://assets/images/Menu/background.png" id="1_443kv"]
-[ext_resource type="Script" path="res://src/MainMenu/main_menu.gd" id="1_eoywx"]
+[ext_resource type="Script" uid="uid://daukryybv5bvg" path="res://src/MainMenu/main_menu.gd" id="1_eoywx"]
 [ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_djw3s"]
 [ext_resource type="Texture2D" uid="uid://dl280hbnpwuad" path="res://assets/images/Menu/button.png" id="3_ajwpo"]
 [ext_resource type="Texture2D" uid="uid://he4vf8r7ftf0" path="res://assets/images/Menu/panel.png" id="5_uban1"]

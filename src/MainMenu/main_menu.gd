@@ -9,10 +9,21 @@ func _ready() -> void:
 	if not Globals.menu_theme.playing:
 		Globals.menu_theme.play()
 
-	version_text.text = "v" + ProjectSettings.get_setting("application/config/version")
+	set_version_text()
 
 	if OS.get_name() == "Web":
 		$Buttons/QuitButton.hide()
+
+func set_version_text() -> void:
+	var version: String = ProjectSettings.get_setting("application/config/version") as String
+	var how_many_zeroes: int = version.count("0")
+
+	if how_many_zeroes == 1:
+		version_text.text = "v" + version.trim_suffix(".0")
+	elif how_many_zeroes > 1:
+		version_text.text = "v" + version.trim_suffix(".0.0")
+	else:
+		version_text.text = "v" + version
 
 func _on_play_button_pressed() -> void:
 	Globals.button_click.play()

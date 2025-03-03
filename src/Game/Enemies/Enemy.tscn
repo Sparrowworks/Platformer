@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://5ln32fnvrhnl"]
 
-[ext_resource type="Script" path="res://src/Game/Enemies/enemy.gd" id="1_twkoc"]
+[ext_resource type="Script" uid="uid://bbsirjmj5bcad" path="res://src/Game/Enemies/enemy.gd" id="1_twkoc"]
 
 [sub_resource type="Animation" id="Animation_n31oe"]
 resource_name = "Kill"
@@ -34,8 +34,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5aljj"]
 _data = {
-"Kill": SubResource("Animation_n31oe"),
-"RESET": SubResource("Animation_7g63v")
+&"Kill": SubResource("Animation_n31oe"),
+&"RESET": SubResource("Animation_7g63v")
 }
 
 [node name="Enemy" type="Area2D" groups=["Enemy"]]

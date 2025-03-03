@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwi35v1hej4u3"]
 
-[ext_resource type="Script" path="res://src/Composer/LoadingScreens/ZigZag/zig_zag_screen_boot.gd" id="1_iflwf"]
-[ext_resource type="Script" path="res://src/Composer/LoadingScreens/ZigZag/zig_zag_screen.gd" id="1_wbk44"]
+[ext_resource type="Script" uid="uid://cc8vl5iyxeavo" path="res://src/Composer/LoadingScreens/ZigZag/zig_zag_screen_boot.gd" id="1_iflwf"]
+[ext_resource type="Script" uid="uid://qocmuculus2w" path="res://src/Composer/LoadingScreens/ZigZag/zig_zag_screen.gd" id="1_wbk44"]
 
 [node name="ZigZagScreen" type="CanvasLayer"]
 layer = 100

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c1qgcoa3fk54u"]
 
 [ext_resource type="Texture2D" uid="uid://cyfkfcncw0b8m" path="res://assets/images/Enemies/Spinner/spinner_dead.png" id="1_bbl37"]
-[ext_resource type="Script" path="res://src/Game/Enemies/Spinner/spinner.gd" id="1_eq8dl"]
+[ext_resource type="Script" uid="uid://b03b6qg6dmbk8" path="res://src/Game/Enemies/Spinner/spinner.gd" id="1_eq8dl"]
 [ext_resource type="Texture2D" uid="uid://rrk7scun8bbt" path="res://assets/images/Enemies/Spinner/spinner.png" id="2_4aatv"]
 [ext_resource type="Texture2D" uid="uid://b3blh7xvnaqy" path="res://assets/images/Enemies/Spinner/spinner_spin.png" id="3_d3pcg"]
 
@@ -65,8 +65,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5aljj"]
 _data = {
-"Kill": SubResource("Animation_n31oe"),
-"RESET": SubResource("Animation_7g63v")
+&"Kill": SubResource("Animation_n31oe"),
+&"RESET": SubResource("Animation_7g63v")
 }
 
 [node name="Spinner" type="CharacterBody2D" groups=["EnemySpinner"]]

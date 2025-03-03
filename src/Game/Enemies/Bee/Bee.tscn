@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqs1efi88vvs0"]
 
 [ext_resource type="PackedScene" uid="uid://5ln32fnvrhnl" path="res://src/Game/Enemies/Enemy.tscn" id="1_wgr3f"]
-[ext_resource type="Script" path="res://src/Game/Enemies/Bee/bee.gd" id="2_w5wxy"]
+[ext_resource type="Script" uid="uid://c2xncmj4cuxxf" path="res://src/Game/Enemies/Bee/bee.gd" id="2_w5wxy"]
 [ext_resource type="Texture2D" uid="uid://cgrmi2p6r52n" path="res://assets/images/Enemies/Bee/bee_dead.png" id="3_foq1o"]
 [ext_resource type="Texture2D" uid="uid://ciujm65ynducu" path="res://assets/images/Enemies/Bee/bee.png" id="3_ml47b"]
 [ext_resource type="Texture2D" uid="uid://chohlubbsena5" path="res://assets/images/Enemies/Bee/bee_fly.png" id="4_7e4tl"]

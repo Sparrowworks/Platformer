@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdwafhasbnhtv"]
 
-[ext_resource type="Script" path="res://src/Game/game.gd" id="1_pl46v"]
+[ext_resource type="Script" uid="uid://c3jat2vp2rr35" path="res://src/Game/game.gd" id="1_pl46v"]
 [ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_bfx2m"]
 [ext_resource type="AudioStream" uid="uid://dlcfohgqmt0tn" path="res://assets/audio/Player/counter.mp3" id="2_l3q66"]
 [ext_resource type="AudioStream" uid="uid://c4e3iq24wsg8f" path="res://assets/audio/Player/levelwin.mp3" id="3_6di1p"]
