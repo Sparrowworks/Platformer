@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://qec4y3786h5l"]
 
 [ext_resource type="Texture2D" uid="uid://b11j2m4uepxqn" path="res://assets/images/Objects/exitSign.png" id="1_3x1yh"]
-[ext_resource type="Script" path="res://src/Game/Objects/LevelEnd/level_end.gd" id="1_6rniq"]
+[ext_resource type="Script" uid="uid://usfoucv8gbfr" path="res://src/Game/Objects/LevelEnd/level_end.gd" id="1_6rniq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emjt0"]
 size = Vector2(144, 3880)
@@ -62,8 +62,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wyy12"]
 _data = {
-"End": SubResource("Animation_h0xda"),
-"RESET": SubResource("Animation_mwbi6")
+&"End": SubResource("Animation_h0xda"),
+&"RESET": SubResource("Animation_mwbi6")
 }
 
 [node name="LevelEnd" type="Area2D"]

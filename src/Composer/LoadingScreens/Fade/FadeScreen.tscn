@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dwiop5n51a8vb"]
 
-[ext_resource type="Script" path="res://src/Composer/LoadingScreens/Fade/fade_screen.gd" id="1_gddnd"]
+[ext_resource type="Script" uid="uid://bkwfw3ud4u2sv" path="res://src/Composer/LoadingScreens/Fade/fade_screen.gd" id="1_gddnd"]
 
 [node name="FadeScreen" type="CanvasLayer"]
 layer = 100

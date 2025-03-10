@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cvrhx3it7audq"]
 
-[ext_resource type="Script" path="res://src/Game/Objects/Pickup/pickup.gd" id="1_tfu1k"]
+[ext_resource type="Script" uid="uid://bd4y522fhcpx5" path="res://src/Game/Objects/Pickup/pickup.gd" id="1_tfu1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j61wf"]
 size = Vector2(96, 96)
@@ -66,9 +66,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_awaih"]
 _data = {
-"Collect": SubResource("Animation_8v2gm"),
-"Move": SubResource("Animation_6maku"),
-"RESET": SubResource("Animation_hg0bu")
+&"Collect": SubResource("Animation_8v2gm"),
+&"Move": SubResource("Animation_6maku"),
+&"RESET": SubResource("Animation_hg0bu")
 }
 
 [node name="Pickup" type="Node2D" groups=["PickupInternal"]]
