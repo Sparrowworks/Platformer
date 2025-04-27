@@ -19,6 +19,6 @@ The old version is available in a separate branch for archive purposes.
 - You can also [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) or download the repository and play it through Godot Editor.
 
 ### Screenshots
-<img src="https://img.itch.zone/aW1hZ2UvMTY5ODAwNC8xMDAwMjk1OS5wbmc=/original/Lxy7f8.png">
-<img src="https://img.itch.zone/aW1hZ2UvMTY5ODAwNC8xMDAwMjk2MS5wbmc=/original/eMA%2FeZ.png">
-<img src="https://img.itch.zone/aW1hZ2UvMTY5ODAwNC8xMDAwMjk2MC5wbmc=/original/GfxtOV.png">
+<img src="https://img.itch.zone/aW1hZ2UvMTY5ODAwNC8yMDkyNDUwNC5wbmc=/original/tAPIYa.png">
+<img src="https://img.itch.zone/aW1hZ2UvMTY5ODAwNC8yMDkyNDUwNC5wbmc=/original/tAPIYa.png">
+<img src="https://img.itch.zone/aW1hZ2UvMTY5ODAwNC8yMDkyNDUwNS5wbmc=/original/gnN9jB.png">
