@@ -1,5 +1,6 @@
 class_name Game extends Node2D
 
+signal game_paused()
 signal game_end()
 
 @onready var score_increase: AudioStreamPlayer = $ScoreIncrease
@@ -13,6 +14,7 @@ signal game_end()
 @onready var level_4: Label = %Level4
 @onready var level_5: Label = %Level5
 @onready var total_time: Label = %Level6
+@onready var paused: Label = %Paused
 
 var level: Level
 var is_counting_time: bool = true
@@ -101,6 +103,12 @@ func _process(_delta: float) -> void:
 		level_5.text = "Level 5: " + str(Globals.level_speedrun_times[5])
 		total_time.text = "Total: " + str(Globals.level_speedrun_times[6])
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause"):
+		set_process_input(false)
+		get_tree().paused = true
+		game_paused.emit()
+
 	if Input.is_action_just_pressed("restart"):
 		if Globals.is_new_game:
 			Globals.player_health = Globals.end_player_health
@@ -136,3 +144,11 @@ func _on_end_timer_timeout() -> void:
 	else:
 		score_increase.stop()
 		game_end.emit()
+
+
+func _on_paused_game_unpaused() -> void:
+	get_tree().paused = false
+	Globals.button_click.play()
+
+	await get_tree().create_timer(0.5).timeout
+	set_process_input(true)

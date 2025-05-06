@@ -372,7 +372,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 75
 alignment = 1
 
 [node name="ScoreText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
@@ -440,8 +440,8 @@ horizontal_alignment = 1
 [node name="HelpText" type="Label" parent="CanvasLayer/UI/TopBar/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_tie6r")
-theme_override_font_sizes/font_size = 64
-text = "q - quit; r  - restart"
+theme_override_font_sizes/font_size = 48
+text = "q - quit | r  - restart | p - pause"
 horizontal_alignment = 1
 
 [node name="Sounds" type="Node" parent="."]

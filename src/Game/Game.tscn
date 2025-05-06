@@ -1,15 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdwafhasbnhtv"]
+[gd_scene load_steps=10 format=3 uid="uid://bdwafhasbnhtv"]
 
 [ext_resource type="Script" uid="uid://c3jat2vp2rr35" path="res://src/Game/game.gd" id="1_pl46v"]
 [ext_resource type="FontFile" uid="uid://l857j4vebhyd" path="res://assets/fonts/Watermelon Days.ttf" id="2_bfx2m"]
 [ext_resource type="AudioStream" uid="uid://dlcfohgqmt0tn" path="res://assets/audio/Player/counter.mp3" id="2_l3q66"]
 [ext_resource type="AudioStream" uid="uid://c4e3iq24wsg8f" path="res://assets/audio/Player/levelwin.mp3" id="3_6di1p"]
+[ext_resource type="FontFile" uid="uid://bysfe8g4xv0r6" path="res://assets/fonts/Kenney Blocks.ttf" id="3_qb2ae"]
+[ext_resource type="Script" uid="uid://djg5qb88yregc" path="res://src/Game/pause_ui.gd" id="4_rn0ke"]
+
+[sub_resource type="Animation" id="Animation_vr16t"]
+resource_name = "Blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_xar1s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1su8d"]
+_data = {
+&"Blink": SubResource("Animation_vr16t"),
+&"RESET": SubResource("Animation_xar1s")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_pl46v")
 
 [node name="SpeedrunUI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="SpeedrunUI"]
 layout_mode = 3
@@ -18,6 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SpeedrunUI/Control"]
 layout_mode = 1
@@ -96,6 +135,29 @@ theme_override_font_sizes/font_size = 64
 text = "Total: 0.00"
 vertical_alignment = 1
 
+[node name="Paused" type="Label" parent="SpeedrunUI/Control"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qb2ae")
+theme_override_font_sizes/font_size = 216
+text = "paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_rn0ke")
+
+[node name="PauseAnimation" type="AnimationPlayer" parent="SpeedrunUI/Control/Paused"]
+libraries = {
+&"": SubResource("AnimationLibrary_1su8d")
+}
+
 [node name="ScoreIncrease" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_l3q66")
 volume_db = -20.0
@@ -107,4 +169,6 @@ stream = ExtResource("3_6di1p")
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 0.01
 
+[connection signal="game_paused" from="." to="SpeedrunUI/Control/Paused" method="_on_game_game_paused"]
+[connection signal="game_unpaused" from="SpeedrunUI/Control/Paused" to="." method="_on_paused_game_unpaused"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
