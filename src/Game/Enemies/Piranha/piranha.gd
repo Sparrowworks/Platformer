@@ -21,7 +21,7 @@ func _ready() -> void:
 func move(delta: float) -> void:
 	super(delta)
 
-	# Calculate the smooth jump and fall of the fish with trygonometric functions
+	# Use trigonometric functions to smooth the fish's jump and fall.
 	if is_jumping:
 		animated_sprite_2d.play("jump")
 		time += delta
