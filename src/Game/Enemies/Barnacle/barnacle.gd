@@ -23,7 +23,7 @@ func collision_check(body: Node2D) -> void:
 			kill()
 			return
 
-		# Allow the barnacle to be killed by the player only if its raising from or lowering to the ground
+		# The barnacle can only be killed while rising from or lowering to the ground.
 		if animated_sprite_2d.animation == "open":
 			player_hit.emit(true)
 			hide_timer.paused = true
