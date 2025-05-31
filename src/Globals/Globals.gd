@@ -93,7 +93,7 @@ func reset_level() -> void:
 	level_time = 0
 
 func set_game_theme() -> void:
-	# Select a music track to play based on the settings and the current level
+	# Choose a music track based on settings and the current level.
 	var this_game_theme_id: int = 0
 
 	this_game_theme_id += (Globals.level-1)
