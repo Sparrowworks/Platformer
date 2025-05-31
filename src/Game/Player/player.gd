@@ -199,7 +199,7 @@ func _physics_process(delta: float) -> void:
 				is_coyote_active = true
 				_coyote_time()
 
-		# Allow the player for clutch jumps while in mid-air if they walked off a platform or a cliff
+		# Allow clutch jumps mid-air when the player walks off a platform or cliff.
 		if is_jump_tapped:
 			if is_coyote_active:
 				is_coyote_active = false
