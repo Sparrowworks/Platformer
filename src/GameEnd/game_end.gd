@@ -11,7 +11,9 @@ func _ready() -> void:
 	if Globals.is_new_game:
 		desc.text = "Congratulations!
 		You have managed to find the lost ufo ship and now you can return to your home planet!"
+
 		title.text = "Game Stats:"
+
 		if Globals.is_speedrun_mode:
 			time_text.text = "Total Time: " + str(Globals.level_speedrun_times[6])
 		else:

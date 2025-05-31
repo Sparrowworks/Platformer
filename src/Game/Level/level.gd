@@ -8,8 +8,10 @@ signal level_end()
 @export var level_time: int = 200
 
 func _ready() -> void:
+	# Calculate the camera limit of the level (so that the player doesn't see beyond the boundaries)
 	player.camera_limit_x = (tiles.get_used_rect().size.x * 128) - 128
 
+	# Connect all signals of objects in the level to player
 	for pickup: Pickup in get_tree().get_nodes_in_group("PickupInternal"):
 		pickup.pickup_collected.connect(player._on_pickup_collected)
 

@@ -4,6 +4,7 @@ func _ready() -> void:
 	animated_sprite_2d.play("normal")
 
 func collision_check(body: Node2D) -> void:
+	# A ghost is killable only if the player has immunity
 	if body.is_in_group("Player"):
 		if Globals.player.is_immune:
 			player_hit.emit(false)
