@@ -254,7 +254,7 @@ func _on_player_hit(hurt: bool) -> void:
 		velocity.y = max_jump_vel
 
 func _on_pickup_collected(object_name: String) -> void:
-	# Determine which pickup the player collected and apply its effects
+	# Identify the collected pickup and apply its effects.
 	if object_name.contains("Coin"):
 		Globals.level_score += 100
 		Globals.level_coins += 1
