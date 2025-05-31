@@ -10,12 +10,13 @@ func _ready() -> void:
 	animation_player.play("Move")
 
 func _on_body_entered(body: Node2D) -> void:
+	# Remove the pickup if collected by the player
 	if body.is_in_group("Player"):
-		collision_shape_2d.set_deferred("disabled", true)
-		animation_player.pause()
-		pickup_collected.emit(self.name)
-		animation_player.play("Collect")
 		pickup_sound.play()
+		animation_player.pause()
+		animation_player.play("Collect")
+		collision_shape_2d.set_deferred("disabled", true)
+		pickup_collected.emit(self.name)
 
 		await animation_player.animation_finished
 

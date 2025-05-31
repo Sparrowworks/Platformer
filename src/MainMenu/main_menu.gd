@@ -3,7 +3,6 @@ extends Control
 @onready var level_select_panel: TextureRect = $LevelSelectPanel
 @onready var version_text: Label = $MarginContainer/VersionText
 
-
 var main: Main
 
 func _ready() -> void:
@@ -16,6 +15,7 @@ func _ready() -> void:
 		$Buttons/QuitButton.hide()
 
 func _on_play_button_pressed() -> void:
+	# Show a game select panel when play is pressed
 	Globals.button_click.play()
 	level_select_panel.show()
 

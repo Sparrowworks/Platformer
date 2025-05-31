@@ -49,6 +49,7 @@ var music_volume: float = 100.0
 var sfx_volume: float = 100.0
 
 func new_game() -> void:
+	# Resets all data, including the level variables
 	_current_game_theme = 0
 
 	player_health = 3
@@ -68,6 +69,7 @@ func new_game() -> void:
 	total_time = 0
 
 func new_level() -> void:
+	# Resets all data, except for the level variables
 	_current_game_theme = 0
 
 	player_health = 3
@@ -91,23 +93,24 @@ func reset_level() -> void:
 	level_time = 0
 
 func set_game_theme() -> void:
-	var this_game_theme: int = 0
+	# Select a music track to play based on the settings and the current level
+	var this_game_theme_id: int = 0
 
-	this_game_theme += (Globals.level-1)
+	this_game_theme_id += (Globals.level-1)
 	if is_alternative_ost:
-		this_game_theme += 5
+		this_game_theme_id += 5
 
-	if _current_game_theme == this_game_theme:
-		game_theme = game_themes[this_game_theme]
+	if _current_game_theme == this_game_theme_id:
+		game_theme = game_themes[this_game_theme_id]
 		game_theme.pitch_scale = 1
 		if not game_theme.playing:
 			game_theme.play()
 	else:
-		_current_game_theme = this_game_theme
+		_current_game_theme = this_game_theme_id
 		if game_theme:
 			game_theme.stop()
 
-		game_theme = game_themes[this_game_theme]
+		game_theme = game_themes[this_game_theme_id]
 		game_theme.pitch_scale = 1
 		game_theme.play()
 

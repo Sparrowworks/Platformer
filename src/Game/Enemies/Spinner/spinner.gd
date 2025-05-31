@@ -37,6 +37,7 @@ func turn_left() -> void:
 	animated_sprite_2d.flip_h = false
 
 func move(delta: float) -> void:
+	# Change the direction of the enemy if reached a wall
 	if wall_ray.is_colliding():
 		var collider: Node = wall_ray.get_collider() as Node2D
 		if not collider.is_in_group("Player"):
@@ -45,6 +46,7 @@ func move(delta: float) -> void:
 			else:
 				turn_right()
 
+	# Code for player raycast used to check if an enemy spotted the player
 	if player_ray.is_colliding():
 		var collider: Node = player_ray.get_collider() as Node
 		if ray_collider != collider:
@@ -81,6 +83,7 @@ func collision_check(body: Node2D) -> void:
 		else:
 			player_hit.emit(true)
 
+# Make the spinner jump with the player when its tracking them
 func _physics_process(delta: float) -> void:
 	if ray_collider != null:
 		if ray_collider.is_in_group("Player"):
@@ -89,6 +92,7 @@ func _physics_process(delta: float) -> void:
 
 	move(delta)
 
+# Speeden up the spinner if its tracking the player
 func _on_player_tracked() -> void:
 	actual_speed = chase_speed
 	animated_sprite_2d.speed_scale = 2
@@ -96,7 +100,6 @@ func _on_player_tracked() -> void:
 func _on_player_tracked_stopped() -> void:
 	actual_speed = speed
 	animated_sprite_2d.speed_scale = 1
-
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	collision_check(body)

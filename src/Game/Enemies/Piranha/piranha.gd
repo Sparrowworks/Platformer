@@ -21,18 +21,22 @@ func _ready() -> void:
 func move(delta: float) -> void:
 	super(delta)
 
+	# Calculate the smooth jump and fall of the fish with trygonometric functions
 	if is_jumping:
 		animated_sprite_2d.play("jump")
 		time += delta
 		y_direction = -abs(cos(time) * jump_power)
+
 		if abs(y_direction) < 0.2:
 			y_direction = 0.0
 			is_jumping = false
 			is_falling = true
+
 	elif is_falling:
 		animated_sprite_2d.play("fall")
 		time += delta
 		y_direction = abs(cos(time) * jump_power * 2)
+
 		if global_position.y - init_pos.y > -1.0:
 			collision_shape_2d.set_deferred("disabled", true)
 			y_direction = 0.0

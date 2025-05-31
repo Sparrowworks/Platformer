@@ -34,6 +34,7 @@ func _on_player_tracked() -> void:
 	if not is_chasing:
 		is_chasing = true
 
+		# Calculate the position of where to fly and the flight time of the bat
 		var initial_pos: Vector2 = global_position
 		var desired_pos: Vector2 = Vector2(Globals.player.global_position.x, Globals.player.global_position.y)
 		var fly_time: float = clampf((desired_pos.y - initial_pos.y)/2000, 1, 1.5)

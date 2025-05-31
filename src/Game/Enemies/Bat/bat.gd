@@ -18,8 +18,10 @@ func kill() -> void:
 	super()
 
 func move(delta: float) -> void:
+	# Move the bat towards the player if they're detected
 	if player_ray.is_colliding():
 		var collider: Node = player_ray.get_collider() as Node
+
 		if ray_collider != collider:
 			if collider.is_in_group("Player"):
 				player_tracked.emit()
@@ -30,6 +32,7 @@ func move(delta: float) -> void:
 			ray_collider = collider
 	elif player_ray_2.is_colliding():
 		var collider: Node = player_ray_2.get_collider() as Node
+
 		if ray2_collider != collider:
 			if collider.is_in_group("Player"):
 				player_tracked.emit()
@@ -64,6 +67,7 @@ func _on_player_tracked() -> void:
 	if not is_chasing:
 		is_chasing = true
 
+		# Calculate the position of where to fly and the flight time of the bat
 		var desired_pos: Vector2 = Vector2(Globals.player.global_position.x, Globals.player.global_position.y)
 		var fly_time: float = clampf((desired_pos.y - initial_pos.y)/2000, 1, 1.5)
 		animated_sprite_2d.play("fly")
