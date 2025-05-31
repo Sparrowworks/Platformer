@@ -188,7 +188,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = current_speed * direction.x
 	velocity.y += gravity * delta
 
-	# A quick jump is the player only tapped the space
+	# A quick jump occurs when the player taps the space key.
 	if is_jump_released and velocity.y < 0:
 		velocity.y = velocity.y / 2
 
