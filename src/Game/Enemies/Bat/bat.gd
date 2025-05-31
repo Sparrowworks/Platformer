@@ -18,7 +18,7 @@ func kill() -> void:
 	super()
 
 func move(delta: float) -> void:
-	# Move the bat towards the player if they're detected
+	# Move the bat towards the player when detected
 	if player_ray.is_colliding():
 		var collider: Node = player_ray.get_collider() as Node
 
