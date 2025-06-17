@@ -7,6 +7,7 @@ extends Control
 @onready var deaths_text: Label = %DeathsText
 @onready var enemies_text: Label = %EnemiesText
 
+
 func _ready() -> void:
 	if Globals.is_new_game:
 		desc.text = """Congratulations!
@@ -36,6 +37,7 @@ func _ready() -> void:
 		enemies_text.text = "Total Kills: " + str(Globals.total_kills)
 
 	$GameOver.play()
+
 
 func _on_menu_button_pressed() -> void:
 	Globals.go_to_with_zigzag("res://src/MainMenu/MainMenu.tscn")

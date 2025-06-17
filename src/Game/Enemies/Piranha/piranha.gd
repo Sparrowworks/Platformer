@@ -13,10 +13,12 @@ var y_direction: float = 0.0
 
 var init_pos: Vector2
 
+
 func _ready() -> void:
 	init_pos = global_position
 	jump_timer.wait_time = 1.0 + delay
 	jump_timer.start()
+
 
 func move(delta: float) -> void:
 	super(delta)
@@ -45,6 +47,7 @@ func move(delta: float) -> void:
 			jump_timer.start()
 
 	global_position += Vector2(0, y_direction) * actual_speed * delta
+
 
 func _on_jump_timer_timeout() -> void:
 	collision_shape_2d.set_deferred("disabled", false)

@@ -7,14 +7,17 @@ class_name Barnacle extends Enemy
 
 var movement_tween: Tween
 
+
 func _ready() -> void:
 	show_timer.start()
+
 
 func kill() -> void:
 	if movement_tween != null:
 		movement_tween.pause()
 
 	super()
+
 
 func collision_check(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -42,10 +45,11 @@ func collision_check(body: Node2D) -> void:
 					player_hit.emit(false)
 					kill()
 
+
 func _on_show_timer_timeout() -> void:
 	animated_sprite_2d.play("close")
 	movement_tween = get_tree().create_tween()
-	movement_tween.tween_property(self, "global_position:y",global_position.y-172, 1.5)
+	movement_tween.tween_property(self, "global_position:y", global_position.y - 172, 1.5)
 	movement_tween.tween_callback(
 		func() -> void:
 			animated_sprite_2d.play("open")
@@ -53,10 +57,11 @@ func _on_show_timer_timeout() -> void:
 			movement_tween.kill()
 	)
 
+
 func _on_hide_timer_timeout() -> void:
 	animated_sprite_2d.play("close")
 	movement_tween = get_tree().create_tween()
-	movement_tween.tween_property(self, "global_position:y",global_position.y+172, 1.5)
+	movement_tween.tween_property(self, "global_position:y", global_position.y + 172, 1.5)
 	movement_tween.tween_callback(
 		func() -> void:
 			show_timer.wait_time = 1.5 + randf_range(1.0, max_delay)

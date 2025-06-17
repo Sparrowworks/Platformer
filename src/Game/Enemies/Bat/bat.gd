@@ -7,15 +7,18 @@ var movement_tween: Tween
 var initial_pos: Vector2
 var ray2_collider: Node
 
+
 func _ready() -> void:
 	initial_pos = global_position
 	animated_sprite_2d.play("hang")
+
 
 func kill() -> void:
 	if movement_tween != null:
 		movement_tween.pause()
 
 	super()
+
 
 func move(delta: float) -> void:
 	# Move the bat towards the player when detected
@@ -46,6 +49,7 @@ func move(delta: float) -> void:
 		ray2_collider = null
 		player_tracked_stopped.emit()
 
+
 func collision_check(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		if Globals.player.is_immune:
@@ -63,13 +67,16 @@ func collision_check(body: Node2D) -> void:
 					player_hit.emit(false)
 					kill()
 
+
 func _on_player_tracked() -> void:
 	if not is_chasing:
 		is_chasing = true
 
 		# Calculate the bat's target position and flight time.
-		var desired_pos: Vector2 = Vector2(Globals.player.global_position.x, Globals.player.global_position.y)
-		var fly_time: float = clampf((desired_pos.y - initial_pos.y)/2000, 1, 1.5)
+		var desired_pos: Vector2 = Vector2(
+			Globals.player.global_position.x, Globals.player.global_position.y
+		)
+		var fly_time: float = clampf((desired_pos.y - initial_pos.y) / 2000, 1, 1.5)
 		animated_sprite_2d.play("fly")
 
 		movement_tween = get_tree().create_tween()
