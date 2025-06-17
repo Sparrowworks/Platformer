@@ -1,11 +1,12 @@
 class_name Level extends Node2D
 
-signal level_end()
+signal level_end
 
 @onready var tiles: TileMapLayer = $Tiles
 @onready var player: Player = $Player
 
 @export var level_time: int = 200
+
 
 func _ready() -> void:
 	# Calculate the camera limit of the level (so that the player doesn't see beyond the boundaries)
@@ -21,8 +22,10 @@ func _ready() -> void:
 	for spinner: Spinner in get_tree().get_nodes_in_group("EnemySpinner"):
 		spinner.player_hit.connect(player._on_player_hit)
 
+
 func _on_level_end_end_reached() -> void:
 	level_end.emit()
+
 
 func _on_player_player_dead() -> void:
 	var game: Game = get_parent()

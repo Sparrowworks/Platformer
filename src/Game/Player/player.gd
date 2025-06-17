@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 signal update_ui(score: int, coins: int, health: int, level: int, time: int)
-signal player_dead()
+signal player_dead
 
 @export var camera_limit_x: int = 3840:
 	set(val):
@@ -62,6 +62,7 @@ var is_right_hold: bool
 var is_hurt: bool = false
 var is_immune: bool = false
 
+
 func _ready() -> void:
 	Globals.player = self
 	Globals.game.game_end.connect(ui._on_game_end)
@@ -82,14 +83,27 @@ func _ready() -> void:
 
 	jump_count = jumps
 
-	update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
+	update_ui.emit(
+		Globals.level_score,
+		Globals.level_coins,
+		Globals.player_health,
+		Globals.level,
+		Globals.level_time
+	)
+
 
 func _hurt() -> void:
 	if not is_hurt:
 		is_hurt = true
 		Globals.player_health -= 1
 		ui.play_health_anim("Decrease")
-		update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
+		update_ui.emit(
+			Globals.level_score,
+			Globals.level_coins,
+			Globals.player_health,
+			Globals.level,
+			Globals.level_time
+		)
 
 		if Globals.player_health <= 0:
 			_kill()
@@ -105,6 +119,7 @@ func _hurt() -> void:
 		await animation_player.animation_finished
 		is_hurt = false
 
+
 func _kill() -> void:
 	Globals.total_deaths += 1
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -117,6 +132,7 @@ func _kill() -> void:
 	animation_player.play("Kill")
 	player_dead.emit()
 
+
 func _jump() -> void:
 	if jump_count > 0:
 		jump_long.play()
@@ -124,13 +140,16 @@ func _jump() -> void:
 		was_jump_pressed = false
 		velocity.y = max_jump_vel
 
+
 func _coyote_time() -> void:
 	await get_tree().create_timer(coyote_time).timeout
 	is_coyote_active = false
 
+
 func _buffer_jump() -> void:
 	await get_tree().create_timer(buffer_time).timeout
 	was_jump_pressed = false
+
 
 func _process(_delta: float) -> void:
 	is_left_hold = Input.is_action_pressed("left")
@@ -152,6 +171,7 @@ func _process(_delta: float) -> void:
 
 	if velocity.y > 40:
 		animated_sprite_2d.play("fall")
+
 
 func _physics_process(delta: float) -> void:
 	var is_jump_tapped: bool = Input.is_action_just_pressed("jump")
@@ -234,13 +254,21 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
 func _on_time_timer_timeout() -> void:
 	Globals.level_time -= 1
-	update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
+	update_ui.emit(
+		Globals.level_score,
+		Globals.level_coins,
+		Globals.player_health,
+		Globals.level,
+		Globals.level_time
+	)
 
 	if Globals.level_time == 0:
 		time_timer.stop()
 		_kill()
+
 
 func _on_player_hit(hurt: bool) -> void:
 	if hurt:
@@ -252,6 +280,7 @@ func _on_player_hit(hurt: bool) -> void:
 		Globals.level_score += 50
 		ui.play_score_anim("Increase")
 		velocity.y = max_jump_vel
+
 
 func _on_pickup_collected(object_name: String) -> void:
 	# Identify the collected pickup and apply its effects.
@@ -270,7 +299,14 @@ func _on_pickup_collected(object_name: String) -> void:
 		animation_player.play("Immunity")
 		immunity_timer.start()
 
-	update_ui.emit(Globals.level_score, Globals.level_coins, Globals.player_health, Globals.level, Globals.level_time)
+	update_ui.emit(
+		Globals.level_score,
+		Globals.level_coins,
+		Globals.player_health,
+		Globals.level,
+		Globals.level_time
+	)
+
 
 func _on_immunity_timeout() -> void:
 	max_speed /= 1.5
@@ -279,6 +315,7 @@ func _on_immunity_timeout() -> void:
 
 	if Globals.player_health > 0:
 		animation_player.stop()
+
 
 func _on_level_end_reached() -> void:
 	immunity_timer.stop()

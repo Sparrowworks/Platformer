@@ -23,9 +23,7 @@ var total_deaths: int = 0
 var menu_theme: AudioStreamPlayer
 var button_click: AudioStreamPlayer
 var game_theme: AudioStreamPlayer
-var game_themes: Array = [
-
-]
+var game_themes: Array = []
 
 var _current_game_theme: int = 0
 
@@ -48,6 +46,7 @@ var master_volume: float = 100.0
 var music_volume: float = 100.0
 var sfx_volume: float = 100.0
 
+
 func new_game() -> void:
 	# Resets all data, including the level variables
 	_current_game_theme = 0
@@ -68,6 +67,7 @@ func new_game() -> void:
 	total_score = 0
 	total_time = 0
 
+
 func new_level() -> void:
 	# Resets all data, except for the level variables
 	_current_game_theme = 0
@@ -86,17 +86,19 @@ func new_level() -> void:
 	total_time = 0
 	is_new_game = false
 
+
 func reset_level() -> void:
 	level_coins = 0
 	level_kills = 0
 	level_score = 0
 	level_time = 0
 
+
 func set_game_theme() -> void:
 	# Choose a music track based on settings and the current level.
 	var this_game_theme_id: int = 0
 
-	this_game_theme_id += (Globals.level-1)
+	this_game_theme_id += (Globals.level - 1)
 	if is_alternative_ost:
 		this_game_theme_id += 5
 
@@ -114,16 +116,22 @@ func set_game_theme() -> void:
 		game_theme.pitch_scale = 1
 		game_theme.play()
 
+
 func go_to_with_fade(scene: String) -> void:
-	var transition: Node = Composer.setup_load_screen("res://src/Composer/LoadingScreens/Fade/FadeScreen.tscn")
+	var transition: Node = Composer.setup_load_screen(
+		"res://src/Composer/LoadingScreens/Fade/FadeScreen.tscn"
+	)
 
 	if transition:
 		button_click.play()
 		await transition.finished_fade_in
 		Composer.load_scene(scene)
 
+
 func go_to_with_zigzag(scene: String) -> void:
-	var transition: ZigZag = Composer.setup_load_screen("res://src/Composer/LoadingScreens/ZigZag/ZigZagScreen.tscn")
+	var transition: ZigZag = Composer.setup_load_screen(
+		"res://src/Composer/LoadingScreens/ZigZag/ZigZagScreen.tscn"
+	)
 
 	if transition:
 		button_click.play()

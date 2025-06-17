@@ -1,5 +1,6 @@
 class_name Main extends Node
 
+
 func _ready() -> void:
 	Globals.menu_theme = $MenuTheme
 	Globals.button_click = $ButtonClick

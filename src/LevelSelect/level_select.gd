@@ -13,24 +13,29 @@ var level_previews: Array = [
 
 var level_idx: int = 0
 
+
 func _on_play_button_pressed() -> void:
 	Globals.new_level()
 	Globals.menu_theme.stop()
 	Globals.go_to_with_fade("res://src/Game/Game.tscn")
 
+
 func _on_menu_button_pressed() -> void:
 	Globals.go_to_with_zigzag("res://src/MainMenu/MainMenu.tscn")
 
+
 func _redraw_level() -> void:
 	Globals.button_click.play()
-	Globals.level = level_idx+1
-	level_title.text = "Level " + str(level_idx+1)
+	Globals.level = level_idx + 1
+	level_title.text = "Level " + str(level_idx + 1)
 	level_preview.texture = level_previews[level_idx]
 
+
 func _on_prev_button_pressed() -> void:
-	level_idx = clampi(level_idx - 1, 0, level_previews.size()-1)
+	level_idx = clampi(level_idx - 1, 0, level_previews.size() - 1)
 	_redraw_level()
 
+
 func _on_next_button_pressed() -> void:
-	level_idx = clampi(level_idx + 1, 0, level_previews.size()-1)
+	level_idx = clampi(level_idx + 1, 0, level_previews.size() - 1)
 	_redraw_level()

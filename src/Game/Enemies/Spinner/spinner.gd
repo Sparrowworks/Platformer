@@ -1,7 +1,7 @@
 class_name Spinner extends CharacterBody2D
 
-signal player_tracked()
-signal player_tracked_stopped()
+signal player_tracked
+signal player_tracked_stopped
 signal player_hit(is_hurt: bool)
 
 @export var speed: float = 300.0
@@ -21,8 +21,10 @@ var direction: Vector2 = Vector2.LEFT
 var actual_speed: float = speed
 var ray_collider: Node
 
+
 func _ready() -> void:
 	animated_sprite_2d.play("spin")
+
 
 func turn_right() -> void:
 	player_ray.rotation = deg_to_rad(180)
@@ -30,11 +32,13 @@ func turn_right() -> void:
 	direction = Vector2.RIGHT
 	animated_sprite_2d.flip_h = true
 
+
 func turn_left() -> void:
 	player_ray.rotation = deg_to_rad(0)
 	wall_ray.rotation = deg_to_rad(0)
 	direction = Vector2.LEFT
 	animated_sprite_2d.flip_h = false
+
 
 func move(delta: float) -> void:
 	# Change the direction of the enemy if reached a wall
@@ -66,6 +70,7 @@ func move(delta: float) -> void:
 
 	move_and_slide()
 
+
 func kill() -> void:
 	collision_shape_2d.set_deferred("disabled", true)
 	set_physics_process(false)
@@ -75,6 +80,7 @@ func kill() -> void:
 
 	queue_free()
 
+
 func collision_check(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		if Globals.player.is_immune:
@@ -82,6 +88,7 @@ func collision_check(body: Node2D) -> void:
 			kill()
 		else:
 			player_hit.emit(true)
+
 
 # Make the spinner jump with the player when its tracking them
 func _physics_process(delta: float) -> void:
@@ -92,14 +99,17 @@ func _physics_process(delta: float) -> void:
 
 	move(delta)
 
+
 # Speeden up the spinner if its tracking the player
 func _on_player_tracked() -> void:
 	actual_speed = chase_speed
 	animated_sprite_2d.speed_scale = 2
 
+
 func _on_player_tracked_stopped() -> void:
 	actual_speed = speed
 	animated_sprite_2d.speed_scale = 1
+
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	collision_check(body)

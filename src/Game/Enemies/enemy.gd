@@ -1,7 +1,7 @@
 class_name Enemy extends Area2D
 
-signal player_tracked()
-signal player_tracked_stopped()
+signal player_tracked
+signal player_tracked_stopped
 signal player_hit(is_hurt: bool)
 
 @export var speed: float = 500.0
@@ -20,15 +20,18 @@ var direction: Vector2 = Vector2.LEFT
 var actual_speed: float = speed
 var ray_collider: Node
 
+
 func turn_right() -> void:
 	direction = Vector2.RIGHT
 	animated_sprite_2d.flip_h = true
 	player_ray.rotation = deg_to_rad(180)
 
+
 func turn_left() -> void:
 	direction = Vector2.LEFT
 	animated_sprite_2d.flip_h = false
 	player_ray.rotation = deg_to_rad(0)
+
 
 func move(delta: float) -> void:
 	# Change the direction of the enemy if trying to move off a platform or a cliff
@@ -53,6 +56,7 @@ func move(delta: float) -> void:
 		ray_collider = null
 		player_tracked_stopped.emit()
 
+
 func kill() -> void:
 	collision_shape_2d.set_deferred("disabled", true)
 	set_physics_process(false)
@@ -61,6 +65,7 @@ func kill() -> void:
 	await animation_player.animation_finished
 
 	queue_free()
+
 
 func collision_check(area: Area2D) -> void:
 	if area.is_in_group("Player"):
@@ -82,11 +87,14 @@ func collision_check(area: Area2D) -> void:
 					player_hit.emit(false)
 					kill()
 
+
 func _physics_process(delta: float) -> void:
 	move(delta)
 
+
 func _on_area_entered(area: Area2D) -> void:
 	collision_check(area)
+
 
 func _on_body_entered(body: Node2D) -> void:
 	# Change the direction if an enemy hit something (that is not the player)

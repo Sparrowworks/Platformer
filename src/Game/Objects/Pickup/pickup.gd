@@ -6,8 +6,10 @@ signal pickup_collected(object_name: String)
 @onready var pickup_sound: AudioStreamPlayer = $Area2D/PickupSound
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
+
 func _ready() -> void:
 	animation_player.play("Move")
+
 
 func _on_body_entered(body: Node2D) -> void:
 	# Remove the pickup if collected by the player

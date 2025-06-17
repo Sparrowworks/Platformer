@@ -6,12 +6,13 @@ var height: int = ProjectSettings.get_setting("display/window/size/viewport_heig
 var color: Color = Color.BLACK
 var points: PackedVector2Array = []
 
+
 func setup_zigzag() -> void:
 	var temp_array: PackedVector2Array = []
 
 	var x: int = width
 	var y: int = 0
-	points.append(Vector2(x,y))
+	points.append(Vector2(x, y))
 	temp_array.append(Vector2(x - (width + 64), y))
 
 	while y <= height * 2:
@@ -21,13 +22,14 @@ func setup_zigzag() -> void:
 		else:
 			x -= 32
 
-		points.append(Vector2(x,y))
+		points.append(Vector2(x, y))
 		temp_array.append(Vector2(x - (width + 64), y))
 
 	temp_array.reverse()
 	points.append_array(temp_array)
 
 	global_position = Vector2(-width, 0)
+
 
 func _draw() -> void:
 	draw_polygon(points, [color])
