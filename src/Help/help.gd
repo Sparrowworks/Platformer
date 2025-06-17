@@ -13,13 +13,13 @@ var headings: Array[String] = [
 	"In-Game Credits: ",
 ]
 var content: Array[String] = [
-	"use wasd or arrow keys to walk\npress space to jump\npress q in game to go back to menu
-	\npress r to quickly restart the level\npress enter to proceed to the next level",
+	"""use wasd or arrow keys to walk\npress space to jump\npress q in game to go back to menu
+	\npress r to quickly restart the level\npress enter to proceed to the next level""",
 
-	"You are an alien who has been travelling space with a spaceship. Unfortunately, a collision with an asteroid forced you to land on earth and catapult yourself. now you have to find your vehicle to get back home.",
+	"""You are an alien who has been travelling space with a spaceship. Unfortunately, a collision with an asteroid forced you to land on earth and catapult yourself. now you have to find your vehicle to get back home.""",
 
-	"coding: Sp4r0w & VargaDot\nart & Blocks font: kenney\nWatermelon Days font: Khurasan
-	\nButton sprites: Viktor Gogela\nMusic: joshuuu (alt OST: Clustertruck OST)",
+	"""coding: Sp4r0w & VargaDot\nart & Blocks font: kenney\nWatermelon Days font: Khurasan
+	\nButton sprites: Viktor Gogela\nMusic: joshuuu (alt OST: Clustertruck OST)""",
 ]
 
 func _ready() -> void:
