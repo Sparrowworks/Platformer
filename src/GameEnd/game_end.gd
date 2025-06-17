@@ -9,8 +9,8 @@ extends Control
 
 func _ready() -> void:
 	if Globals.is_new_game:
-		desc.text = "Congratulations!
-		You have managed to find the lost ufo ship and now you can return to your home planet!"
+		desc.text = """Congratulations!
+		You have managed to find the lost ufo ship and now you can return to your home planet!"""
 
 		title.text = "Game Stats:"
 
